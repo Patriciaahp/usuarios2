@@ -10,17 +10,21 @@ use Livewire\WithPagination;
 class UsersTable extends Component
 {
     use WithPagination;
-    public $columns = ['Id','Name','Surname','Email'];
+    public $columns = ['Id','Name','Surname','Email', 'Created_at'];
     public $selectedColumns = [];
     public $per_page=10;
     public $search;
     public $sortColumn = "id";
     public $sortDirection = "asc";
+    public $from;
+    public $to;
 
     protected $queryString = [
         'search' => ['except'=> ''],
         'sortColumn' => [],
         'sortDirection' => [],
+        'from' => ['except' => ''],
+        'to' => ['except' => ''],
     ];
     public function updatingSearch()
     {
@@ -52,6 +56,8 @@ class UsersTable extends Component
     {
         $users = User::query()->filterBy($userFilter, array_merge([
             'search' => $this->search,
+            'from' =>  $this->from,
+            'to' =>  $this->to,
         ]))
             ->orderBy($this->sortColumn, $this->sortDirection)
             ->paginate($this->per_page);

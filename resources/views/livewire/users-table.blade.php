@@ -2,10 +2,10 @@
     <div class="shadow p-3 mb-5 bg-body rounded row" >
         <h1 class="col">User List</h1>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-            <button href="#Filter" class="btn btn-primary" data-toggle="collapse" type="button">Filtrar</button>
+            <button href="#Filter" class="btn btn-primary" data-toggle="collapse" type="button">Filter</button>
         </div>
         <div class="d-grid gap-2 d-md-flex col">
-        <button href="#Sort" class="btn btn-default" data-toggle="collapse">Ordenar</button>
+        <button href="#Sort" class="btn btn-default" data-toggle="collapse">Order</button>
         </div>
         <select class=" col form-select" aria-label="Default select example" wire:model="per_page">
             <option value="10">10</option>
@@ -23,14 +23,34 @@
 
         </div>
 <div class="container-sm d-grid gap-2 d-md-flex col">
-    <div id="Filter" class="collapse">
-      <div>
-          <h4>Mostrar/Ocultar:</h4>
+    <div id="Filter" wire:ignore class="collapse">
+      <div class="container-sm d-grid gap-2 d-md-flex row">
+          <h4>Show/Hide:</h4>
           @foreach($columns as $column)
               <input type="checkbox" wire:model="selectedColumns" value="{{$column}}">
               <label>{{$column}}</label>
           @endforeach
       </div>
+          <div class="container-sm d-grid gap-2 d-md-flex col">
+              <h4>From</h4>
+              <div class= "form">
+                  <input wire:model="from" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
+                  "enter
+                  date :
+                  using attribute" style= "width:100px;" data-date-format="dd/mm/yyyy">
+              </div>
+          </div>
+
+        <div class="container-sm d-grid gap-2 d-md-flex col">
+            <h4>To</h4>
+            <div class= "form">
+                <input wire:model="to" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
+                "enter
+                date :
+                  using attribute" style= "width:100px;" data-date-format="dd/mm/yyyy">
+            </div>
+        </div>
+
     </div>
     <div id="Sort" class="collapse">
         <button wire:click="sort('users.id')">Order by id</button>
@@ -60,7 +80,9 @@
                 @if(in_array('Email', $selectedColumns))
                     <th scope="col">Email</th>
                 @endif
-
+                @if(in_array('Created_at', $selectedColumns))
+                    <th scope="col">Created At</th>
+                @endif
         </tr>
         </thead>
         <tbody>
@@ -76,8 +98,13 @@
                       <td>{{$user->surname}}</td>
                   @endif
                   @if(in_array('Email', $selectedColumns))
-                      <td> <td>{{$user->email}}</td>
+                     <td>{{$user->email}}</td>
                   @endif
+                  <td>
+                  @if(in_array('Created_at', $selectedColumns))
+                          {{$user->created_at}}
+                      @endif
+                  </td>
                 <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary"
@@ -109,4 +136,9 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#example").datepicker();
+        });
+    </script>
 </div>
