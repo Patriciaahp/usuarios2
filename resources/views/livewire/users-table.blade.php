@@ -19,7 +19,8 @@
 
     <div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-            <button class="btn btn-outline-success" type="button">New user</button>
+            <a href="{{ route('users.create') }}" class="btn btn-outline-success" type="button">New user</a>
+
         </div>
     </div>
 
@@ -41,12 +42,13 @@
                 <td>{{$user->email}}</td>
                 <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-                        <button class="btn btn-outline-primary" type="button">Edit</button>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary"
+                           type="button">Edit</a>
                     </div>
                 </td>
               <td>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-                      <button class="btn btn-danger" type="button">Delete</button>
+                      <a href="{{ route('users.delete', $user->id) }}" class="btn btn-danger" type="button">Delete</a>
                   </div>
               </td>
             </tr>

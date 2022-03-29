@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Livewire\CreateUser;
+use App\Http\Livewire\DeleteUser;
+use App\Http\Livewire\EditUser;
+use App\Http\Livewire\UsersTable;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function () {
-    return 'Hola user';
-});
-// ver cómo registrar este fichero
+Route::get('/users', UsersTable::class)->name('users');
+Route::get('/users/create', CreateUser::class )->name('users.create');
+Route::get('/users/{id}/edit', EditUser::class )->name('users.edit');
+Route::get('/users/{id}/delete', DeleteUser::class )->name('users.delete');
