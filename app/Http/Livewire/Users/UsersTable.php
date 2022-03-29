@@ -30,11 +30,19 @@ class UsersTable extends Component
     {
         $this->selectedColumns = $this->columns;
     }
-    public function render()
+    protected function getUsers(UserFilter $userFilter)
     {
-        $users = User::query()->when($this->search, function ($query){
-            return $query->where ('name', 'LIKE', "%{$this->search}%");
-        })->paginate($this->per_page);
-        return view('livewire.users-table',['users' => $users]);
+        $users = User::query()->filterBy($userFilter, array_merge([
+            'search' => $this->search,
+        ]))
+            ->paginate($this->per_page);
+        $users->appends($userFilter->valid());
+
+        return $users;
+    }
+    public function render(UserFilter $userFilter)
+    {
+
+        return view('livewire.users-table',['users' => $this->getUsers($userFilter)]);
     }
 }

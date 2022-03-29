@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Filters\QueryFilter;
+use App\UserQuery;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -30,4 +33,13 @@ class User extends Authenticatable
     protected $casts = [
         'active' => 'bool',
     ];
+
+    public function newEloquentBuilder($query)
+    {
+        return new UserQuery($query);
+    }
+    public function scopeFilterBy($query, QueryFilter $filters, array $data)
+    {
+        return $filters->applyto($query, $data);
+    }
 }
