@@ -13,6 +13,14 @@
             <option value="30">30</option>
         </select>
 
+        <label for="exampleDataList" class="form-label"></label>
+        <input name="name" wire:model="search" type="text" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+    </div>
+
+    <div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
+            <button class="btn btn-outline-success" type="button">New user</button>
+        </div>
     </div>
 
     <table class="table table-hover" >
@@ -31,6 +39,16 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->surname}}</td>
                 <td>{{$user->email}}</td>
+                <td>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
+                        <button class="btn btn-outline-primary" type="button">Edit</button>
+                    </div>
+                </td>
+              <td>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
+                      <button class="btn btn-danger" type="button">Delete</button>
+                  </div>
+              </td>
             </tr>
         @endforeach
         </tbody>

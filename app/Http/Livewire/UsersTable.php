@@ -11,6 +11,7 @@ class UsersTable extends Component
     use WithPagination;
 
     public $per_page=10;
+    public $search;
 
     public function updatingPerPage()
     {
@@ -19,7 +20,9 @@ class UsersTable extends Component
 
     public function render()
     {
-        $users = User::query()->paginate($this->per_page);
+        $users = User::query()->when($this->search, function ($query){
+           return $query->where ('name', 'LIKE', "%{$this->search}%");
+        })->paginate($this->per_page);
         return view('livewire.users-table',['users' => $users]);
     }
 }
