@@ -3,7 +3,10 @@
         <h1 class="col">User List</h1>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-            <button class="btn btn-primary" type="button">Filtrar</button>
+            <button href="#Filter" class="btn btn-primary" data-toggle="collapse" type="button">Filtrar</button>
+        </div>
+        <div class="d-grid gap-2 d-md-flex col">
+        <button href="#Sort" class="btn btn-default" data-toggle="collapse">Ordenar</button>
         </div>
 
         <select class=" col form-select" aria-label="Default select example" wire:model="per_page">
@@ -22,6 +25,14 @@
 
         </div>
     </div>
+<div class="container-sm">
+    <div id="Filter" class="collapse">
+       DIV FILTER
+    </div>
+    <div id="Sort" class="collapse">
+        DIV SORT
+    </div>
+</div>
 
     <table class="table table-hover" >
         <thead>
@@ -60,16 +71,13 @@
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
-            <!-- Modal content-->
             <div class="modal-content text-center">
                 <h4>Are you sure?</h4>
-
             <div class="modal-body text-center">
                   <h3>Delete {{$user->name}}</h3>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Yes</button>
                 </div>
             </div>
         </div>
