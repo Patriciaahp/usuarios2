@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Users;
 
 use App\Filters\UserFilter;
 use App\Models\User;
+use Domain\Users\Users\Actions\DeleteUserAction;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,6 +27,11 @@ class UsersTable extends Component
         'from' => ['except' => ''],
         'to' => ['except' => ''],
     ];
+
+    public function delete() {
+        $this->redirectAction(DeleteUserAction::class);
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();

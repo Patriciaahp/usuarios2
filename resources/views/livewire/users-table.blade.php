@@ -31,26 +31,27 @@
               <label>{{$column}}</label>
           @endforeach
       </div>
-          <div class="container-sm d-grid gap-2 d-md-flex col">
-              <h4>From</h4>
-              <div class= "form">
-                  <input wire:model="from" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
-                  "enter
+         <div wire:ignore>
+             <div class="container-sm d-grid gap-2 d-md-flex col">
+                 <h4>From</h4>
+                 <div class= "form">
+                     <input wire:model="from" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
+                     "enter
                   date :
                   using attribute" style= "width:100px;" data-date-format="dd/mm/yyyy">
-              </div>
-          </div>
+                 </div>
+             </div>
 
-        <div class="container-sm d-grid gap-2 d-md-flex col">
-            <h4>To</h4>
-            <div class= "form">
-                <input wire:model="to" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
-                "enter
+             <div class="container-sm d-grid gap-2 d-md-flex col">
+                 <h4>To</h4>
+                 <div class= "form">
+                     <input wire:model="to" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
+                     "enter
                 date :
                   using attribute" style= "width:100px;" data-date-format="dd/mm/yyyy">
-            </div>
+                 </div>
+         </div>
         </div>
-
     </div>
     <div id="Sort" class="collapse">
         <button wire:click="sort('users.id')">Order by id</button>
@@ -130,7 +131,9 @@
                     <h3>Delete</h3>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Yes</button>
+                        <button type="button" wire:click="delete({{ $user->id }})" class="btn btn-default"
+                                data-dismiss="modal"
+                        >Yes</button>
                     </div>
                 </div>
             </div>
