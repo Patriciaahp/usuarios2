@@ -27,7 +27,13 @@
     </div>
 <div class="container-sm">
     <div id="Filter" class="collapse">
-       DIV FILTER
+      <div>
+          <h4>Mostrar/Ocultar:</h4>
+          @foreach($columns as $column)
+              <input type="checkbox" wire:model="selectedColumns" value="{{$column}}">
+              <label>{{$column}}</label>
+          @endforeach
+      </div>
     </div>
     <div id="Sort" class="collapse">
         DIV SORT
@@ -37,19 +43,36 @@
     <table class="table table-hover" >
         <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Email</th>
+            @if(in_array('Id', $selectedColumns))
+                <th scope="col">Id</th>
+            @endif
+                @if(in_array('Name', $selectedColumns))
+                    <th scope="col">Name</th>
+                @endif
+                @if(in_array('Surname', $selectedColumns))
+                    <th scope="col">Surname</th>
+                @endif
+                @if(in_array('Email', $selectedColumns))
+                    <th scope="col">Email</th>
+                @endif
+
         </tr>
         </thead>
         <tbody>
         @foreach($users as $user)
             <tr>
-                <th scope="row">{{$user->id}}</th>
-                <td>{{$user->name}}</td>
-                <td>{{$user->surname}}</td>
-                <td>{{$user->email}}</td>
+              @if(in_array('Id', $selectedColumns))
+                    <th scope="row">{{$user->id}}</th>
+                  @endif
+                  @if(in_array('Name', $selectedColumns))
+                      <td>{{$user->name}}</td>
+                  @endif
+                  @if(in_array('Surname', $selectedColumns))
+                      <td>{{$user->surname}}</td>
+                  @endif
+                  @if(in_array('Email', $selectedColumns))
+                      <td> <td>{{$user->email}}</td>
+                  @endif
                 <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary"
@@ -65,22 +88,20 @@
         @endforeach
         </tbody>
     </table>
-<div class="container-sm">
     {{ $users->links() }}
-</div>
-    <!-- Modal -->
+<!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content text-center">
                 <h4>Are you sure?</h4>
-            <div class="modal-body text-center">
-                  <h3>Delete {{$user->name}}</h3>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" >Yes</button>
+                <div class="modal-body text-center">
+                    <h3>Delete</h3>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Yes</button>
+                    </div>
                 </div>
             </div>
         </div>
-</div>
-</div>
+    </div>
 </div>
