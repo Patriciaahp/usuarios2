@@ -13,7 +13,9 @@ public function rules():array{
     public function search($query, $search)
     {
         return $query->where(function($query) use ($search) {
-            $query->where('name', 'LIKE', "%{$search}%");
+            $query->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('surname', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%");
         });
     }
 
