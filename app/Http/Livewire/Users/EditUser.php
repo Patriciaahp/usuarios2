@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Users;
 
+use App\Models\User;
 use Livewire\Component;
 
 class EditUser extends Component
 {
     public function render()
     {
-        return view('livewire.edit-user');
+        $user = User::class;
+        return view('livewire.edit-user', ['user'=>$user]);
     }
 }

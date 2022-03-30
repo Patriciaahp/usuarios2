@@ -53,7 +53,7 @@
          </div>
         </div>
     </div>
-    <div id="Sort" class="collapse">
+    <div id="Sort" wire:ignore class="collapse">
         <button wire:click="sort('users.id')">Order by id</button>
         <button wire:click="sort('users.name')">Order by name</button>
         <button wire:click="sort('users.surname')">Order by surname</button>
@@ -65,8 +65,7 @@
         <input name="name" wire:model="search" type="text" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
 
     </div>
-
-    <table class="table table-hover" >
+    <table class="table table-hover">
         <thead>
         <tr>
             @if(in_array('Id', $selectedColumns))
@@ -112,33 +111,11 @@
                            type="button">Edit</a>
                     </div>
                 </td>
-              <td>
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-                      <a  class="btn btn-danger" data-toggle="modal" data-target="#myModal" type="button">Delete</a>
-                  </div>
-              </td>
             </tr>
         @endforeach
         </tbody>
     </table>
     {{ $users->links() }}
-<!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content text-center">
-                <h4>Are you sure?</h4>
-                <div class="modal-body text-center">
-                    <h3>Delete</h3>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" wire:click="delete({{ $user->id }})" class="btn btn-default"
-                                data-dismiss="modal"
-                        >Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <script type="text/javascript">
         $(document).ready(function(){
             $("#example").datepicker();

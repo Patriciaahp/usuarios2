@@ -5,6 +5,9 @@ namespace App\Http\Livewire\Users;
 use App\Filters\UserFilter;
 use App\Models\User;
 use Domain\Users\Users\Actions\DeleteUserAction;
+use Domain\Users\Users\Actions\StoreUserAction;
+use Domain\Users\Users\Actions\UpdateUserAction;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -28,8 +31,29 @@ class UsersTable extends Component
         'to' => ['except' => ''],
     ];
 
-    public function delete() {
+    public function delete(User $user)
+    {
+        $this->user =User::all();
         $this->redirectAction(DeleteUserAction::class);
+    }
+    public function edit() {
+        $this->redirectAction(UpdateUserAction::class);
+    }
+    public function create() {
+       return Redirect::action(StoreUserAction::class);
+    }
+    public function createEmit() {
+        $this->emitTo(CreateUser::class, $this->create());
+    }
+    public function deleteEmit() {
+        $this->emitTo(EditUser::class, $this->delete());
+    }
+    public static function editRedirect()
+    {
+        return view('livewire.users-edit');
+    }
+    public function editUser(){
+        return redirect()->route('users');
     }
 
     public function updatingSearch()
