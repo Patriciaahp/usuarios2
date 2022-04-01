@@ -119,21 +119,10 @@
                       </div>
                   </td>
                   <td>
-                      <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-                          <a href="{{ route('delete',['id' => $user->id]) }}" class="btn btn-danger"
-                             type="button">Delete</a>
-                      </div>
-                  </td>
-                  <td>
-                      <form action="{{ route('delete',['id' => $user->id]) }}" method="POST">
-                          @csrf
-                          @method('DELETE')
-
-                          <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                              <i class="fas fa-trash fa-lg text-danger"></i>
-                          </button>
-                      </form>
-                  </td>
+                      <a data-toggle="modal" id="smallButton" data-target="#smallModal"
+                         data-attr="{{ route('preview',['id' => $user->id]) }}" title="show">
+                          <i class="fas fa-trash text-danger  fa-lg"></i>
+                      </a>
                   </td>
             </tr>
         @endforeach

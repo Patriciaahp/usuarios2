@@ -8,18 +8,12 @@
         <h1 class="col">Edit User</h1>
       <h2 class="col">{{ $user->email }}</h2>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-            <a  class="btn btn-danger" data-toggle="modal" data-target="#myModal" type="button">Delete
-                User</a>
-        </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-            <a href="{{ route('users') }}" class="btn btn-outline-primary" type="button">Volver</a>
+            <a href="{{ route('users') }}" class="btn btn-outline-primary" type="button">User List</a>
         </div>
     </div>
 </div>
 <form action="{{ route('update', $user) }}" method="POST">
     {{ method_field('PUT') }}
-    @csrf
-<div class="container-sm">
     <div class="form-group">
         <label for="name">Name:</label>
         <input value="{{ $user->name }}" type="text" name="name" id="name" class="form-control">
@@ -42,20 +36,4 @@
     </div>
 
     </form>
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content text-center">
-                    <h4>Are you sure?</h4>
-                    <div class="modal-body text-center">
-                        <h3>Delete</h3>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                            <button type="button" class="btn btn-default"
-                                    data-dismiss="modal"
-                            >Yes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>

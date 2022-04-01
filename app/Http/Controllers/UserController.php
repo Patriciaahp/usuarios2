@@ -16,15 +16,6 @@ class UserController extends Controller
             'user' =>  $user,
         ]);
     }
-    public function delete($id)
-    {
-$user = User::find($id);
-        $action = new DeleteUserAction($user);
-        $result = $action->execute($user);
-
-        $user = $result->object;
-        return redirect()->route('users');
-    }
     public function store(Request $request)
     {
         $data = [
@@ -69,9 +60,19 @@ $user = User::find($id);
         $user = User::find($id);
         return view('update', ['user' => $user]);
     }
+    public function delete($id)
+    {
+        $user = User::find($id);
+        return view('delete', ['user' => $user]);
+    }
     public function show($id)
     {
         $user = User::find($id);
         return view('show', ['user' => $user]);
+    }
+    public function preview($id)
+    {
+        $user = User::find($id);
+        return view('preview', ['user' => $user]);
     }
 }

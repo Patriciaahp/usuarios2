@@ -5,14 +5,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <div class="shadow p-3 mb-5 bg-body rounded row" >
-        <h1 class="col">Create User </h1>
+        <h1 class="col">Create User</h1>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
+            <a href="{{ route('users') }}" class="btn btn-outline-primary" type="button">User List</a>
+        </div>
     </div>
     <div class="container-sm">
-        <div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
-                <a href="{{ route('users') }}" class="btn btn-outline-success" type="button">Users List</a>
-            </div>
-        </div>
         <form action="{{ route('store') }}" method="POST">
             @csrf
         <div class="mb-3">
