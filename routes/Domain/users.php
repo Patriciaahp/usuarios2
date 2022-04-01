@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
-Route::get('/delete', UserController::class . "@delete")->name('delete');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');
 Route::post('/create/users', UserController::class . "@store")->name('store');
@@ -29,3 +28,4 @@ Route::get('/users/create', CreateUser::class )->name('users.create');
 Route::get('/users/{id}/edit', EditUser::class )->name('users.edit');
 Route::get('/users/{id}', UserController::class . "@edit")->name('edit');
 Route::put('/users/{id}', UserController::class . "@update")->name('update');
+Route::get('/users/{id}/delete', UserController::class . "@delete")->name('delete');

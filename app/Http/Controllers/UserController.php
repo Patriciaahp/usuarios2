@@ -55,24 +55,28 @@ class UserController extends Controller
         $user = $result->object;
         return redirect()->route('users', $user);
     }
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $action = new DeleteUserAction($user);
+        $result = $action->execute($user);
+
+        $user = $result->object;
+        return redirect()->route('users');
+    }
     public function edit($id)
     {
         $user = User::find($id);
         return view('update', ['user' => $user]);
     }
-    public function delete($id)
+    public function preview($id)
     {
         $user = User::find($id);
-        return view('delete', ['user' => $user]);
+        return view('preview', ['user' => $user]);
     }
     public function show($id)
     {
         $user = User::find($id);
         return view('show', ['user' => $user]);
-    }
-    public function preview($id)
-    {
-        $user = User::find($id);
-        return view('preview', ['user' => $user]);
     }
 }

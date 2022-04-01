@@ -17,7 +17,10 @@
         <h3>{{$user->email}}</h3>
     </div>
     <div>
-        <button>Yes</button>
-        <button>No</button>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
+            <a href="{{ route('delete',['id' => $user->id]) }}" class="btn btn-danger"
+               type="button">Delete</a>
+        </div>
+        <button type="submit" >No</button>
     </div>
 </div>
