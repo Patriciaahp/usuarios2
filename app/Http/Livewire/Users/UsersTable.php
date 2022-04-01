@@ -30,32 +30,6 @@ class UsersTable extends Component
         'from' => ['except' => ''],
         'to' => ['except' => ''],
     ];
-
-    public function delete(User $user)
-    {
-        $this->user =User::all();
-        $this->redirectAction(DeleteUserAction::class);
-    }
-    public function edit() {
-        $this->redirectAction(UpdateUserAction::class);
-    }
-    public function create() {
-       return Redirect::action(StoreUserAction::class);
-    }
-    public function createEmit() {
-        $this->emitTo(CreateUser::class, $this->create());
-    }
-    public function deleteEmit() {
-        $this->emitTo(EditUser::class, $this->delete());
-    }
-    public static function editRedirect()
-    {
-        return view('livewire.users-edit');
-    }
-    public function editUser(){
-        return redirect()->route('users');
-    }
-
     public function updatingSearch()
     {
         $this->resetPage();
