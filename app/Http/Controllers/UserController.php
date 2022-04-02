@@ -37,8 +37,10 @@ class UserController extends Controller
         return $this->form('create', new User);
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
+        $user = User::find($id);
+
         $this->validate($request,[
             'email' => 'required|email|unique:users,email,' . $user->id,
         ]);
@@ -47,7 +49,7 @@ class UserController extends Controller
             'surname' => $request->get('surname'),
             'email' => $request->get('email'),
             'password' => $request->get('password'),
-            ];
+        ];
 
         $action = new UpdateUserAction($user, $data);
         $result = $action->execute();

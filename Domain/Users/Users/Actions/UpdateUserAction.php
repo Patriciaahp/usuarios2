@@ -16,8 +16,6 @@ class UpdateUserAction
 
     public function __construct(User $user, array $data )
     {
-
-        $this->data = $data;
         $this->user = $user;
 
         $this->name = isset($data['name']) ? $data['name'] : $user['name'];

@@ -29,22 +29,5 @@
         <div class="col" >
             <button type="button" class="btn btn-success" wire:click="edit()" value="submit">Continue</button>
         </div>
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content text-center">
-                <h4>Are you sure?</h4>
-                <div class="modal-body text-center">
-                    <h3>Delete</h3>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" wire:click="delete()" class="btn btn-default"
-                                data-dismiss="modal"
-                        >Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 </div>

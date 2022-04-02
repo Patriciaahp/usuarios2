@@ -11,9 +11,9 @@
             <a href="{{ route('users') }}" class="btn btn-outline-primary" type="button">User List</a>
         </div>
     </div>
-</div>
 <form action="{{ route('update', $user) }}" method="POST">
     {{ method_field('PUT') }}
+    @csrf
     <div class="form-group">
         <label for="name">Name:</label>
         <input value="{{ $user->name }}" type="text" name="name" id="name" class="form-control">
@@ -33,7 +33,5 @@
         <div>
             <button type="submit" class="btn btn-success">Continue</button>
         </div>
-    </div>
-
-    </form>
-        </div>
+</form>
+</div>
