@@ -81,9 +81,9 @@ class UserController extends Controller
         $user = User::find($id);
         return view('users/show', ['user' => $user]);
     }
-    public function prueba($id)
+    public function index()
     {
-        $user = User::find($id);
-        return view('users/prueba', ['user' => $user]);
+        $users = User::all();
+        return view('users/index', ['users' => $users]);
     }
 }

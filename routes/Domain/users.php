@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/index', UserController::class . "@index")->name('index');
+
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');

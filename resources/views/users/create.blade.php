@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'User Edit')
+@section('title', 'User Create')
 
 @section('content')
     <div class="shadow p-3 mb-5 bg-body rounded row" >
