@@ -1,9 +1,6 @@
 <?php
 
 use App\Http\Controllers\UserController;
-use App\Http\Livewire\Users\CreateUser;
-use App\Http\Livewire\Users\DeleteUser;
-use App\Http\Livewire\Users\EditUser;
 use App\Http\Livewire\Users\UsersTable;
 use Domain\Users\Users\Actions\StoreUserAction;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/index', UserController::class . "@index")->name('index');
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');

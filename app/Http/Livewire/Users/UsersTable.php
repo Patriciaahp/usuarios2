@@ -22,6 +22,7 @@ class UsersTable extends Component
     public $sortDirection = "asc";
     public $from;
     public $to;
+    public $title = '';
 
     protected $queryString = [
         'search' => ['except'=> ''],

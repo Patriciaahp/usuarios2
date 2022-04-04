@@ -1,4 +1,4 @@
-<div>
+<div class="container-sm">
     @csrf
     <div class="form-group">
         <label for="name">Name:</label>
