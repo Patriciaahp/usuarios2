@@ -1,8 +1,4 @@
-@extends('layouts.livewire-app')
-
-@section('title', 'Usuarios')
-
-@section('content')
+<div>
 <div class="shadow p-3 mb-5 bg-body rounded row" >
     <h1 class="col">User List</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end col">
@@ -132,6 +128,5 @@
         @endforeach
         </tbody>
     </table>
-
     {{ $users->links() }}
-@endsection
+</div>
