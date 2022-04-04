@@ -1,10 +1,5 @@
-@extends('layout')
-
-@section('title', 'Delete a user')
+<div>
 <h1 class="col">Are you sure?</h1>
-
-@section('content')
-
 
     <div class="container-sm">
         <div class="form-group">
@@ -33,5 +28,4 @@
             </div>
         </div>
     </div>
-
-@endsection
+</div>

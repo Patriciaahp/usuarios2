@@ -34,7 +34,7 @@ class UserController extends Controller
 
     public function create()
     {
-        return $this->form('create', new User);
+        return $this->form('users/create', new User);
     }
 
     public function update(Request $request, $id)

@@ -1,8 +1,6 @@
-@extends('layout')
-
-@section('title', 'Delete a user')
+<div>
 <h1 class="col">User Details</h1>
-@section('content')
+
     <div class="container-sm">
         <div class="form-group">
             <label for="name">Name:</label>
@@ -17,4 +15,4 @@
             <h3>{{$user->email}}</h3>
         </div>
     </div>
-@endsection
+</div>
