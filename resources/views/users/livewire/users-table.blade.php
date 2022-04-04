@@ -45,7 +45,7 @@
              <div class="container-sm d-grid gap-2 d-md-flex col">
                  <h4>To</h4>
                  <div class= "form">
-                     <input wire:model="to" type= "text" class= "form-control"  placeholder=
+                     <input wire:model="to" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
                      "enter
                 date :
                   using attribute" style= "width:100px;" data-date-format="dd/mm/yyyy">
@@ -175,5 +175,4 @@
         });
     </script>
     {{ $users->links() }}
-
 </div>

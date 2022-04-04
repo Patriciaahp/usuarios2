@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-<title>@yield('title')</title>
+
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 
@@ -37,7 +37,7 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #9C27B0;
+        background-color: #27b090;
         color: white;
         text-align: center;
     }
@@ -47,12 +47,22 @@
 
 </style>
 <div>
-
-    <!-- Page Content -->
-    <main>
-        {{ $slot }}
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+        <div class="row mt-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                @yield('content')
+            </div>
+            <div class="col-1"></div>
+        </div>
     </main>
-</div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Users</span>
+        </div>
+    </footer>
 
 @stack('modals')
 

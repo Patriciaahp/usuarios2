@@ -72,6 +72,6 @@ class UsersTable extends Component
     public function render(UserFilter $userFilter): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 
-        return view('livewire.users-table',['users' => $this->getUsers($userFilter)]);
+        return view('users/livewire.users-table',['users' => $this->getUsers($userFilter)]);
     }
 }

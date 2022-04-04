@@ -69,16 +69,21 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('update', ['user' => $user]);
+        return view('users/update', ['user' => $user]);
     }
     public function preview($id)
     {
         $user = User::find($id);
-        return view('preview', ['user' => $user]);
+        return view('users/preview', ['user' => $user]);
     }
     public function show($id)
     {
         $user = User::find($id);
-        return view('show', ['user' => $user]);
+        return view('users/show', ['user' => $user]);
+    }
+    public function prueba($id)
+    {
+        $user = User::find($id);
+        return view('users/prueba', ['user' => $user]);
     }
 }
