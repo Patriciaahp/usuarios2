@@ -45,7 +45,7 @@
              <div class="container-sm d-grid gap-2 d-md-flex col">
                  <h4>To</h4>
                  <div class= "form">
-                     <input wire:model="to" type= "text" class= "form-control" data-provide= "datepicker" placeholder=
+                     <input wire:model="to" type= "text" class= "form-control"  placeholder=
                      "enter
                 date :
                   using attribute" style= "width:100px;" data-date-format="dd/mm/yyyy">
@@ -128,12 +128,6 @@
         @endforeach
         </tbody>
     </table>
-    {{ $users->links() }}
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#example").datepicker();
-        });
-    </script>
 
     <!-- small modal -->
     <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
@@ -179,32 +173,7 @@
                 timeout: 8000
             })
         });
-
-        // display a modal (medium modal)
-        $(document).on('click', '#mediumButton', function(event) {
-            event.preventDefault();
-            let href = $(this).attr('data-attr');
-            $.ajax({
-                url: href,
-                beforeSend: function() {
-                    $('#loader').show();
-                },
-                // return the result
-                success: function(result) {
-                    $('#mediumModal').modal("show");
-                    $('#mediumBody').html(result).show();
-                },
-                complete: function() {
-                    $('#loader').hide();
-                },
-                error: function(jqXHR, testStatus, error) {
-                    console.log(error);
-                    alert("Page " + href + " cannot open. Error:" + error);
-                    $('#loader').hide();
-                },
-                timeout: 8000
-            })
-        });
-
     </script>
+    {{ $users->links() }}
+
 </div>
