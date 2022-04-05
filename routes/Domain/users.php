@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Users\UsersTable;
-use Domain\Users\Users\Actions\StoreUserAction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', UserController::class . "@index")->name('index');
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');
@@ -25,5 +23,4 @@ Route::get('/users', UsersTable::class)->name('users');
 Route::get('/users/{id}', UserController::class . "@edit")->name('edit');
 Route::put('/users/{id}', UserController::class . "@update")->name('update');
 Route::get('/users/{id}/delete', UserController::class . "@delete")->name('delete');
-Route::get('/users/{id}/prueba', UserController::class . "@prueba")->name('prueba');
 
