@@ -1,5 +1,4 @@
 <div>
-
     <div class="modal-header">
         <h2 class="modal-title">User Details</h2>
     </div>

@@ -1,7 +1,8 @@
 <div class="container-fluid">
-    <div class="container-fluid row">
+    <div class="container-sm row">
         <div class="col container row">
-            <select class="col align-self-center form-select" aria-label="Default select example" wire:model="per_page">
+            <select class="col col-2 align-self-center form-select" aria-label="Default select example"
+                    wire:model="per_page">
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
@@ -14,9 +15,9 @@
             <input name="name" wire:model="search" type="text" class="form-control" list="datalistOptions"
                    id="exampleDataList" placeholder="Type to search...">
         </div>
-        <div>
-            <button href="#Filter" class="btn btn-primary" data-toggle="collapse" type="button">Filter</button>
-        </div>
+    </div>
+    <div>
+        <button href="#Filter" class="btn btn-primary" data-toggle="collapse" type="button">Filter</button>
     </div>
     <div class="container-sm">
         <div id="Filter" wire:ignore class="collapse">

@@ -1,9 +1,6 @@
 <div>
     <div>
         <div class="text-center container-sm modal-header row">
-            <button type="button" class="close sticky-sm-top" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
             <h1 class="col ">Are you sure?</h1>
         </div>
         <div class="modal-body">

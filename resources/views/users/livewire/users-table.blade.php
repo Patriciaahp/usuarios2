@@ -1,5 +1,5 @@
 <div>
-    <div class="container-xxl shadow p-3 mb-5 bg-body rounded">
+    <div class=" container-xxl shadow p-3 mb-5 bg-body rounded">
         <h1>User List</h1>
 
         @include('users.shared._filters')
@@ -18,19 +18,29 @@
             <thead>
             <tr>
                 @if(in_array('Id', $selectedColumns))
-                    <th wire:click="sort('users.id')" scope="col">Id</th>
+                    <th wire:click="sort('users.id')" scope="col">
+                        <span role="button">Id</span>
+                    </th>
                 @endif
                 @if(in_array('Name', $selectedColumns))
-                    <th wire:click="sort('users.name')" scope="col">Name</th>
+                    <th wire:click="sort('users.name')" scope="col">
+                        <span role="button">Name</span>
+                    </th>
                 @endif
                 @if(in_array('Surname', $selectedColumns))
-                    <th wire:click="sort('users.surname')" scope="col">Surname</th>
+                    <th wire:click="sort('users.surname')" scope="col">
+                        <span role="button">Surname</span>
+                    </th>
                 @endif
                 @if(in_array('Email', $selectedColumns))
-                    <th wire:click="sort('users.email')" scope="col">Email</th>
+                    <th wire:click="sort('users.email')" scope="col">
+                        <span role="button">Email</span>
+                    </th>
                 @endif
                 @if(in_array('Created_at', $selectedColumns))
-                    <th wire:click="sort('users.created_at')" scope="col">Created At</th>
+                    <th wire:click="sort('users.created_at')" scope="col">
+                        <span role="button">Created At</span>
+                    </th>
                 @endif
             </tr>
             </thead>
