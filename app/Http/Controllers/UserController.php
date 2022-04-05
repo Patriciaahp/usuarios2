@@ -34,14 +34,14 @@ class UserController extends Controller
 
     public function create()
     {
-        return $this->form('users/create', new User);
+        return $this->form('users/create', new User());
     }
 
     public function update(Request $request, $id)
     {
         $user = User::find($id);
 
-        $this->validate($request,[
+        $this->validate($request, [
             'email' => 'required|email|unique:users,email,' . $user->id,
         ]);
         $data = [
