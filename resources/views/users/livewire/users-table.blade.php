@@ -11,7 +11,7 @@
                 <path fill-rule="evenodd"
                       d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
             </svg>
-            <a href="{{ route('create') }}" class="btn btn-outline-success" type="button">New user</a>
+            <a href="{{ route('create') }}" class="btn btn-success" type="button">New user</a>
         </div>
         @if($users->count())
             @include('users.shared._table')
