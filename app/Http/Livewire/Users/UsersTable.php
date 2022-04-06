@@ -20,6 +20,7 @@ class UsersTable extends Component
     public $from;
     public $to;
 
+
     protected $queryString = [
         'search' => ['except' => ''],
         'sortColumn' => [],

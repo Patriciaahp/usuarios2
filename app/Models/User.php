@@ -30,7 +30,11 @@ class User extends Authenticatable
     protected $casts = [
         'active' => 'bool',
     ];
- 
+    /**
+     * @var mixed
+     */
+    private $active;
+
     /**
      * @var mixed
      */

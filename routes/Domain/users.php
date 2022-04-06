@@ -23,4 +23,5 @@ Route::get('/users', UsersTable::class)->name('users');
 Route::get('/users/{id}', UserController::class . "@edit")->name('edit');
 Route::put('/users/{id}', UserController::class . "@update")->name('update');
 Route::get('/users/{id}/delete', UserController::class . "@delete")->name('delete');
-
+Route::get('/users/{id}/inactive', UserController::class . "@inactive")->name('inactive');
+Route::get('/users/{id}/active', UserController::class . "@active")->name('active');

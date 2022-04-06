@@ -17,8 +17,8 @@
         Select action
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Active</a>
-        <a class="dropdown-item" href="#">Inactive</a>
+        <a class="dropdown-item" href="{{ route('active',['id' => $user->id]) }}">Active</a>
+        <a class="dropdown-item" href="{{ route('inactive',['id' => $user->id]) }}">Inactive</a>
         <a class="dropdown-item" href="#">
             <a class="text-secondary" href="{{ route('edit',['id' => $user->id]) }}" title="Edit this user">
                 <span role="button">Edit</span>

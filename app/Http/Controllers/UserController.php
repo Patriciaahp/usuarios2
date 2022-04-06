@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    private $status;
 
     public function store(Request $request)
     {
@@ -88,6 +87,42 @@ class UserController extends Controller
         $user = User::find($id);
         return view('users/show', ['user' => $user]);
     }
-    
+
+    public function status($id)
+    {
+        $user = User::find($id);
+
+    }
+
+    public function inactive($id)
+    {
+        $user = User::find($id);
+
+
+        if ($user->active === 0) {
+            $user->active = 1;
+        } else {
+            $user->active = 0;
+        }
+
+        $user->save();
+        return redirect()->route('users');
+    }
+
+    public function active($id)
+    {
+        $user = User::find($id);
+
+
+        if ($user->active === 1) {
+            $user->active = 0;
+        } else {
+            $user->active = 1;
+        }
+
+        $user->save();
+        return redirect()->route('users');
+    }
+
 
 }
