@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover  fs-4">
     <thead>
     <tr>
         @if(in_array('Id', $selectedColumns))

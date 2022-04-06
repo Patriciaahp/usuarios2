@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="container-sm row">
         <div class="col align-self-end">
-            <button href="#Filter" class="btn btn-primary" data-toggle="collapse" type="button">Filter</button>
+            <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">Filter</button>
         </div>
         <div class="col col-6  align-self-center ">
             <label for="exampleDataList" class="form-label"></label>
@@ -33,11 +33,11 @@
                 @endforeach
             </div>
             <div class="container-sm row align-self-end" wire:ignore>
-                <h3>Look for a date:</h3>
+                <h3>Date range:</h3>
                 <div class="container-sm col col-2">
                     <h4>From:</h4>
                     <div class="form">
-                        <input wire:model="from" type="text" class="form-control" data-provide="datepicker" placeholder=
+                        <input wire:model="from" type="date" class="form-control" data-provide="datepicker" placeholder=
                         "enter date : using attribute" style="width:100px;" data-date-format="dd/mm/yyyy">
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="container-sm col col-2">
                     <h4>To:</h4>
                     <div class="form">
-                        <input wire:model="to" type="text" class="form-control" data-provide="datepicker" placeholder=
+                        <input wire:model="to" type="date" class="form-control" data-provide="datepicker" placeholder=
                         "enter date : using attribute" style="width:100px;" data-date-format="dd/mm/yyyy">
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <div>
-    <div class=" container-xxl shadow p-3 mb-5 bg-body rounded">
+    <div class=" container-xxl shadow p-3 mb-5 bg-body rounded fs-4">
         <h1>User List</h1>
         @include('users.shared._filters')
     </div>
@@ -11,13 +11,15 @@
                 <path fill-rule="evenodd"
                       d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
             </svg>
-            <a href="{{ route('create') }}" class="btn btn-success" type="button">New user</a>
+            <a href="{{ route('create') }}" class="btn btn-success btn-lg" type="button">New user</a>
         </div>
         @if($users->count())
             @include('users.shared._table')
         @else
             <h3>Not found users... </h3>
         @endif
-        {{ $users->links() }}
+        <div class="fs-3">
+            {{ $users->links() }}
+        </div>
     </div>
 </div>
