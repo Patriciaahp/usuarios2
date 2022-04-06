@@ -33,7 +33,7 @@ class User extends Authenticatable
     /**
      * @var mixed
      */
-    private $active;
+    protected $active;
 
     /**
      * @var mixed
