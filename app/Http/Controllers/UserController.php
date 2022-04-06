@@ -10,12 +10,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    protected function form($view, User $user)
-    {
-        return view($view, [
-            'user' =>  $user,
-        ]);
-    }
+    private $status;
+
     public function store(Request $request)
     {
         $data = [
@@ -35,6 +31,13 @@ class UserController extends Controller
     public function create()
     {
         return $this->form('users/create', new User());
+    }
+
+    protected function form($view, User $user)
+    {
+        return view($view, [
+            'user' => $user,
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -57,6 +60,7 @@ class UserController extends Controller
         $user = $result->object;
         return redirect()->route('users', $user);
     }
+
     public function delete($id)
     {
         $user = User::find($id);
@@ -66,24 +70,24 @@ class UserController extends Controller
         $user = $result->object;
         return redirect()->route('users');
     }
+
     public function edit($id)
     {
         $user = User::find($id);
         return view('users/update', ['user' => $user]);
     }
+
     public function preview($id)
     {
         $user = User::find($id);
         return view('users/preview', ['user' => $user]);
     }
+
     public function show($id)
     {
         $user = User::find($id);
         return view('users/show', ['user' => $user]);
     }
-    public function index()
-    {
-        $users = User::all();
-        return view('users/index', ['users' => $users]);
-    }
+    
+
 }

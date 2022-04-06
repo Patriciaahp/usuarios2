@@ -11,7 +11,7 @@
                 <a href="{{ route('delete',['id' => $user->id]) }}"
                    class="btn btn-outline-danger" type="button">Yes, I want to delete it</a>
             </div>
-            <button type="button" class="btn btn-outline-primary" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
                 Close
             </button>
         </div>

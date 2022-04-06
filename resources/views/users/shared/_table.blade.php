@@ -26,6 +26,9 @@
                 <span role="button">Created At</span>
             </th>
         @endif
+        <th scope="col">
+            <span role="button">Actions</span>
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -35,7 +38,18 @@
                 <th scope="row">{{$user->id}}</th>
             @endif
             @if(in_array('Name', $selectedColumns))
-                <td>{{$user->name}}</td>
+                <td>
+                    <a data-toggle="modal" id="smallButton" data-target="#smallModal"
+                       data-attr="{{ route('show',['id' => $user->id]) }}" title="Show details">
+                        <span role="button">
+                            @if ($user->active == 1)
+                                <p class="text-success">{{$user->name}}</p>
+                            @else
+                                <p class="text-danger">{{$user->name}}</p>
+                            @endif
+                        </span>
+                    </a>
+                </td>
             @endif
             @if(in_array('Surname', $selectedColumns))
                 <td>{{$user->surname}}</td>
@@ -48,7 +62,9 @@
                     {{$user->created_at}}
                 @endif
             </td>
-            @include('users.shared._actions')
+            <td>
+                @include('users.shared._actions')
+            </td>
         </tr>
     @endforeach
     </tbody>

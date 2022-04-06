@@ -38,7 +38,7 @@
                     <h4>From:</h4>
                     <div class="form">
                         <input wire:model="from" type="date" class="form-control" data-provide="datepicker" placeholder=
-                        "enter date : using attribute" style="width:100px;" data-date-format="dd/mm/yyyy">
+                        "enter date : using attribute" style="width:150px;" data-date-format="dd/mm/yyyy">
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                     <h4>To:</h4>
                     <div class="form">
                         <input wire:model="to" type="date" class="form-control" data-provide="datepicker" placeholder=
-                        "enter date : using attribute" style="width:100px;" data-date-format="dd/mm/yyyy">
+                        "enter date : using attribute" style="width:150px;" data-date-format="dd/mm/yyyy">
                     </div>
                 </div>
             </div>
