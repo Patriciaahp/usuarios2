@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Panel\Users\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class UserUpdateRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,10 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:20|min:3',
+            'surname' => 'nullable',
+            'email' => 'required|email|unique:users,email,' . $this->id,
+            'password' => ['nullable', Password::min(6)->uncompromised()]
         ];
     }
 }

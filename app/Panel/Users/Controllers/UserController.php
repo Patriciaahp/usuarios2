@@ -4,12 +4,12 @@ namespace App\Panel\Users\Controllers;
 
 use App\Models\User;
 use App\Panel\Users\Requests\UserStoreRequest;
+use App\Panel\Users\Requests\UserUpdateRequest;
 use Domain\Users\Users\Actions\ActivateUserAction;
 use Domain\Users\Users\Actions\DeactivateUserAction;
 use Domain\Users\Users\Actions\DeleteUserAction;
 use Domain\Users\Users\Actions\StoreUserAction;
 use Domain\Users\Users\Actions\UpdateUserAction;
-use Illuminate\Http\Request;
 use function redirect;
 use function view;
 
@@ -19,7 +19,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         $validated = $request->validated();
-        
+
         $data = [
             'name' => $validated['name'],
             'surname' => $validated['surname'],
@@ -46,18 +46,16 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::findById($id);
 
-        $this->validate($request, [
-            'email' => 'required|email|unique:users,email,' . $user->id,
-        ]);
+        $validated = $request->validated();
         $data = [
-            'name' => $request->get('name'),
-            'surname' => $request->get('surname'),
-            'email' => $request->get('email'),
-            'password' => $request->get('password'),
+            'name' => $validated['name'],
+            'surname' => $validated['surname'],
+            'email' => $validated['email'],
+            'password' => $validated['password'],
         ];
 
         $action = new UpdateUserAction($user, $data);
