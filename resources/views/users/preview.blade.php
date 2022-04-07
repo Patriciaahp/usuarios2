@@ -10,9 +10,7 @@
             @include('users.shared._row')
         </div>
         <div class="container-sm modal-footer row">
-            <button type="button" class="btn btn-primary col col-2" data-dismiss="modal" aria-label="Close">
-                Close
-            </button>
+            <button type="button" class="btn btn-secondary col col-2" data-dismiss="modal">Close</button>
             <div class="col">
                 <form action="{{ route('delete',['id' => $user->id]) }}" method="POST">
                     <input name="_method" type="hidden" value="DELETE">

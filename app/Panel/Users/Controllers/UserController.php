@@ -3,6 +3,7 @@
 namespace App\Panel\Users\Controllers;
 
 use App\Models\User;
+use App\Panel\Users\Requests\UserStoreRequest;
 use Domain\Users\Users\Actions\ActivateUserAction;
 use Domain\Users\Users\Actions\DeactivateUserAction;
 use Domain\Users\Users\Actions\DeleteUserAction;
@@ -15,13 +16,15 @@ use function view;
 class UserController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
+        $validated = $request->validated();
+        
         $data = [
-            'name' => $request->get('name'),
-            'surname' => $request->get('surname'),
-            'email' => $request->get('email'),
-            'password' => $request->get('password'),
+            'name' => $validated['name'],
+            'surname' => $validated['surname'],
+            'email' => $validated['email'],
+            'password' => $validated['password'],
         ];
         $action = new StoreUserAction($data);
         $result = $action->execute();
