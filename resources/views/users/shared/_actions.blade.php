@@ -4,9 +4,13 @@
         Actions
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" title="Change state to active"
-           href="{{ route('active',['id' => $user->id]) }}">Active</a>
-        <a class="dropdown-item" title="Change state to inactive" href="{{ route('inactive',['id' => $user->id]) }}">Inactive</a>
+        @if($user->active == true)
+            <a class="dropdown-item" title="Change state to inactive"
+               href="{{ route('inactive',['id' => $user->id]) }}">Deactivate</a>
+        @else
+            <a class="dropdown-item" title="Change state to active"
+               href="{{ route('active',['id' => $user->id]) }}">Activate</a>
+        @endif
         <a class="dropdown-item" title="Edit this user" href="{{ route('edit',['id' => $user->id]) }}">
             Edit
         </a>
