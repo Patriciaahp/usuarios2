@@ -8,8 +8,11 @@
         </div>
         <div class="container-sm modal-footer">
             <div class="row col">
-                <a href="{{ route('delete',['id' => $user->id]) }}"
-                   class="btn btn-outline-danger" type="button">Yes, I want to delete it</a>
+                <form action="{{ route('delete',['id' => $user->id]) }}" method="POST">
+                    <input name="_method" type="hidden" value="DELETE">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger">Yes, I want to delete this user</button>
+                </form>
             </div>
             <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
                 Close
