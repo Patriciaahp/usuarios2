@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
 
         $this->validate($request, [
             'email' => 'required|email|unique:users,email,' . $user->id,
@@ -66,7 +66,7 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
         $action = new DeleteUserAction($user);
         $result = $action->execute($user);
 
@@ -76,31 +76,25 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
         return view('users/update', ['user' => $user]);
     }
 
     public function preview($id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
         return view('users/preview', ['user' => $user]);
     }
 
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
         return view('users/show', ['user' => $user]);
-    }
-
-    public function status($id)
-    {
-        $user = User::find($id);
-
     }
 
     public function inactive($id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
 
         $action = new DeactivateUserAction($user);
         $action->execute();
@@ -109,7 +103,7 @@ class UserController extends Controller
 
     public function active($id)
     {
-        $user = User::find($id);
+        $user = User::findById($id);
 
         $action = new ActivateUserAction($user);
         $action->execute();

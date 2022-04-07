@@ -10,4 +10,9 @@ class UserQuery extends Builder
     {
         return $this->where('email', $email)->first();
     }
+
+    public function findById($id)
+    {
+        return $this->where('id', $id)->first();
+    }
 }
