@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Domain\Users\Users\Actions\ActivateUserAction;
+use Domain\Users\Users\Actions\DeactivateUserAction;
 use Domain\Users\Users\Actions\DeleteUserAction;
 use Domain\Users\Users\Actions\StoreUserAction;
 use Domain\Users\Users\Actions\UpdateUserAction;
@@ -98,14 +100,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-
-        if ($user->active === 0) {
-            $user->active = 1;
-        } else {
-            $user->active = 0;
-        }
-
-        $user->save();
+        $action = new DeactivateUserAction($user);
+        $action->execute();
         return redirect()->route('users');
     }
 
@@ -113,14 +109,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-
-        if ($user->active === 1) {
-            $user->active = 0;
-        } else {
-            $user->active = 1;
-        }
-
-        $user->save();
+        $action = new ActivateUserAction($user);
+        $action->execute();
         return redirect()->route('users');
     }
 
