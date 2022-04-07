@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Panel\Users\Controllers;
 
 use App\Models\User;
 use Domain\Users\Users\Actions\ActivateUserAction;
@@ -9,6 +9,8 @@ use Domain\Users\Users\Actions\DeleteUserAction;
 use Domain\Users\Users\Actions\StoreUserAction;
 use Domain\Users\Users\Actions\UpdateUserAction;
 use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
 class UserController extends Controller
 {

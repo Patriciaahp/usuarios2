@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use App\Http\Livewire\Users\UsersTable;
+use App\Panel\Users\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
