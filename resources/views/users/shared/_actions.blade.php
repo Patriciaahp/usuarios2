@@ -14,10 +14,11 @@
         <a class="dropdown-item" title="Edit this user" href="{{ route('edit',['id' => $user->id]) }}">
             Edit
         </a>
-        <a data-toggle="modal" id="smallButton" data-target="#smallModal"
-           data-attr="" title="Delete this user"
-           class="dropdown-item" href="{{ route('preview',['id' => $user->id]) }}">
+        <a class="dropdown-item" data-toggle="modal" id="smallButton" data-target="#smallModal"
+           data-attr="{{ route('preview',['id' => $user->id]) }}" title="Delete this user"
+           class="dropdown-item" href="#">
             Delete
         </a>
+
     </div>
 </div>
