@@ -15,7 +15,7 @@ class DeactivateUserAction
     {
         $this->user = $user;
 
-        $this->active = ($user['active']) === 0 ? $user['active'] = 1 : $user['active'] = 0;
+        $this->active = $user['active'] === true ? $user['active'] = false : null;
 
     }
 

@@ -15,14 +15,14 @@ class ActivateUserAction
     {
         $this->user = $user;
 
-        $this->active = ($user['active']) === 1 ? $user['active'] = 0 : $user['active'] = 1;
+        $this->active = $user['active'] === false ? $user['active'] = true : null;
 
     }
 
     public function execute()
     {
         $this->user->save();
-        
+
 
         return new ResponseCodeUserActivated($this->user);
     }
