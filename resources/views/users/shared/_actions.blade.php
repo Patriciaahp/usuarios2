@@ -1,6 +1,6 @@
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-expanded="false">
+            aria-haspopup="true" aria-expanded="false">
         Actions
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
