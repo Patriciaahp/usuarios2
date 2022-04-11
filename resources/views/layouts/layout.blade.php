@@ -41,6 +41,14 @@
             text-align: center;
         }
 
+        .teal {
+            background-color: #20c997;
+        }
+
+        .white {
+            background-color: #ffffff;
+        }
+
         body {
             background-color: #EDF7EF
         }
