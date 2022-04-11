@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Users\UsersTable;
+use App\Panel\Users\Controllers\AuthController;
 use App\Panel\Users\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('login', AuthController::class . "@index")->name('login');
+Route::post('custom-login', AuthController::class . "@login")->name('log');
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');
