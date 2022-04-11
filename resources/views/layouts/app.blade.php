@@ -43,6 +43,10 @@
 
     }
 
+    .space {
+        margin-left: 10px;
+    }
+
     body {
         background-color: #EDF7EF
     }
@@ -109,6 +113,19 @@
 
     })
 </script>
-
+<script>
+    $(document).ready(function () {
+        $("#button1").click(function () {
+            alert("You deactivated the user!");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#button2").click(function () {
+            alert("You activated the user!");
+        });
+    });
+</script>
 </body>
 </html>

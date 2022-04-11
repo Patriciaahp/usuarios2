@@ -5,10 +5,10 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         @if($user->active == true)
-            <a class="dropdown-item" title="Change state to inactive"
+            <a class="dropdown-item" id="button1" title="Change state to inactive"
                href="{{ route('inactive',['id' => $user->id]) }}">Deactivate</a>
         @else
-            <a class="dropdown-item" title="Change state to active"
+            <a class="dropdown-item" id="button2" title="Change state to active"
                href="{{ route('active',['id' => $user->id]) }}">Activate</a>
         @endif
         <a class="dropdown-item" title="Edit this user" href="{{ route('edit',['id' => $user->id]) }}">
@@ -21,4 +21,7 @@
         </a>
 
     </div>
+
+
 </div>
+

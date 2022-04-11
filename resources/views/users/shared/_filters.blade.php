@@ -8,7 +8,7 @@
             <input name="name" wire:model="search" type="text" class="form-control" list="datalistOptions"
                    id="exampleDataList" placeholder="Type to search...">
         </div>
-        <div class="col col-4 align-self-end container-sm row">
+        <div class="col col-4 align-self-end container-sm row space">
             <select class=" col form-select" aria-label="Default select example"
                     wire:model="per_page">
                 <option value="10">10</option>
