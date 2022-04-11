@@ -4,6 +4,7 @@ namespace App\Panel\Users\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -27,4 +28,11 @@ class AuthController extends Controller
         return redirect("login");
     }
 
+    public function signout()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('login');
+    }
 }

@@ -1,6 +1,11 @@
 <div>
     <div class=" container-xxl shadow p-3 mb-5 bg-body rounded fs-4">
-        <h1>User List</h1>
+        <div class="container-fluid row">
+            <h1 class="col">User List</h1>
+            <dvi class="col col-1 ">
+                @include('users.shared._login')
+            </dvi>
+        </div>
         @include('users.shared._filters')
     </div>
     <div class="container-sm">
@@ -21,5 +26,6 @@
         <div class="fs-3">
             {{ $users->links() }}
         </div>
+
     </div>
 </div>
