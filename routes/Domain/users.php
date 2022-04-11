@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('login', UserController::class . "@index")->name('login');
 Route::post('custom-login', UserController::class . "@login")->name('log');
 Route::get('signout', UserController::class . "@logout")->name('logout');

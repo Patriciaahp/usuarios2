@@ -2,14 +2,13 @@
 
 namespace App\Http;
 
-use App\Panel\Users\Middleware\Authenticate;
-use App\Panel\Users\Middleware\CheckActive;
-use App\Panel\Users\Middleware\EncryptCookies;
-use App\Panel\Users\Middleware\PreventRequestsDuringMaintenance;
-use App\Panel\Users\Middleware\RedirectIfAuthenticated;
-use App\Panel\Users\Middleware\TrimStrings;
-use App\Panel\Users\Middleware\TrustProxies;
-use App\Panel\Users\Middleware\VerifyCsrfToken;
+use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\PreventRequestsDuringMaintenance;
+use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\TrimStrings;
+use App\Http\Middleware\TrustProxies;
+use App\Http\Middleware\VerifyCsrfToken;
 use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
@@ -85,6 +84,5 @@ class Kernel extends HttpKernel
         'signed' => ValidateSignature::class,
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
-        'active' => CheckActive::class,
     ];
 }

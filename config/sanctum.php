@@ -1,7 +1,7 @@
 <?php
 
-use App\Panel\Users\Middleware\EncryptCookies;
-use App\Panel\Users\Middleware\VerifyCsrfToken;
+use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\VerifyCsrfToken;
 
 return [
 
