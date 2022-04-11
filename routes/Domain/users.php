@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 Route::get('login', AuthController::class . "@index")->name('login');
 Route::post('custom-login', AuthController::class . "@login")->name('log');
-Route::get('signout', AuthController::class . "@signout")->name('signout');
+Route::get('signout', AuthController::class . "@logout")->name('logout');
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');

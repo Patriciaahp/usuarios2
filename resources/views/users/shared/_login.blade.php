@@ -1,13 +1,9 @@
 <div>
-    <ul>
-        @guest
-            <li>
-                <a href="{{ route('login') }}">Login</a>
-            </li>
-        @else
-            <li>
-                <a href="{{ route('signout') }}">Logout</a>
-            </li>
-        @endguest
-    </ul>
+    @guest
+        <a class="btn btn-success btn-lg rounded-pill padding" type="button" href="{{ route('login') }}">Login</a>
+
+    @else
+        <a class="btn btn-danger btn-lg rounded-pill padding" type="button" href="{{ route('logout') }}">Logout</a>
+
+    @endguest
 </div>

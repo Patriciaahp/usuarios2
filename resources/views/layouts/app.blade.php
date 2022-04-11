@@ -43,6 +43,10 @@
 
     }
 
+    .padding {
+        padding: 2rem;
+    }
+
     .space {
         margin-left: 10px;
     }
