@@ -1,15 +1,14 @@
-<div class="container-fluid teal">
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <div class=" container-lg row ">
-        <div class="container-sm col">
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+<div class="container-sm">
+    <div class="teal row ">
+        <div class="container-sm col col-4">
             <h1 class="text-center">Welcome</h1>
         </div>
-        <div class="container-sm col white">
+        <div class="container-sm col col-4 white">
             <h3 class=" text-center">Login</h3>
             <div class="">
                 <form method="POST" action="{{ route('log') }}">
