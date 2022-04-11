@@ -1,4 +1,10 @@
 <div class="container-fluid teal">
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class=" container-lg row ">
         <div class="container-sm col">
             <h1 class="text-center">Welcome</h1>

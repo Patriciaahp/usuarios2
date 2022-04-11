@@ -10,11 +10,42 @@ use Domain\Users\Users\Actions\DeactivateUserAction;
 use Domain\Users\Users\Actions\DeleteUserAction;
 use Domain\Users\Users\Actions\StoreUserAction;
 use Domain\Users\Users\Actions\UpdateUserAction;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use function redirect;
 use function view;
 
 class UserController extends Controller
 {
+    public function login(Request $request)
+    {
+
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        $credentials['active'] = 1;
+        if (Auth::attempt($credentials)) {
+            return redirect('users');
+        }
+        return redirect("login");
+    }
+
+    public function index()
+    {
+        return view('users/login');
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('login');
+    }
 
     public function store(UserStoreRequest $request)
     {
@@ -110,6 +141,4 @@ class UserController extends Controller
         $action->execute();
         return redirect()->route('users');
     }
-
-
 }

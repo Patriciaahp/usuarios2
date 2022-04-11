@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Livewire\Users\UsersTable;
-use App\Panel\Users\Controllers\AuthController;
 use App\Panel\Users\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('login', AuthController::class . "@index")->name('login');
-Route::post('custom-login', AuthController::class . "@login")->name('log');
-Route::get('signout', AuthController::class . "@logout")->name('logout');
+
+Route::get('login', UserController::class . "@index")->name('login');
+Route::post('custom-login', UserController::class . "@login")->name('log');
+Route::get('signout', UserController::class . "@logout")->name('logout');
 Route::get('/preview/{id}', UserController::class . "@preview")->name('preview');
 Route::get('/show/{id}', UserController::class . "@show")->name('show');
 Route::get('/create', UserController::class . "@create")->name('create');
 Route::post('/create/users', UserController::class . "@store")->name('store');
-Route::get('/users', UsersTable::class)->name('users');
+Route::get('/users', UsersTable::class)->name('users')->middleware('auth');
 Route::get('/users/{id}', UserController::class . "@edit")->name('edit');
 Route::put('/users/{id}', UserController::class . "@update")->name('update');
 Route::delete('/users/{id}/delete', UserController::class . "@delete")->name('delete');
