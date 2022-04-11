@@ -31,7 +31,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect('users');
         }
-        return redirect("login");
+        return redirect("login")->with('error', 'Your Account is suspended, please contact Admin.');
     }
 
     public function index()
