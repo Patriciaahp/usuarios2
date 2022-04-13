@@ -3,12 +3,14 @@
 namespace App\Panel\Users\Controllers;
 
 use App\Models\User;
+use App\Notifications\WelcomeEmail;
 use App\Panel\Users\Requests\UserStoreRequest;
 use App\Panel\Users\Requests\UserUpdateRequest;
 use Domain\Users\Users\Actions\ActivateUserAction;
 use Domain\Users\Users\Actions\DeactivateUserAction;
 use Domain\Users\Users\Actions\DeleteUserAction;
 use Domain\Users\Users\Actions\StoreUserAction;
+use Domain\Users\Users\Actions\UpdatePasswordAction;
 use Domain\Users\Users\Actions\UpdateUserAction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,11 +64,14 @@ class UserController extends Controller
 
         $user = $result->object;
 
+        $user->notify(new WelcomeEmail($user->id));
+
         return redirect()->route('users');
     }
 
     public function create()
     {
+
         return $this->form('users/create', new User());
     }
 
@@ -93,6 +98,29 @@ class UserController extends Controller
         $result = $action->execute();
 
         $user = $result->object;
+        return redirect()->route('users', $user);
+    }
+
+    public function reset($id)
+    {
+        $user = User::findById($id);
+        return view('users/reset', ['user' => $user]);
+    }
+
+    public function updatePassword(UserUpdateRequest $request, $id)
+    {
+        $user = User::findById($id);
+        $validated = $request->validated();
+
+        $data = [
+            'password' => $validated['password'],
+        ];
+        $action = new UpdatePasswordAction($user, $data);
+        $result = $action->execute();
+
+        $user = $result->object;
+
+
         return redirect()->route('users', $user);
     }
 

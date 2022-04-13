@@ -1,11 +1,11 @@
 @extends('layouts.layout')
-@if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
 <div class="container-sm">
     <div class="teal row ">
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="container-sm col col-4">
             <h1 class="text-center">Welcome</h1>
         </div>

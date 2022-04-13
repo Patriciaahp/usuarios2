@@ -4,7 +4,6 @@ use App\Http\Livewire\Users\UsersTable;
 use App\Panel\Users\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +31,5 @@ Route::put('/users/{id}', UserController::class . "@update")->name('update');
 Route::delete('/users/{id}/delete', UserController::class . "@delete")->name('delete');
 Route::get('/users/{id}/inactive', UserController::class . "@inactive")->name('inactive');
 Route::get('/users/{id}/active', UserController::class . "@active")->name('active');
+Route::get('/{id}/reset', UserController::class . "@reset")->name('reset');
+Route::put('/{id}/reset', UserController::class . "@updatePassword")->name('updatePassword');

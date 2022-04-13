@@ -25,9 +25,9 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:20|min:3',
+            'name' => 'nullable|string|max:20|min:3',
             'surname' => 'nullable',
-            'email' => 'required|email|unique:users,email,' . $this->id,
+            'email' => 'nullable|email|unique:users,email,' . $this->id,
             'password' => ['nullable', Password::min(6)->uncompromised()]
         ];
     }
