@@ -4,12 +4,14 @@ namespace Domain\Users\Users\Actions;
 
 use App\Models\User;
 use Domain\Users\Users\ResponseCodes\ResponseCodeUserStored;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 class StoreUserAction
 {
     /**
-    * @param array $data
-    */
+     * @param array $data
+     */
 
     private $name;
     private $email;
@@ -22,12 +24,12 @@ class StoreUserAction
         $this->data = $data;
 
         if (!isset($data['name']))
-            throw new \InvalidArgumentException('name is required.');
+            throw new InvalidArgumentException('name is required.');
 
         $this->name = isset($data['name']) ? $data['name'] : null;
 
         if (!isset($data['email']))
-            throw new \InvalidArgumentException('email is required.');
+            throw new InvalidArgumentException('email is required.');
 
         $this->email = isset($data['email']) ? $data['email'] : null;
         $this->surname = isset($data['surname']) ? $data ['surname'] : null;
@@ -41,7 +43,8 @@ class StoreUserAction
             'name' => $this->name,
             'surname' => $this->surname,
             'email' => $this->email,
-            'password' => bcrypt($this->password)
+            'password' => bcrypt($this->password),
+            'remember_token' => Str::random(64)
         ]);
 
         return new ResponseCodeUserStored($this->user);

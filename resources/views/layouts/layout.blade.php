@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,27 +52,35 @@
         body {
             background-color: #EDF7EF
         }
+
+        .spaceBottom {
+            margin-bottom: 20px;
+        }
     </style>
+
     @stack('styles')
+
 </head>
 <body>
-<header>
+
+<header class="spaceBottom">
     <title>@yield('title')</title>
+    <div class="container-fluid row shadow p-3 mx-auto bg-body rounded row text-center">
+        @yield('heading')
+    </div>
 </header>
+
 <!-- Begin page content -->
-<main role="main" class="flex-shrink-0">
-    <div class="row mt-3">
-        <div class="col-1"></div>
-        <div class="col-10">
-            @yield('content')
-        </div>
-        <div class="col-1"></div>
+<main role="main" class="container-fluid row">
+    <div class="col col-3"></div>
+    <div class="col col-6">
+        @yield('content')
     </div>
 </main>
 
-<footer class="footer mt-auto py-3">
+<footer class="footer">
     <div class="container">
-        <span class="text-muted">Users</span>
+        <span>Users</span>
     </div>
 </footer>
 

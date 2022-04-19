@@ -16,9 +16,11 @@ class WelcomeEmail extends Notification
      *
      * @return void
      */
-    public function __construct($id)
+    public function __construct($id, $token)
     {
         $this->id = $id;
+
+        $this->remember_token = $token;
     }
 
     /**
@@ -44,9 +46,10 @@ class WelcomeEmail extends Notification
 
         return (new MailMessage)
             ->line('The introduction to the notification.')
-            ->action('Reset Password', url($user->id . '/reset'))
+            ->action('Reset Password', url($user->id . '/reset/' . $this->remember_token))
             ->line('Thank you for using our application!');
     }
+
 
     /**
      * Get the array representation of the notification.

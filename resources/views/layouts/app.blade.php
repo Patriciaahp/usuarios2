@@ -16,7 +16,7 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body>
-<title>App Name - @yield('title')</title>
+
 
 <!-- modal -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -51,6 +51,10 @@
         margin-left: 10px;
     }
 
+    .top {
+        margin-top: 1rem;
+    }
+
     body {
         background-color: #EDF7EF
     }
@@ -60,7 +64,6 @@
     }
 </style>
 <div>
-
     <!-- Page Content -->
     <main>
         {{ $slot }}
@@ -128,6 +131,14 @@
     $(document).ready(function () {
         $("#button2").click(function () {
             alert("You activated the user!");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".relative.px-4").click(function () {
+            location.reload(true);
+
         });
     });
 </script>

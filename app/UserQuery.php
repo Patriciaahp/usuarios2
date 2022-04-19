@@ -15,4 +15,5 @@ class UserQuery extends Builder
     {
         return $this->where('id', $id)->first();
     }
+
 }

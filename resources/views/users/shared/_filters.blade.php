@@ -3,12 +3,13 @@
         <div class="col align-self-end">
             <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">Filter</button>
         </div>
-        <div class="col col-6  align-self-center ">
-            <label for="exampleDataList" class="form-label"></label>
-            <input name="name" wire:model="search" type="text" class="form-control" list="datalistOptions"
-                   id="exampleDataList" placeholder="Type to search...">
+        <div class="col col-5  align-self-center ">
+            <label for="search" class="form-label"></label>
+            <input wire:click="$refresh" name="name" wire:model="search" type="text" class="form-control"
+                   list="datalistOptions"
+                   id="search" placeholder="Type to search...">
         </div>
-        <div class="col col-4 align-self-end container-sm row space">
+        <div class="col col-3 align-self-end container-sm row space">
             <select class=" col form-select" aria-label="Default select example"
                     wire:model="per_page">
                 <option value="10">10</option>
@@ -16,7 +17,12 @@
                 <option value="20">20</option>
                 <option value="30">30</option>
             </select>
-            <p class="col align-self-end">Entries</p>
+            <p class="col">Entries</p>
+        </div>
+        <div class="col  align-self-end">
+            <button id="button3" class="btn btn-success " type="button">
+                Apply Filters
+            </button>
         </div>
     </div>
     <div class="container-sm">

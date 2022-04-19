@@ -19,9 +19,6 @@
            class="dropdown-item" href="#">
             Delete
         </a>
-
     </div>
-
-
 </div>
 

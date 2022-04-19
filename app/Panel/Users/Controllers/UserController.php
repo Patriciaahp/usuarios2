@@ -22,18 +22,24 @@ class UserController extends Controller
 {
     public function login(Request $request)
     {
-
         $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
-        $credentials['active'] = 1;
-        if (Auth::attempt($credentials)) {
+        $credentials = $request->only('email', 'password', 'active');
+
+        $user = User::findByEmail($credentials['email']);
+        if (!$user) {
+            return redirect("login")->with('error', 'Incorrect email or password, please check your credentials');
+        }
+        if ($user->active == true && Auth::attempt($credentials)) {
             return redirect('users');
         }
-        return redirect("login")->with('error', 'Your Account is suspended, please contact Admin.');
+        if ($user->active == false && Auth::attempt($credentials)) {
+            return redirect("login")->with('error', 'Your Account is suspended,
+        please check your inbox and reset your password or contact Admin.');
+        }
     }
 
     public function index()
@@ -51,6 +57,7 @@ class UserController extends Controller
 
     public function store(UserStoreRequest $request)
     {
+
         $validated = $request->validated();
 
         $data = [
@@ -64,7 +71,7 @@ class UserController extends Controller
 
         $user = $result->object;
 
-        $user->notify(new WelcomeEmail($user->id));
+        $user->notify(new WelcomeEmail($user->id, $user->remember_token));
 
         return redirect()->route('users');
     }
@@ -101,10 +108,16 @@ class UserController extends Controller
         return redirect()->route('users', $user);
     }
 
-    public function reset($id)
+    public function reset(Request $request, $id, $token)
     {
         $user = User::findById($id);
-        return view('users/reset', ['user' => $user]);
+        $token = $user->remember_token;
+        $urlToken = explode('/', $request->url());
+        if ($token === $urlToken[5]) {
+            return view('users/reset', ['user' => $user, 'token' => $token]);
+        }
+
+        return view('users/login');
     }
 
     public function updatePassword(UserUpdateRequest $request, $id)
@@ -119,9 +132,10 @@ class UserController extends Controller
         $result = $action->execute();
 
         $user = $result->object;
+        $action = new ActivateUserAction($user);
+        $action->execute();
 
-
-        return redirect()->route('users', $user);
+        return redirect()->route('/login');
     }
 
     public function delete($id)

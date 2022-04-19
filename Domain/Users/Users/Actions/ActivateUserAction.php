@@ -19,6 +19,7 @@ class ActivateUserAction
     public function execute()
     {
         $this->user->active = true;
+        $this->user->remember_token = null;
         $this->user->save();
 
 
