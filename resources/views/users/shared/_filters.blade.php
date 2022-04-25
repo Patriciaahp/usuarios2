@@ -1,8 +1,5 @@
 <div class="container-fluid">
     <div class="container-sm row">
-        <div class="col align-self-end">
-            <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">Filter</button>
-        </div>
         <div class="col col-5  align-self-center ">
             <label for="search" class="form-label"></label>
             <input name="name" wire:model="search" type="text" class="form-control"

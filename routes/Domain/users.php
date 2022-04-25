@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('error', UserController::class . "@error")->name('error');
-
 Route::get('login', UserController::class . "@index")->name('login');
 Route::post('custom-login', UserController::class . "@login")->name('log');
 Route::get('signout', UserController::class . "@logout")->name('logout');
@@ -35,3 +34,4 @@ Route::get('/users/{id}/inactive', UserController::class . "@inactive")->name('i
 Route::get('/users/{id}/active', UserController::class . "@active")->name('active');
 Route::get('/{id}/reset/{remember_token}', UserController::class . "@reset")->name('reset');
 Route::put('/{id}/reset', UserController::class . "@updatePassword")->name('updatePassword');
+Route::get('/forms',)->name('forms');
