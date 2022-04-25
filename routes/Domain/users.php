@@ -34,4 +34,3 @@ Route::get('/users/{id}/inactive', UserController::class . "@inactive")->name('i
 Route::get('/users/{id}/active', UserController::class . "@active")->name('active');
 Route::get('/{id}/reset/{remember_token}', UserController::class . "@reset")->name('reset');
 Route::put('/{id}/reset', UserController::class . "@updatePassword")->name('updatePassword');
-Route::get('/forms',)->name('forms');

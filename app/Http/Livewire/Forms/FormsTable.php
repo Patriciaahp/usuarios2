@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Livewire\Forms;
+
+use App\Filters\FormFilter;
+use App\Models\Form;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+class FormsTable extends Component
+{
+    use WithPagination;
+
+    public $per_page = 10;
+    public $search;
+    public $form;
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+    ];
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingPerPage()
+    {
+        $this->resetPage();
+    }
+
+    public function render(FormFilter $formFilter)
+    {
+
+        return view('livewire.forms-table', ['form' => $this->getForms($formFilter)]);
+    }
+
+    protected function getForms(FormFilter $formFilter)
+    {
+        $forms = Form::query()->filterBy($formFilter, array_merge([
+            'search' => $this->search,
+        ]))
+            ->paginate($this->per_page);
+        $forms->appends($formFilter->valid());
+
+        return $forms;
+    }
+}

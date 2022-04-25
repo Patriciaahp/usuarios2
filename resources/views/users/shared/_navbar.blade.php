@@ -11,7 +11,7 @@
                 @if("users" == Route::current()->getName())
                     <a class="text-light nav-link disabled" href="{{ route('users') }}">User List</a>
                 @else
-                    <a class="nav-link" href="{{ route('users') }}">User List</a>
+                    <a class="nav-link text-light" href="{{ route('users') }}">User List</a>
                 @endif
             </li>
             <li class="nav-item p-4">
@@ -24,12 +24,15 @@
     </div>
     <div lass="collapse navbar-collapse col ">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item p-4">
-                <div class="col align-self-end">
-                    <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">Filter
-                    </button>
-                </div>
-            </li>
+            @if("users" == Route::current()->getName())
+                <li class="nav-item p-4">
+                    <div class="col align-self-end">
+                        <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">
+                            Filter
+                        </button>
+                    </div>
+                </li>
+            @endif
             <li class="nav-item p-4">
                 <a class="btn btn-danger btn-lg rounded-circle padding" type="button"
                    href="{{ route('logout') }}">Logout</a>
