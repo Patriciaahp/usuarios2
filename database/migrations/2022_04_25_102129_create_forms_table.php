@@ -18,7 +18,7 @@ class CreateFormsTable extends Migration
             $table->text('name');
             $table->text('title');
             $table->text('description');
-            $table->boolean('active');
+            $table->boolean('active')->default(false);
             $table->string('hash')->unique();
             $table->timestamps();
         });

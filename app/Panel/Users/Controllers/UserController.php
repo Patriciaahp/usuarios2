@@ -2,9 +2,10 @@
 
 namespace App\Panel\Users\Controllers;
 
-use App\Http\Requests\PasswordResetRequest;
 use App\Models\User;
 use App\Notifications\WelcomeEmail;
+use App\Panel\Shared\Controller;
+use App\Panel\Users\Requests\PasswordResetRequest;
 use App\Panel\Users\Requests\UserStoreRequest;
 use App\Panel\Users\Requests\UserUpdateRequest;
 use Domain\Users\Users\Actions\ActivateUserAction;

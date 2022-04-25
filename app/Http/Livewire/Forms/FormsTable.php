@@ -13,7 +13,7 @@ class FormsTable extends Component
 
     public $per_page = 10;
     public $search;
-    public $form;
+
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -32,7 +32,8 @@ class FormsTable extends Component
     public function render(FormFilter $formFilter)
     {
 
-        return view('livewire.forms-table', ['form' => $this->getForms($formFilter)]);
+        return view('forms.livewire.forms-table')
+            ->with(['forms' => $this->getForms($formFilter)]);
     }
 
     protected function getForms(FormFilter $formFilter)

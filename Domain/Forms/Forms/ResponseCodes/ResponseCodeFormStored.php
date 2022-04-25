@@ -11,7 +11,7 @@ class ResponseCodeFormStored extends ActionResponseCode
     {
         parent::__construct(
             201,
-            ActionResponseCode::STATUS_SUCCES,
+            ActionResponseCode::STATUS_SUCCESS,
             'Form created',
             $object
         );

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Panel\Forms\Controllers;
+namespace App\Panel\Shared;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

@@ -16,9 +16,9 @@
             </li>
             <li class="nav-item p-4">
                 @if("forms" == Route::current()->getName())
-                    <a class="nav-link disabled text-light" href="{{ route('forms') }}">Forms</a>
+                    <a class="nav-link disabled text-light" href="{{ route('forms') }}">Form List</a>
                 @else
-                    <a class="nav-link text-light" href="{{ route('forms') }}">Forms</a>
+                    <a class="nav-link text-light" href="{{ route('forms') }}">Form List</a>
                 @endif            </li>
         </ul>
     </div>

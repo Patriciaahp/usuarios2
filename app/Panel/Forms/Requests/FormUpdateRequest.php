@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Panel\Forms\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class PasswordResetRequest extends FormRequest
+class FormUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +24,9 @@ class PasswordResetRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => ['required', Password::min(6)->uncompromised()]
-
+            'name' => 'nullable|string|max:20',
+            'title' => 'nullable|string|max:20',
+            'description' => 'nullable|string|max:20',
         ];
     }
 }
