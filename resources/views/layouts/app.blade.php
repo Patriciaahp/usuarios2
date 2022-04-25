@@ -142,5 +142,21 @@
         });
     });
 </script>
+<script>
+    $(document).ready(function () {
+        $("#button3").click(function () {
+            location.reload(true);
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#search").blur(function () {
+            location.reload(true);
+
+        });
+    });
+</script>
 </body>
 </html>

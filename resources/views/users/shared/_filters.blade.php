@@ -5,7 +5,7 @@
         </div>
         <div class="col col-5  align-self-center ">
             <label for="search" class="form-label"></label>
-            <input wire:click="$refresh" name="name" wire:model="search" type="text" class="form-control"
+            <input name="name" wire:model="search" type="text" class="form-control"
                    list="datalistOptions"
                    id="search" placeholder="Type to search...">
         </div>

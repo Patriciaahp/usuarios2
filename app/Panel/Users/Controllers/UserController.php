@@ -2,6 +2,7 @@
 
 namespace App\Panel\Users\Controllers;
 
+use App\Http\Requests\PasswordResetRequest;
 use App\Models\User;
 use App\Notifications\WelcomeEmail;
 use App\Panel\Users\Requests\UserStoreRequest;
@@ -108,6 +109,11 @@ class UserController extends Controller
         return redirect()->route('users', $user);
     }
 
+    public function error()
+    {
+        return view('users/error');
+    }
+
     public function reset(Request $request, $id, $token)
     {
         $user = User::findById($id);
@@ -115,12 +121,12 @@ class UserController extends Controller
         $urlToken = explode('/', $request->url());
         if ($token === $urlToken[5]) {
             return view('users/reset', ['user' => $user, 'token' => $token]);
+        } else {
+            return view('users/error');
         }
-
-        return view('users/login');
     }
 
-    public function updatePassword(UserUpdateRequest $request, $id)
+    public function updatePassword(PasswordResetRequest $request, $id)
     {
         $user = User::findById($id);
         $validated = $request->validated();
@@ -183,4 +189,5 @@ class UserController extends Controller
         $action->execute();
         return redirect()->route('users');
     }
+
 }

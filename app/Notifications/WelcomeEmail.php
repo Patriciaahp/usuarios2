@@ -45,9 +45,9 @@ class WelcomeEmail extends Notification
         $user = User::findById($this->id);
 
         return (new MailMessage)
-            ->line('The introduction to the notification.')
+            ->line('Here you can change your password, then your user will be activated.')
             ->action('Reset Password', url($user->id . '/reset/' . $this->remember_token))
-            ->line('Thank you for using our application!');
+            ->line('This is a single use url.');
     }
 
 

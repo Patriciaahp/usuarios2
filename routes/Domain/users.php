@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('error', UserController::class . "@error")->name('error');
+
 Route::get('login', UserController::class . "@index")->name('login');
 Route::post('custom-login', UserController::class . "@login")->name('log');
 Route::get('signout', UserController::class . "@logout")->name('logout');
