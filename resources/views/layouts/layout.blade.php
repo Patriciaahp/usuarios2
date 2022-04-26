@@ -80,7 +80,6 @@
 
     </script>
 
-
     <style>
         .footer {
             position: fixed;
@@ -122,14 +121,14 @@
 </header>
 
 <!-- Begin page content -->
-<main role="main" class="container-fluid row">
+<main role="main" class="container-fluid row pb-4">
     <div class="col col-3"></div>
     <div class="col col-6">
         @yield('content')
     </div>
 </main>
 
-<footer class="footer">
+<footer class="footer ">
     <div class="container">
         <span>Users</span>
     </div>

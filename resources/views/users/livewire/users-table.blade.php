@@ -1,5 +1,5 @@
-@include('users.shared._navbar')
 <div>
+    @include('users.shared._navbar')
     <div class=" container-xxl shadow p-3 mb-5 bg-body rounded fs-4">
         <div class="container-fluid ">
             <h1>User List</h1>

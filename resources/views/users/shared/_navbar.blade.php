@@ -7,8 +7,8 @@
 
     <div class="collapse navbar-collapse col">
         <ul class=" navbar-nav mr-auto">
-            <li class="nav-item p-4">
-                @if("users" == Route::current()->getName())
+            <li class="nav-item p-4">users
+                @if("forms" != Route::current()->getName())
                     <a class="text-light nav-link disabled" href="{{ route('users') }}">User List</a>
                 @else
                     <a class="nav-link text-light" href="{{ route('users') }}">User List</a>
@@ -24,7 +24,7 @@
     </div>
     <div lass="collapse navbar-collapse col ">
         <ul class="navbar-nav mr-auto">
-            @if("users" == Route::current()->getName())
+            @if("forms" != Route::current()->getName())
                 <li class="nav-item p-4">
                     <div class="col align-self-end">
                         <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">

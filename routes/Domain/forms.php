@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/forms', FormsTable::class)->name('forms');
-Route::get('/create', FormController::class . "@create")->name('create');
-Route::post('/create', FormController::class . "@store")->name('store');
-Route::get('/forms/{id}', FormController::class . "@edit")->name('edit');
-Route::put('/forms/{id}', FormController::class . "@update")->name('update');
-Route::get('/preview/{id}', FormController::class . "@preview")->name('preview');
-Route::delete('/preview/{id}', FormController::class . "@delete")->name('delete');
+Route::get('/forms/create', FormController::class . "@create")->name('forms.create');
+Route::post('/forms/create', FormController::class . "@store")->name('forms.store');
+Route::get('/forms/{id}', FormController::class . "@edit")->name('forms.edit');
+Route::put('/forms/{id}', FormController::class . "@update")->name('forms.update');
+Route::get('/forms/preview/{id}', FormController::class . "@preview")->name('forms.preview');
+Route::delete('/forms/preview/{id}', FormController::class . "@delete")->name('forms.delete');
