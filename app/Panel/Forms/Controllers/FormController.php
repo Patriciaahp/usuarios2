@@ -15,7 +15,7 @@ class FormController extends Controller
 
     public function create()
     {
-        return $this->form('forms/forms.create', new Form());
+        return $this->form('forms/create', new Form());
     }
 
     protected function form($view, Form $form)
@@ -73,13 +73,19 @@ class FormController extends Controller
     public function edit($id)
     {
         $form = Form::findById($id);
-        return view('forms/forms.update', ['form' => $form]);
+        return view('forms/update', ['form' => $form]);
     }
 
     public function preview($id)
     {
         $form = Form::findById($id);
-        return view('forms/forms.preview', ['form' => $form]);
+        return view('forms/preview', ['form' => $form]);
+    }
+
+    public function show($id)
+    {
+        $form = Form::findById($id);
+        return view('forms/show', ['form' => $form]);
     }
 
 }

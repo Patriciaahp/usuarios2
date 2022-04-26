@@ -16,7 +16,7 @@
         </div>
         <div class="container-sm">
             <div class="col">
-                <form action="{{ route('delete',['id' => $form->id]) }}" method="POST">
+                <form action="{{ route('forms.delete',['id' => $form->id]) }}" method="POST">
                     <input name="_method" type="hidden" value="DELETE">
                     @csrf
                     <button type="submit" class="btn btn-outline-danger">Yes, I want to delete this form</button>

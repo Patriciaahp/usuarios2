@@ -22,3 +22,4 @@ Route::get('/forms/{id}', FormController::class . "@edit")->name('forms.edit');
 Route::put('/forms/{id}', FormController::class . "@update")->name('forms.update');
 Route::get('/forms/preview/{id}', FormController::class . "@preview")->name('forms.preview');
 Route::delete('/forms/preview/{id}', FormController::class . "@delete")->name('forms.delete');
+Route::get('/forms/show/{id}', FormController::class . "@show")->name('forms.show');

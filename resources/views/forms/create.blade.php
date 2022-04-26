@@ -13,7 +13,7 @@
     @else
         @include('forms.shared._infoCreated')
     @endif
-    <form action="{{ route('store') }}" method="POST">
+    <form action="{{ route('forms.store') }}" method="POST">
         @csrf
         @include('forms.shared._rows')
         <div>

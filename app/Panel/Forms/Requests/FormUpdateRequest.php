@@ -25,8 +25,8 @@ class FormUpdateRequest extends FormRequest
     {
         return [
             'name' => 'nullable|string|max:20',
-            'title' => 'nullable|string|max:20',
-            'description' => 'nullable|string|max:20',
+            'title' => 'nullable',
+            'description' => 'nullable',
         ];
     }
 }

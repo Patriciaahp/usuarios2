@@ -7,7 +7,7 @@
 
     <div class="collapse navbar-collapse col">
         <ul class=" navbar-nav mr-auto">
-            <li class="nav-item p-4">users
+            <li class="nav-item p-4">
                 @if("forms" != Route::current()->getName())
                     <a class="text-light nav-link disabled" href="{{ route('users') }}">User List</a>
                 @else
