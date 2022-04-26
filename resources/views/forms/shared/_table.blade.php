@@ -1,4 +1,6 @@
 <div class="container-sm">
+    <a href="{{ route('forms.create') }}" class="btn btn-success btn-lg" type="button">New Form</a>
+
     <table class="table table-hover">
         <thead>
         <tr>

@@ -2,11 +2,11 @@
 
 @section('title', 'Form Edit')
 @section('heading')
-
-    <h1>Form User</h1>
-    <h2>{!!  html_entity_decode($form->name) !!}</h2>
-    <a href="{{ route('forms') }}" class="btn btn-outline-primary" type="button">Form List</a>
-
+    <div class="container-fluid col col-4">
+        <h1>Form User</h1>
+        <h2>Name: {!!  html_entity_decode($form->name) !!}</h2>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary col col-2" type="button">Form List</a>
+    </div>
 @endsection
 @section('content')
 
