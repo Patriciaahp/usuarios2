@@ -66,7 +66,7 @@ class FormController extends Controller
         $action = new DeleteFormAction($form);
         $result = $action->execute($form);
 
-        $user = $result->object;
+        $form = $result->object;
         return redirect()->route('forms');
     }
 

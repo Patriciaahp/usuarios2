@@ -3,6 +3,7 @@
 @section('title', 'Form Create')
 @section('heading')
     <h1 class="col">Create Form</h1>
+    <a href="{{ route('forms') }}" class="btn btn-outline-primary" type="button">Form List</a>
 @endsection
 @section('content')
     @if ($errors->any())
@@ -44,12 +45,13 @@
             </div>
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input value="{{ $form->title }}" type="text" name="title" id="title" class="form-control">
+                <textarea type="text" name="title" id="title"
+                          class="form-control tinymce-editor">{{ $form->title }}</textarea>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <input value="{{ $form->description }}" type="text" name="description" id="description"
-                       class="form-control">
+                <textarea type="text" name="description" id="description"
+                          class="form-control tinymce-editor">{{ $form->description }}</textarea>
             </div>
         </div>
 

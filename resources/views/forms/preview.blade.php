@@ -3,6 +3,8 @@
 @section('heading')
     <div class="text-center container-fluid row">
         <h1 class="col ">Are you sure?</h1>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary" type="button">Form List</a>
+
     </div>
 @endsection
 @section('content')
@@ -21,8 +23,8 @@
         <div class="container-sm">
             <h1>ID: {{$form->id}}</h1>
             <h3>{{$form->name}}</h3>
-            <h3>{{$form->title}}</h3>
-            <h3>{{$form->description}}</h3>
+            <h3>{!!  html_entity_decode($form->title) !!}</h3>
+            <h3>{!!  html_entity_decode($form->description) !!}</h3>
         </div>
         <div class="container-sm">
             <div class="col">

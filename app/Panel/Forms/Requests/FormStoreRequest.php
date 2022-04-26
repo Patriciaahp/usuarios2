@@ -25,9 +25,9 @@ class FormStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:20',
-            'title' => 'required|string|max:20',
-            'description' => 'required|string|max:20',
-            
+            'title' => 'required',
+            'description' => 'required',
+
         ];
     }
 }

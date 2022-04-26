@@ -29,8 +29,8 @@
                 <tr>
                     <td>{{$form->id}}</td>
                     <td>{{$form->name}}</td>
-                    <td>{{$form->title}}</td>
-                    <td>{{$form->description}}</td>
+                    <td>{!!  html_entity_decode($form->title) !!}</td>
+                    <td>{!!  html_entity_decode($form->description) !!}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -44,7 +44,7 @@
                                     Edit
                                 </a>
 
-                                <a href="{{ route('preview',['id' => $form->id]) }}">
+                                <a class="dropdown-item" href="{{ route('preview',['id' => $form->id]) }}">
                                     Delete
                                 </a>
                             </div>

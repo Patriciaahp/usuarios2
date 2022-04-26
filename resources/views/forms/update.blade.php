@@ -50,13 +50,16 @@
             </div>
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input value="{{ $form->title }}" type="text" name="title" id="title" class="form-control">
+                <textarea value="{{ $form->title }}" type="text" name="title" id="title"
+                          class="form-control tinymce-editor"></textarea>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <input value="{{ $form->description }}" type="text" name="description" id="description"
-                       class="form-control">
+                <h2>{!! html_entity_decode($form->description) !!}</h2>
+                <textarea value="{{ $form->description }}" type="text" name="description" id="description"
+                          class="form-control tinymce-editor"></textarea>
             </div>
+        </div>
         </div>
         <div>
             <button type="submit" class="btn btn-success">Edit Form</button>
