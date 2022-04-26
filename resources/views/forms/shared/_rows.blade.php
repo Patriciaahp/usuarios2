@@ -5,12 +5,27 @@
     </div>
     <div class="form-group">
         <label for="title">Title:</label>
-        <textarea type="text" name="title" id="title"
-                  class="form-control tinymce-editor">{{ $form->title }}</textarea>
+        <textarea id="title" name="title">{{ $form->title }}</textarea>
+
     </div>
     <div class="form-group">
         <label for="description">Description:</label>
-        <textarea type="text" name="description" id="description"
-                  class="form-control tinymce-editor">{{ $form->description }}</textarea>
+        <textarea id="description" name="description">{{ $form->description }}</textarea>
     </div>
+    
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#title'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
 </div>
