@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Forms\FormQuestion;
 use App\Http\Livewire\Forms\FormsTable;
 use App\Panel\Forms\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/forms', FormsTable::class)->name('forms');
 Route::get('/forms/create', FormController::class . "@create")->name('forms.create');
 Route::post('/forms/create', FormController::class . "@store")->name('forms.store');
+Route::get('/forms/questions', FormQuestion::class)->name('forms.questions');
 Route::get('/forms/{id}', FormController::class . "@edit")->name('forms.edit');
 Route::put('/forms/{id}', FormController::class . "@update")->name('forms.update');
 Route::get('/forms/preview/{id}', FormController::class . "@preview")->name('forms.preview');

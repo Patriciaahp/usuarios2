@@ -12,7 +12,7 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description">{{ $form->description }}</textarea>
     </div>
-    
+
     <script>
         ClassicEditor
             .create(document.querySelector('#title'))
