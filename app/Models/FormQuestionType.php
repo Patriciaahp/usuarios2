@@ -10,4 +10,9 @@ class FormQuestionType extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function formQuestion()
+    {
+        return $this->belongsTo(FormQuestion::class);
+    }
 }

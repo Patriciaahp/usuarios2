@@ -16,8 +16,8 @@ class CreateFormQuestionsTable extends Migration
         Schema::create('form_questions', function (Blueprint $table) {
             $table->id();
             $table->string('label');
-            $table->string('help_text');
-            $table->string('placeholder');
+            $table->string('help_text')->nullable();
+            $table->string('placeholder')->nullable();
             $table->boolean('required');
             $table->integer('order');
             $table->timestamps();

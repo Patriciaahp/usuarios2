@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
+
 use App\Filters\QueryFilter;
-use App\UserQuery;
+use App\Providers\FormQuery;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,10 +35,14 @@ class Form extends Model
      * @var mixed
      */
 
+    public function formQuestions()
+    {
+        return $this->hasMany(FormQuestion::class);
+    }
 
     public function newEloquentBuilder($query)
     {
-        return new UserQuery($query);
+        return new FormQuery($query);
     }
 
     public function scopeFilterBy($query, QueryFilter $filters, array $data)

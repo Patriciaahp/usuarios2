@@ -2,9 +2,9 @@
 
 @section('title', 'Form Create')
 @section('heading')
-    <div class="container-fluid col col-4">
-        <h1 class="row col col-6">Create Form</h1>
-        <a href="{{ route('forms') }}" class="btn btn-outline-primary row col col-2" type="button">Form List</a>
+    <div class="container-fluid row ">
+        <h1 class="row ">Create Form</h1>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary row " type="button">Form List</a>
     </div>
 @endsection
 @section('content')
