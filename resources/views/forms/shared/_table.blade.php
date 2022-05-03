@@ -36,6 +36,12 @@
                         </div>
                     </div>
                 </td>
+                <td>
+                    <a title="Questions"
+                       href="{{ route('forms.form.questions',['id' => $form->id]) }}">
+                        Questions
+                    </a>
+                </td>
                 <td class="col col-2">
                     <form action="{{ route('forms.form.type') }}" method="GET">
                         @csrf
@@ -44,15 +50,11 @@
                                    class="form-control">
                             <button type="submit" class="btn btn-success btn-lg">
                                 New
-                                QuestionLivewire
+                                Question
                             </button>
                         </div>
                     </form>
                 </td>
-                <td>
-                    {{$form->formQuestions}}
-                </td>
-
             </tr>
         @endforeach
         </tbody>

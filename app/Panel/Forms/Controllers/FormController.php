@@ -88,4 +88,10 @@ class FormController extends Controller
         return view('forms/show', ['form' => $form]);
     }
 
+    public function question($id)
+    {
+        $form = Form::findById($id);
+        return view('forms/questions', ['form' => $form]);
+    }
+
 }

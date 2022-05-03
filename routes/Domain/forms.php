@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/forms', FormsTable::class)->name('forms');
+Route::get('/forms/form/{id}/questions', FormController::class . "@question")->name('forms.form.questions');
 Route::get('/forms/create', FormController::class . "@create")->name('forms.create');
 Route::post('/forms/create', FormController::class . "@store")->name('forms.store');
 Route::get('/forms/questions', FormQuestionTable::class)->name('forms.questions');
