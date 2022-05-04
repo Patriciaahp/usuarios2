@@ -18,27 +18,22 @@
                     <p>Message ID: {{$formQuestion->id}}</p>
                     <div class="form-group">
                         <label for="message">{{ucfirst($formQuestion->label)}}</label>
-                        <x-textarea class="form-control"
-                                    title="{{ucfirst($formQuestion->help_text)}}"
-                                    {{$formQuestion->required === true ? 'required' : ''}}
-                                    name="message"
-                                    type="textarea"
-                                    id="message"
-                        />
+                        <x-forms.textarea
+                            name="message"
+                            title="{{ucfirst($formQuestion->help_text)}}"
+                            required="{{$formQuestion->required}}"
+                        ></x-forms.textarea>
                     </div>
                 @else
                     <p>Input ID: {{$formQuestion->id}}</p>
 
                     <div class="form-group">
                         <label for="input">{{ucfirst($formQuestion->label)}}</label>
-                        <x-input.text class="form-control"
-                                      title="{{ucfirst($formQuestion->help_text)}}"
-                                      {{$formQuestion->required === true ? 'required' : ''}}
-                                      size="32"
-                                      name="input"
-                                      type="text"
-                                      id="input"
-                                      placeholder="{{$formQuestion->placeholder}}"/>
+                        <x-forms.input.text
+                            title="{{ucfirst($formQuestion->help_text)}}"
+                            name="input"
+                            placeholder="{{$formQuestion->placeholder}}"
+                            required="{{$formQuestion->required}}"/>
                     </div>
                 @endif
             @endforeach

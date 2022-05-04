@@ -5,8 +5,8 @@
     id="{{ $name }}"
     class="input"
     title="{{$title}}"
-    size="{{ $size ?? '10' }}"
+    size="{{ $size ?? '32' }}"
     placeholder="{{ $placeholder ?? '' }}"
     value="{{ old($name, $value ?? '') }}"
-    {{ ($required ?? '') === '' ? '' : 'required' }}
+    {{ $required == true ? 'required' : '' }}
 />
