@@ -17,7 +17,8 @@ class AddFormIdColumnToFormQuestionsTable extends Migration
             $table->unsignedInteger('form_id');
             $table->foreign('form_id')
                 ->references('id')
-                ->on('forms');
+                ->on('forms')
+                ->onDelete('cascade');
         });
     }
 

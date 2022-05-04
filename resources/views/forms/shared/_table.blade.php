@@ -6,6 +6,8 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
+            <th scope="col">Questions</th>
+            <th scope="col">Add Question</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -15,26 +17,7 @@
                 <td>{{$form->id}}</td>
                 <td><a data-toggle="modal" id="smallButton" data-target="#smallModal"
                        data-attr="{{ route('forms.show',['id' => $form->id]) }}" title="Show details">
-                    {{$form->name}}</td>
-
-                <td>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" title="Edit this form"
-                               href="{{ route('forms.edit',['id' => $form->id]) }}">
-                                Edit
-                            </a>
-
-                            <a class="dropdown-item" href="{{ route('forms.preview',['id' => $form->id]) }}">
-                                Delete
-                            </a>
-                        </div>
-                    </div>
+                    {{ucfirst($form->name)}}
                 </td>
                 <td>
                     <a title="Questions"
@@ -54,6 +37,25 @@
                             </button>
                         </div>
                     </form>
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Actions
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" title="Edit this form"
+                               href="{{ route('forms.edit',['id' => $form->id]) }}">
+                                Edit
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('forms.preview',['id' => $form->id]) }}">
+                                Delete
+                            </a>
+                        </div>
+                    </div>
                 </td>
             </tr>
         @endforeach

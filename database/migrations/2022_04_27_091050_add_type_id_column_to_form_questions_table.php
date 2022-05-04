@@ -17,7 +17,8 @@ class AddTypeIdColumnToFormQuestionsTable extends Migration
             $table->unsignedInteger('type_id');
             $table->foreign('type_id')
                 ->references('id')
-                ->on('form_question_types');
+                ->on('form_question_types')
+                ->onDelete('cascade');
         });
     }
 
