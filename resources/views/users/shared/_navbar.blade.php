@@ -33,10 +33,15 @@
                     </div>
                 </li>
             @endif
-            <li class="nav-item p-4">
-                <a class="btn btn-danger btn-lg rounded-circle padding" type="button"
+            @guest
+                <a class="btn btn-success btn-lg rounded-pill padding" type="button"
+                   href="{{ route('login') }}">Login</a>
+
+            @else
+                <a class="btn btn-danger btn-lg rounded-pill padding" type="button"
                    href="{{ route('logout') }}">Logout</a>
-            </li>
+
+            @endguest
         </ul>
     </div>
 </nav>
