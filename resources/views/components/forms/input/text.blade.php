@@ -1,4 +1,5 @@
 <input
+    class="form-input form-text"
     autocomplete="off"
     type="text"
     name="{{ $name }}"

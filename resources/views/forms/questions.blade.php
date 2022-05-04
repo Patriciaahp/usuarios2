@@ -8,12 +8,9 @@
     </div>
 @endsection
 @section('content')
-
     <div class="white p-4">
         <form action="">
-
             @foreach($questions as $question)
-                {{ $question}}
                 @if($question->type_id ===2)
                     <p>Message ID: {{$question->id}}</p>
                     <div class="form-group">
