@@ -14,7 +14,6 @@
                 <form action="{{ route('forms.form.store') }}" method="POST">
                     @csrf
 
-
                     <div class="container-sm">
                         <div class="form-group">
                             <label for="label">Label:</label>
@@ -32,12 +31,9 @@
                             <textarea id="helpText" name="helpText">{{ $form->helpText }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="order">Order:</label>
-                            <select id="order" required="" name="order" class="form-control">
-                                <option value="">--Select--</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
+                            <label for="order_">Order:</label>
+                            <input min="1" value="{{$form->order_}}" type="number" id="order_" name="order_"
+                                   class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="required">Required:</label>
@@ -88,12 +84,9 @@
                             <textarea id="helpText" name="helpText">{{ $form->helpText }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="order">Order:</label>
-                            <select id="order" required="" name="order" class="form-control">
-                                <option value="">--Select--</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
+                            <label for="order_">Order:</label>
+                            <input min="1" value="{{$form->order_}}" type="number" id="order_" name="order_"
+                                   class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="required">Required:</label>

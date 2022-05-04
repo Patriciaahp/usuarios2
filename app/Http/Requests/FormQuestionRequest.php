@@ -26,7 +26,7 @@ class FormQuestionRequest extends FormRequest
         return [
             'label' => 'required|string',
             'required' => 'in:yes,no',
-            'order' => 'required',
+            'order_' => 'required',
             'placeholder' => 'nullable',
             'helpText' => 'nullable',
             'form_id' => 'required|exists:forms,id',

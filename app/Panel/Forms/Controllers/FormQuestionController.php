@@ -33,7 +33,7 @@ class FormQuestionController extends Controller
         $data = [
             'label' => $validated['label'],
             'required' => $validated['required'],
-            'order' => $validated['order'],
+            'order_' => $validated['order_'],
             'placeholder' => $validated['placeholder'] ?? null,
             'help_text' => $validated['helpText'] ?? null,
             'type_id' => $validated['type_id'],

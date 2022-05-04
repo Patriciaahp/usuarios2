@@ -3,6 +3,7 @@
 namespace App\Panel\Forms\Controllers;
 
 use App\Models\Form;
+use App\Models\FormQuestion;
 use App\Panel\Forms\Requests\FormStoreRequest;
 use App\Panel\Forms\Requests\FormUpdateRequest;
 use App\Panel\Shared\Controller;
@@ -90,8 +91,15 @@ class FormController extends Controller
 
     public function question($id)
     {
+        $questions = FormQuestion::all()
+            ->where('form_id', '=', $id)
+            ->sortBy('order_');
+
         $form = Form::findById($id);
-        return view('forms/questions', ['form' => $form]);
+
+
+        return view('forms/questions', ['form' => $form,
+            'questions' => $questions]);
     }
 
 }

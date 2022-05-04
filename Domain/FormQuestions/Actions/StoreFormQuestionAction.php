@@ -34,9 +34,9 @@ class StoreFormQuestionAction
             throw new InvalidArgumentException('field required is required.');
         $this->required = isset($data['required']) ? $data['required'] : null;
 
-        if (!isset($data['order']))
+        if (!isset($data['order_']))
             throw new InvalidArgumentException('order is required.');
-        $this->order = isset($data['order']) ? $data['order'] : null;
+        $this->order = isset($data['order_']) ? $data['order_'] : null;
 
         $this->placeholder = isset($data['placeholder']) ? $data['placeholder'] : null;
 
@@ -52,7 +52,7 @@ class StoreFormQuestionAction
         $this->form = FormQuestion::create([
             'label' => $this->label,
             'required' => $this->required === 'no' ? 0 : 1,
-            'order' => $this->order,
+            'order_' => $this->order,
             'placeholder' => $this->placeholder,
             'help_text' => $this->help_text,
             'type_id' => $this->type_id,

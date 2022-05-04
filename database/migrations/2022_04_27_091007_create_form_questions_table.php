@@ -19,7 +19,7 @@ class CreateFormQuestionsTable extends Migration
             $table->string('help_text')->nullable();
             $table->string('placeholder')->nullable();
             $table->boolean('required');
-            $table->integer('order');
+            $table->integer('order_');
             $table->timestamps();
         });
     }

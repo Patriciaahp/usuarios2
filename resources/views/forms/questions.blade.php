@@ -12,28 +12,28 @@
     <div class="white p-4">
         <form action="">
 
-
-            @foreach($form->formQuestions as $formQuestion)
-                @if($formQuestion->type_id ===2)
-                    <p>Message ID: {{$formQuestion->id}}</p>
+            @foreach($questions as $question)
+                {{ $question}}
+                @if($question->type_id ===2)
+                    <p>Message ID: {{$question->id}}</p>
                     <div class="form-group">
-                        <label for="message">{{ucfirst($formQuestion->label)}}</label>
+                        <label for="message">{{ucfirst($question->label)}}</label>
                         <x-forms.textarea
                             name="message"
-                            title="{{ucfirst($formQuestion->help_text)}}"
-                            required="{{$formQuestion->required}}"
+                            title="{{ucfirst($question->help_text)}}"
+                            required="{{$question->required}}"
                         ></x-forms.textarea>
                     </div>
                 @else
-                    <p>Input ID: {{$formQuestion->id}}</p>
+                    <p>Input ID: {{$question->id}}</p>
 
                     <div class="form-group">
-                        <label for="input">{{ucfirst($formQuestion->label)}}</label>
+                        <label for="input">{{ucfirst($question->label)}}</label>
                         <x-forms.input.text
-                            title="{{ucfirst($formQuestion->help_text)}}"
+                            title="{{ucfirst($question->help_text)}}"
                             name="input"
-                            placeholder="{{$formQuestion->placeholder}}"
-                            required="{{$formQuestion->required}}"/>
+                            placeholder="{{$question->placeholder}}"
+                            required="{{$question->required}}"/>
                     </div>
                 @endif
             @endforeach
