@@ -24,15 +24,6 @@
     </div>
     <div lass="collapse navbar-collapse col ">
         <ul class="navbar-nav mr-auto">
-            @if("forms" != Route::current()->getName())
-                <li class="nav-item p-4">
-                    <div class="col align-self-end">
-                        <button href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">
-                            Filter
-                        </button>
-                    </div>
-                </li>
-            @endif
             @guest
                 <a class="btn btn-success btn-lg rounded-pill padding" type="button"
                    href="{{ route('login') }}">Login</a>
