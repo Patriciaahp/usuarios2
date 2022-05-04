@@ -80,7 +80,13 @@ class FormController extends Controller
     public function preview($id)
     {
         $form = Form::findById($id);
-        return view('forms/preview', ['form' => $form]);
+
+        $questions = FormQuestion::all()
+            ->where('form_id', '=', $id)
+            ->sortBy('order_');
+
+        return view('forms/preview', ['form' => $form,
+            'questions' => $questions]);
     }
 
     public function show($id)

@@ -9,19 +9,27 @@
 @section('content')
     <div class="container-sm white p-4">
         <div class="container-sm">
-            <h1>ID: {{$form->id}}</h1>
-            <h3>{{$form->name}}</h3>
-            <h3>{!!  html_entity_decode($form->title) !!}</h3>
-            <h3>{!!  html_entity_decode($form->description) !!}</h3>
+            <h1>Form:</h1>
+            <h2>Id: {{$form->id}}</h2>
+            <h3>Name: {{$form->name}}</h3>
+            <h3>Title: {!!  html_entity_decode($form->title) !!}</h3>
+            <h3>Description: {!!  html_entity_decode($form->description) !!}</h3>
         </div>
+        <a title="Questions"
+           href="{{ route('forms.form.questions',['id' => $form->id]) }}">
+            <h3>See {{count($questions)}} questions</h3>
+        </a>
         <div class="container-sm">
             <div class="col">
                 <form action="{{ route('forms.delete',['id' => $form->id]) }}" method="POST">
                     <input name="_method" type="hidden" value="DELETE">
                     @csrf
-                    <button type="submit" class="btn btn-outline-danger">Yes, I want to delete this form</button>
+                    <button type="submit" class="btn btn-outline-danger">Yes, I want to delete this form And all the
+                        questions
+                    </button>
                 </form>
             </div>
         </div>
+
     </div>
 @endsection

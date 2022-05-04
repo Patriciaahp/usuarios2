@@ -22,9 +22,5 @@
         <button type="submit" class="btn btn-success btn-lg">
             Continue
         </button>
-
-
     </form>
-
-
 </div>

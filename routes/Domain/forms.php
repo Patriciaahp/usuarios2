@@ -23,7 +23,6 @@ Route::get('/forms/form/{id}/questions', FormController::class . "@question")->n
 Route::get('/forms/create', FormController::class . "@create")->name('forms.create');
 Route::post('/forms/create', FormController::class . "@store")->name('forms.store');
 Route::get('/forms/questions', FormQuestionTable::class)->name('forms.questions');
-Route::get('/forms/form', FormQuestionController::class . "@show")->name('forms.form');
 Route::get('/forms/form/create', FormQuestionController::class . "@create")->name('forms.form.create');
 Route::post('/forms/form/create', FormQuestionController::class . "@store")->name('forms.form.store');
 Route::get('/forms/form/type', FormQuestionTypeTable::class)->name('forms.form.type');

@@ -24,7 +24,6 @@ class FormQuestionController extends Controller
             ]);
     }
 
-
     public function store(FormQuestionRequest $request)
     {
 
