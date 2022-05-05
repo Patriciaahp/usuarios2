@@ -20,6 +20,7 @@ class StoreFormQuestionAction
     private $order;
     private $type_id;
     private $form_id;
+    private $question;
 
     public function __construct(array $data)
     {
@@ -49,7 +50,7 @@ class StoreFormQuestionAction
 
     public function execute()
     {
-        $this->form = FormQuestion::create([
+        $this->question = FormQuestion::create([
             'label' => $this->label,
             'required' => $this->required === 'no' ? 0 : 1,
             'order_' => $this->order,
@@ -59,6 +60,6 @@ class StoreFormQuestionAction
             'form_id' => $this->form_id
         ]);
 
-        return new ResponseCodeFormStored($this->form);
+        return new ResponseCodeFormStored($this->question);
     }
 }

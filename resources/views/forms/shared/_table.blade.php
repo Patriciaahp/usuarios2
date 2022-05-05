@@ -1,12 +1,12 @@
-@if($forms->count())
-    <div class="container-sm">
-        <a href="{{ route('forms.create') }}" class="btn btn-success btn-lg" type="button">New Form</a>
-
+<div class="container-sm">
+    <a href="{{ route('forms.create') }}" class="btn btn-success btn-lg" type="button">New Form</a>
+    @if($forms->count())
         <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
+                <th scope="col">view</th>
                 <th scope="col">Questions</th>
                 <th scope="col">Add new question</th>
                 <th scope="col">Actions</th>
@@ -19,6 +19,12 @@
                     <td><a data-toggle="modal" id="smallButton" data-target="#smallModal"
                            data-attr="{{ route('forms.show',['id' => $form->id]) }}" title="Show details">
                         {{ucfirst($form->name)}}
+                    </td>
+                    <td>
+                        <a title="View"
+                           href="{{ route('forms.form.view',['id' => $form->id]) }}">
+                            View
+                        </a>
                     </td>
                     <td>
                         <a title="Questions"
@@ -61,7 +67,7 @@
             @endforeach
             </tbody>
         </table>
-    </div>
+</div>
 
 @else
     <h2>No forms available</h2>

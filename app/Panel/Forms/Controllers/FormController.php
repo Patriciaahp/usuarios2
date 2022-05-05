@@ -89,6 +89,19 @@ class FormController extends Controller
             'questions' => $questions]);
     }
 
+    public function view($id)
+    {
+        $form = Form::findById($id);
+
+        $questions = FormQuestion::all()
+            ->where('form_id', '=', $id)
+            ->sortBy('order_');
+
+        return view('forms/view', ['form' => $form,
+            'questions' => $questions]);
+    }
+
+
     public function show($id)
     {
         $form = Form::findById($id);
