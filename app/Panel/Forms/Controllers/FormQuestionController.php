@@ -52,11 +52,18 @@ class FormQuestionController extends Controller
     public function delete($id)
     {
         $question = FormQuestion::find($id);
+
+        $idForm = $question->form_id;
+
+        $form = Form::find($idForm);
+      
         $action = new DeleteFormQuestionAction($question);
         $result = $action->execute($question);
 
         $question = $result->object;
-        return redirect()->route('forms.form.view');
+        return redirect()->route('forms.form.view',
+            [
+                'id' => $form->id]);
     }
 
     public function edit($id)
@@ -71,7 +78,7 @@ class FormQuestionController extends Controller
         $idForm = $question->form_id;
 
         $form = Form::find($idForm);
-        
+
         $validated = $request->validated();
 
         $data = [

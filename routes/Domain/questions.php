@@ -5,7 +5,7 @@ use App\Http\Livewire\Forms\FormQuestionTypeTable;
 use App\Panel\Forms\Controllers\FormQuestionController;
 use Illuminate\Support\Facades\Route;
 
-Route::delete('/forms/form/question/delete', FormQuestionController::class . "@delete")->name('forms.form.view.delete');
+Route::delete('/forms/question/{id}/delete', FormQuestionController::class . "@delete")->name('forms.form.view.delete');
 Route::get('/forms/questions', FormQuestionTable::class)->name('forms.questions');
 Route::get('/forms/form/create', FormQuestionController::class . "@create")->name('forms.form.create');
 Route::put('/questions/{id}', FormQuestionController::class . "@update")->name('questions.update');
