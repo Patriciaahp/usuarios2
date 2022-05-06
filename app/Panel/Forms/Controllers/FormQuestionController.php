@@ -56,7 +56,7 @@ class FormQuestionController extends Controller
         $idForm = $question->form_id;
 
         $form = Form::find($idForm);
-      
+
         $action = new DeleteFormQuestionAction($question);
         $result = $action->execute($question);
 
@@ -69,7 +69,11 @@ class FormQuestionController extends Controller
     public function edit($id)
     {
         $question = FormQuestion::find($id);
-        return view('questions/update', ['question' => $question]);
+        $idForm = $question->form_id;
+
+        $form = Form::find($idForm);
+        return view('questions/update', ['question' => $question,
+            'id' => $form->id]);
     }
 
     public function update(FormQuestionUpdateRequest $request, $id)
@@ -97,6 +101,21 @@ class FormQuestionController extends Controller
         return redirect()->route('forms.form.view',
             [
                 'id' => $form->id]);
+    }
+
+    public function preview($id)
+    {
+        $question = FormQuestion::find($id);
+        $idForm = $question->form_id;
+
+        $form = Form::find($idForm);
+
+
+        return view('questions/preview', [
+            'id' => $form->id,
+            'question' => $question
+
+        ]);
     }
 
 }

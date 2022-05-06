@@ -8,7 +8,6 @@
                 <th scope="col">Name</th>
                 <th scope="col">view</th>
                 <th scope="col">Questions</th>
-                <th scope="col">Add new question</th>
                 <th scope="col">Actions</th>
             </tr>
             </thead>
@@ -31,19 +30,6 @@
                            href="{{ route('forms.form.questions',['id' => $form->id]) }}">
                             Questions
                         </a>
-                    </td>
-                    <td>
-                        <form action="{{ route('forms.form.type') }}" method="GET">
-                            @csrf
-                            <div class="container-sm">
-                                <input value="{{ $form->id }}" type="hidden" name="form_id" id="form_id"
-                                       class="form-control">
-                                <button type="submit" class="btn btn-success btn-lg">
-                                    New
-                                    Question
-                                </button>
-                            </div>
-                        </form>
                     </td>
                     <td>
                         <div class="dropdown">

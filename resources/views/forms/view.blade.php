@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 @section('title', 'Form Edit')
 @section('heading')
-    <div class="container-fluid col col-4">
-        <h1 class="col row text-center">Form Detail</h1>
-        <a href="{{ route('forms') }}" class="btn btn-outline-primary row col col-4" type="button">Back</a>
+    <div class="container-fluid row">
+        <h1>Form Detail</h1>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary col-2 float-right" type="button">Back</a>
     </div>
 @endsection
 @section('content')
-    <div class="container-fluid white p-5">
+    <div class="container-fluid white ">
         <div class="container-fluid">
             <table class="table table-xxl">
                 <thead>
@@ -29,12 +29,26 @@
                 </tr>
                 </tbody>
             </table>
+
             <a title="Questions"
                href="{{ route('forms.form.questions',['id' => $form->id]) }}">
                 <h3 href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">
                     See {{count($questions)}} questions</h3>
             </a>
             <div id="Filter" wire:ignore class="collapse">
+                <div class="float-right">
+                    <form action="{{ route('questions.type') }}" method="GET">
+                        @csrf
+                        <div class="container-sm">
+                            <input value="{{ $form->id }}" type="hidden" name="form_id" id="form_id"
+                                   class="form-control">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                New
+                                Question
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 <table class="table table-xxl">
                     <thead>
                     <tr>
@@ -51,7 +65,6 @@
                     <tbody>
                     @foreach($questions as $question)
                         <tr>
-                            {{$question}}
                             <th scope="row">{{$question->id}}</th>
                             <td>
                                 @if($question->type_id == 2)
@@ -81,36 +94,15 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" title="Edit this form"
-                                           href="">
+                                           href="{{ route('questions.edit',['id' => $question->id]) }}">
                                             Edit
                                         </a>
-                                        <a class="dropdown-item">
-                                            <form action="{{ route('forms.form.view.delete',['id' => $question->id]) }}"
-                                                  method="POST">
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                @csrf
-                                                <button type="submit" class="btn btn-outline-danger">
-                                                    Delete Question
-                                                </button>
-                                            </form>
+                                        <a class="dropdown-item"
+                                           href="{{ route('questions.preview',['id' => $question->id]) }}">
+                                            Delete
                                         </a>
                                     </div>
                                 </div>
-                            </td>
-                            <td>
-                                <form action="{{ route('forms.form.view.delete',['id' => $question->id]) }}"
-                                      method="POST">
-                                    <input name="_method" type="hidden" value="DELETE">
-                                    @csrf
-                                    <button type="submit" class="btn btn-outline-danger">Delete question
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <a class="dropdown-item" title="Edit this form"
-                                   href="{{ route('questions.edit',['id' => $question->id]) }}">
-                                    Edit
-                                </a>
                             </td>
                         </tr>
                     @endforeach

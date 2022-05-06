@@ -4,7 +4,8 @@
 @section('heading')
     <div class="container-fluid col col-4">
         <h1 class="row col col-6">Updating Question: {{$question->id}}</h1>
-
+        <a href="{{ route('forms.form.view', ['id' => $id]) }}" class="btn btn-outline-primary row col col-4"
+           type="button">Back</a>
     </div>
 @endsection
 @section('content')
