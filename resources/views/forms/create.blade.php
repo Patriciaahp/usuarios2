@@ -9,16 +9,18 @@
 
 @endsection
 @section('content')
-    @if ($errors->any())
-        @include('users.shared._errors')
-    @else
-        @include('forms.shared._infoCreated')
-    @endif
-    <form action="{{ route('forms.store') }}" method="POST">
-        @csrf
-        @include('forms.shared._rows')
-        <div>
-            <button type="submit" class="btn btn-success">Create Form</button>
-        </div>
-    </form>
+    <div class="container-fluid white p-4">
+        @if ($errors->any())
+            @include('users.shared._errors')
+        @else
+            @include('forms.shared._infoCreated')
+        @endif
+        <form action="{{ route('forms.store') }}" method="POST">
+            @csrf
+            @include('forms.shared._rows')
+            <div>
+                <button type="submit" class="btn btn-success">Create Form</button>
+            </div>
+        </form>
+    </div>
 @endsection

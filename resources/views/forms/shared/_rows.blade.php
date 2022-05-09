@@ -12,5 +12,4 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description">{{ old('description', $form->description) }}</textarea>
     </div>
-
 </div>
