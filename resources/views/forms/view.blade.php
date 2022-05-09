@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 @section('title', 'Form Edit')
 @section('heading')
-    <div class="container-fluid row">
+    <div class="container-fluid col col-4">
         <h1>Form Detail</h1>
-        <a href="{{ route('forms') }}" class="btn btn-outline-primary col-2 float-right" type="button">Back</a>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary col-4" type="button">Back</a>
     </div>
 @endsection
 @section('content')

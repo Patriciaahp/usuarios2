@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Panel\Forms\Controllers;
+namespace App\Panel\Questions\Controllers;
 
 use App\Models\FormQuestionType;
 use App\Panel\Shared\Controller;
+use function view;
 
 class FormQuestionTypeController extends Controller
 {

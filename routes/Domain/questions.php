@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Livewire\Forms\FormQuestionTable;
-use App\Http\Livewire\Forms\FormQuestionTypeTable;
-use App\Panel\Forms\Controllers\FormQuestionController;
+use App\Http\Livewire\Questions\FormQuestionTable;
+use App\Http\Livewire\Questions\FormQuestionTypeTable;
+use App\Panel\Questions\Controllers\FormQuestionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/forms/question/{id}/preview', FormQuestionController::class . "@preview")->name('questions.preview');

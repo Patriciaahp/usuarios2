@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Panel\Questions\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormQuestionRequest extends FormRequest
+class FormQuestionUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,12 @@ class FormQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'label' => 'required|string',
+            'label' => 'nullable|string|max:20',
             'required' => 'in:yes,no',
-            'order_' => 'required',
-            'placeholder' => 'nullable',
+            'order_' => 'nullable',
+            'placeholder' => 'nullable|max:20',
             'helpText' => 'nullable',
-            'form_id' => 'required|exists:forms,id',
-            'type_id' => 'required|exists:form_question_types,id'
+
         ];
     }
 }

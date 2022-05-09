@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Forms;
+namespace App\Http\Livewire\Questions;
 
 use App\Models\Form;
 use App\Models\FormQuestionType;

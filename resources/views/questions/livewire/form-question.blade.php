@@ -17,20 +17,12 @@
     </div>
 @endsection
 @section('content')
-    <div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                @endforeach
-                @endif
-            </div>
-            <div class="container-fluid white p-4">
-                @if($type_id == 2)
-                    @include('questions.livewire.form-question-message')
-                @else
-                    @include('questions.livewire.form-question-input-text')
-                @endif
-            </div>
+    @include('questions.shared._errors')
+    <div class="container-fluid white p-4">
+        @if($type_id == 2)
+            @include('questions.livewire.form-question-message')
+        @else
+            @include('questions.livewire.form-question-input-text')
+        @endif
+    </div>
 @endsection

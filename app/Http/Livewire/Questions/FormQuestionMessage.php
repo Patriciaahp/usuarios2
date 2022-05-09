@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Forms;
+namespace App\Http\Livewire\Questions;
 
 use Livewire\Component;
 use function view;
@@ -9,6 +9,6 @@ class FormQuestionMessage extends Component
 {
     public function render()
     {
-        return view('livewire.form-question-message');
+        return view('questions/livewire.form-question-message');
     }
 }
