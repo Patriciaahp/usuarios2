@@ -19,7 +19,7 @@
             <div class="col-5">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item p-3">
-                        <a class="nav-link text-light  button teal" href="{{ route('users') }}">User List</a>
+                        <a class="nav-link text-light  button tealShine" href="{{ route('users') }}">User List</a>
                     </li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
             <div>
                 <ul class=" navbar-nav">
                     <li class="nav-item p-4">
-                        <a class="nav-link text-light button teal" href="{{ route('forms') }}">Form
+                        <a class="nav-link text-light button tealShine " href="{{ route('forms') }}">Form
                             List</a>
                     </li>
                 </ul>

@@ -1,5 +1,5 @@
-<table class="table table-hover  fs-4">
-    <thead>
+<table class="table table-hover mt-5 fs-4">
+    <thead class="thead">
     <tr>
         @if(in_array('Id', $selectedColumns))
             <th wire:click="sort('users.id')" scope="col">

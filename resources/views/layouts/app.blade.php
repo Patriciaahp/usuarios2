@@ -68,21 +68,55 @@
         text-align: center;
         color: #000;
         font-weight: 200;
+        font-size: medium;
         display: inline-block;
     }
 
-    /* Teal */
+    /* Teal shine */
+    .tealShine {
+
+        border: 2px solid #008080;
+        color: #000000;
+    }
+
+    .tealShine:hover {
+        box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+        border-color: #00d7c3;
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .thead {
+        background-color: #008080;
+        color: #FFFFFF;
+    }
+
+    /* Teal*/
     .teal {
 
         border: 2px solid #008080;
+        background-color: #008080;
         color: #000000;
 
     }
 
     .teal:hover {
-        box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-        border-color: #00d7c3;
+        background-color: #00d7c3;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    /* Teal Outline*/
+    .tealOutline {
+        border: 2px solid #008080;
+        background-color: #fff8f8;
         color: #000000;
+
+    }
+
+    .tealOutline:hover {
+        background-color: #008080;
+        color: #FFFFFF;
         text-decoration: none;
     }
 
