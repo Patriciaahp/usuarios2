@@ -18,7 +18,7 @@ class FormQuestionTable extends Component
         $form_id = $request->get('form_id');
 
 
-        return view('livewire.form-question',
+        return view('questions/livewire.form-question',
             [
 
                 'form_id' => $form_id,

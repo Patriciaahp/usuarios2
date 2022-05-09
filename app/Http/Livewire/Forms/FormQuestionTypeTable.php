@@ -19,7 +19,7 @@ class FormQuestionTypeTable extends Component
 
 
         $types = FormQuestionType::all();
-        return view('livewire.form-question-type', [
+        return view('questions/livewire.form-question-type', [
             'types' => $types,
             'form' => $form,
             'form_id' => $form_id,
