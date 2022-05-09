@@ -27,7 +27,5 @@
         <button type="submit" class="btn btn-success btn-lg">New
             Question
         </button>
-
-
     </form>
 @endsection
