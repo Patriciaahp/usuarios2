@@ -151,5 +151,20 @@
         })
     });
 </script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#title'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
 </body>
 </html>

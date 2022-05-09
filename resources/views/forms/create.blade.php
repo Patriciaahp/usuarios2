@@ -2,10 +2,11 @@
 
 @section('title', 'Form Create')
 @section('heading')
-    <div class="container-fluid row ">
-        <h1 class="row ">Create Form</h1>
-        <a href="{{ route('forms') }}" class="btn btn-outline-primary row " type="button">Form List</a>
+    <h1 class="col ">Create Form</h1>
+    <div>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary" type="button">Form List</a>
     </div>
+
 @endsection
 @section('content')
     @if ($errors->any())
