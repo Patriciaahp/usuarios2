@@ -33,7 +33,7 @@
             <a title="Questions"
                href="{{ route('forms.form.questions',['id' => $form->id]) }}">
                 <h3 href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">
-                    See {{count($questions)}} questions</h3>
+                    Show {{count($questions)}} questions</h3>
             </a>
             <div id="Filter" wire:ignore class="collapse">
                 <div class="float-right">

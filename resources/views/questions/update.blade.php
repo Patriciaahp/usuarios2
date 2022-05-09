@@ -28,12 +28,6 @@
                                            class="form-control">
                                 </div>
 
-                                <input value="{{ $question->type_id }}" type="text" name="type_id" id="type_id"
-                                       class="hidden">
-
-                                <input value="{{ $question->form_id }}" type="text" name="form_id" id="form_id"
-                                       class="hidden">
-
                                 <div class="form-group row ">
                                     <label for="helpText">Help Text:</label>
                                     <textarea class="form-control" id="helpText"
@@ -85,11 +79,6 @@
                                            id="placeholder"
                                            class="form-control">
                                 </div>
-                                <input value="{{ $question->type_id }}" type="text" name="type_id" id="type_id"
-                                       class="hidden">
-
-                                <input value="{{ $question->form_id }}" type="text" name="form_id" id="form_id"
-                                       class="hidden">
 
                                 <div class="form-group row">
                                     <label for="helpText">Help Text:</label>

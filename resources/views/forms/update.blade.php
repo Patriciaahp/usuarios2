@@ -4,8 +4,8 @@
 @section('heading')
     <div class="container-fluid col col-4">
         <h1>Form User</h1>
-        <h2>Name: {{$question->name}}</h2>
-        <a href="{{ route('forms.form.view') }}" class="btn btn-outline-primary col col-2" type="button">Form List</a>
+        <h2>Name: {{$form->name}}</h2>
+        <a href="{{ route('forms') }}" class="btn btn-outline-primary col col-2" type="button">Form List</a>
     </div>
 @endsection
 @section('content')

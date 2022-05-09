@@ -45,8 +45,14 @@ class FormQuestionController extends Controller
         ];
         $action = new StoreFormQuestionAction($data);
         $result = $action->execute();
-        $form = $result->object;
-        return redirect()->route('forms');
+        $question = $result->object;
+        $idForm = $question->form_id;
+
+        $form = Form::find($idForm);
+        return redirect()->route('forms.form.view',
+            [
+                'id' => $form->id
+            ]);
     }
 
     public function delete($id)

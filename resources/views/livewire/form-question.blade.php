@@ -11,7 +11,7 @@
             @endforeach
             @endif
             @if($type_id == 2)
-                <form action="{{ route('forms.form.store') }}" method="POST">
+                <form action="{{ route('questions.store') }}" method="POST">
                     @csrf
                     <div class="container-sm row mx-auto ">
                         <div class="form-group col-xs-8">
@@ -60,7 +60,7 @@
                     </div>
                 </form>
             @else
-                <form action="{{ route('forms.form.store') }}" method="POST">
+                <form action="{{ route('questions.store') }}" method="POST">
                     @csrf
                     <div class="container-sm row mx-auto ">
                         <div class="form-group">
