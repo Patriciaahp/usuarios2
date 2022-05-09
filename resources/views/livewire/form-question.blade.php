@@ -16,7 +16,8 @@
                     <div class="container-sm row mx-auto ">
                         <div class="form-group col-xs-8">
                             <label for="label">Label:</label>
-                            <input value="{{ $form->label }}" type="text" name="label" id="label" class="form-control">
+                            <input value="{{ old('label', $form->label) }}" type="text" name="label" id="label"
+                                   class="form-control">
                         </div>
 
                         <input value="{{ $type_id }}" type="text" name="type_id" id="type_id"
@@ -28,11 +29,12 @@
                         <div class="form-group row ">
                             <label for="helpText">Help Text:</label>
                             <textarea class="form-control" id="helpText"
-                                      name="helpText">{{ $form->helpText }}</textarea>
+                                      name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
                         </div>
                         <div class="form-group row col-xs-4">
                             <label for="order_">Order:</label>
-                            <input class="form-control" min="1" value="{{$form->order_}}" type="number" id="order_"
+                            <input class="form-control" min="1" value="{{ old('order_', $form->order_) }}" type="number"
+                                   id="order_"
                                    name="order_"
                             >
                         </div>
@@ -65,11 +67,13 @@
                     <div class="container-sm row mx-auto ">
                         <div class="form-group">
                             <label for="label">Label:</label>
-                            <input value="{{ $form->label }}" type="text" name="label" id="label" class="form-control">
+                            <input value="{{ old('label', $form->label) }}" type="text" name="label" id="label"
+                                   class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="placeholder">Placeholder:</label>
-                            <input value="{{ $form->placeholder }}" type="text" name="placeholder" id="placeholder"
+                            <input value="{{ old('placeholder', $form->placeholder) }}" type="text" name="placeholder"
+                                   id="placeholder"
                                    class="form-control">
                         </div>
                         <input value="{{ $type_id }}" type="text" name="type_id" id="type_id"
@@ -81,11 +85,12 @@
                         <div class="form-group row">
                             <label for="helpText">Help Text:</label>
                             <textarea class="form-control" id="helpText"
-                                      name="helpText">{{ $form->helpText }}</textarea>
+                                      name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
                         </div>
                         <div class="form-group row col-xs-4">
                             <label for="order_">Order:</label>
-                            <input min="1" value="{{$form->order_}}" type="number" id="order_" name="order_"
+                            <input min="1" value="{{ old('order_', $form->order_) }}" type="number" id="order_"
+                                   name="order_"
                                    class="form-control">
                         </div>
                         <div class="form-group row">
