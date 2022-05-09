@@ -19,14 +19,14 @@
             <div class="col-5">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item p-3">
-                        <a class="nav-link text-light" href="{{ route('users') }}">User List</a>
+                        <a class="nav-link text-light  button teal" href="{{ route('users') }}">User List</a>
                     </li>
                 </ul>
             </div>
         @endif
 
         @if("forms" == Route::current()->getName())
-            <div class="collapse navbar-collapse col-5">
+            <div class="collapse navbar-collapse">
                 <ul class=" navbar-nav">
                     <li class="nav-item p-4">
                         <a class="nav-link disabled text-light" href="{{ route('forms') }}">Form List</a>
@@ -35,9 +35,10 @@
             </div>
         @else
             <div>
-                <ul class=" navbar-nav col-5">
+                <ul class=" navbar-nav">
                     <li class="nav-item p-4">
-                        <a class="nav-link text-light" href="{{ route('forms') }}">Form List</a>
+                        <a class="nav-link text-light button teal" href="{{ route('forms') }}">Form
+                            List</a>
                     </li>
                 </ul>
             </div>

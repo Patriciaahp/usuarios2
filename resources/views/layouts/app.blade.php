@@ -59,6 +59,33 @@
         background: linear-gradient(to bottom, rgba(255, 241, 235, 0.5), rgba(172, 224, 249, 0.5))
     }
 
+    .button {
+        cursor: pointer;
+        border-radius: 20px;
+        width: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: #000;
+        font-weight: 200;
+        display: inline-block;
+    }
+
+    /* Teal */
+    .teal {
+
+        border: 2px solid #008080;
+        color: #000000;
+
+    }
+
+    .teal:hover {
+        box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+        border-color: #00d7c3;
+        color: #000000;
+        text-decoration: none;
+    }
+
     [x-cloak] {
         display: none;
     }

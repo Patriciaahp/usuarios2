@@ -75,6 +75,10 @@
         .gradient-custom {
             background: linear-gradient(to bottom, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5))
         }
+
+        .btn-outline-info, .btn-outline-info:hover, .btn-outline-info:active, .btn-outline-info:visited {
+            background-color: #20c997 !important;
+        }
     </style>
 
     @stack('styles')
