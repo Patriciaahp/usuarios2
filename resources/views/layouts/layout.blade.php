@@ -49,7 +49,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: #27b090;
+            background-color: #68b9a7;
             color: white;
             text-align: center;
         }
@@ -63,11 +63,17 @@
         }
 
         body {
-            background-color: #EDF7EF
+
+            background: linear-gradient(to bottom, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5))
+
         }
 
         .spaceBottom {
             margin-bottom: 20px;
+        }
+
+        .gradient-custom {
+            background: linear-gradient(to bottom, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5))
         }
     </style>
 

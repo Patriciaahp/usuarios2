@@ -56,7 +56,7 @@
     }
 
     body {
-        background-color: #EDF7EF
+        background: linear-gradient(to bottom, rgba(255, 241, 235, 0.5), rgba(172, 224, 249, 0.5))
     }
 
     [x-cloak] {

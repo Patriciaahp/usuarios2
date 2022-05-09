@@ -28,7 +28,7 @@ class UserStoreRequest extends FormRequest
             'name' => 'required|string|max:20|min:3',
             'surname' => 'nullable',
             'email' => 'required|email|unique:users,email',
-            'password' => ['nullable', 'max:12', Password::min(6)->uncompromised()]
+            'password' => ['nullable', 'max:20', Password::min(6)->uncompromised()]
         ];
     }
 }

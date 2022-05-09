@@ -9,8 +9,7 @@
             {{ session('error') }}
         </div>
     @endif
-    <div class="container-fluid teal row p-3">
-
+    <div class="container-fluid  gradient-custom row p-3">
         <div class="container-fluid col col-6">
             <h1 class="text-center">Welcome</h1>
             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="currentColor"

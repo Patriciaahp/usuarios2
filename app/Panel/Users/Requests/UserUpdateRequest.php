@@ -28,7 +28,7 @@ class UserUpdateRequest extends FormRequest
             'name' => 'nullable|string|max:20|min:3',
             'surname' => 'nullable',
             'email' => 'nullable|email|unique:users,email,' . $this->id,
-            'password' => ['nullable', Password::min(6)->uncompromised()]
+            'password' => ['nullable', 'max:20', Password::min(6)->uncompromised()]
         ];
     }
 }
