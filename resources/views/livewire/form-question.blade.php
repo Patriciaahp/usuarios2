@@ -41,7 +41,7 @@
                                 <input value="{{ $form_id }}" type="text" name="form_id" id="form_id"
                                        class="hidden">
 
-                                <div class="form-group row ">
+                                <div class="form-group row">
                                     <label for="helpText">Help Text:</label>
                                     <textarea class="form-control" id="helpText"
                                               name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
@@ -51,8 +51,7 @@
                                     <input class="form-control" min="1" value="{{ old('order_', $form->order_) }}"
                                            type="number"
                                            id="order_"
-                                           name="order_"
-                                    >
+                                           name="order_">
                                 </div>
                                 <div class="form-group row">
                                     <label for="required">Required:</label>
@@ -101,18 +100,18 @@
 
                                 <div class="form-group row">
                                     <label for="helpText">Help Text:</label>
-                                    <textarea class="form-control" id="helpText"
+                                    <textarea class="form-control ml-3" id="helpText"
                                               name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
                                 </div>
                                 <div class="form-group row col-xs-4">
                                     <label for="order_">Order:</label>
                                     <input min="1" value="{{ old('order_', $form->order_) }}" type="number" id="order_"
                                            name="order_"
-                                           class="form-control">
+                                           class="form-control ml-3">
                                 </div>
                                 <div class="form-group row">
                                     <label for="required">Required:</label>
-                                    <div class="form-check">
+                                    <div class="form-check ml-4">
                                         <input value="yes" class="form-check-input" type="radio"
                                                name="required"
                                                id="yes">
@@ -120,7 +119,7 @@
                                             Yes
                                         </label>
                                     </div>
-                                    <div class="form-check">
+                                    <div class="form-check ml-4">
                                         <input value="no" class="form-check-input" type="radio"
                                                name="required"
                                                id="no"
