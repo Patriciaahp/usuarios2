@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-dark container-fluid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="teal" class="bi bi-bricks"
+    <div class="col col-2"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="teal" class="bi bi-bricks"
          viewBox="0 0 16 16">
         <path
             d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5v-3zM3 4v2h4.5V4H3zm5.5 0v2H13V4H8.5zM3 10v2h4.5v-2H3zm5.5 0v2H13v-2H8.5zM1 1v2h3.5V1H1zm4.5 0v2h5V1h-5zm6 0v2H15V1h-3.5zM1 7v2h3.5V7H1zm4.5 0v2h5V7h-5zm6 0v2H15V7h-3.5zM1 13v2h3.5v-2H1zm4.5 0v2h5v-2h-5zm6 0v2H15v-2h-3.5z"/>
     </svg>
     <a href="{{ route('welcome') }}" class="navbar-brand text-light">UserApp</a>
-    <div class="container-fluid row col col-7">
+    <div class="container-fluid row col col-6">
         @if("forms" != Route::current()->getName())
             <div class="collapse navbar-collapse col-5">
                 <ul class=" navbar-nav mr-auto">
@@ -15,9 +16,9 @@
                 </ul>
             </div>
         @else
-            <div>
+            <div class="col-5">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item p-4">
+                    <li class="nav-item p-3">
                         <a class="nav-link text-light" href="{{ route('users') }}">User List</a>
                     </li>
                 </ul>
@@ -25,8 +26,8 @@
         @endif
 
         @if("forms" == Route::current()->getName())
-            <div class="collapse navbar-collapse">
-                <ul class=" navbar-nav mr-auto">
+            <div class="collapse navbar-collapse col-5">
+                <ul class=" navbar-nav">
                     <li class="nav-item p-4">
                         <a class="nav-link disabled text-light" href="{{ route('forms') }}">Form List</a>
                     </li>
@@ -34,7 +35,7 @@
             </div>
         @else
             <div>
-                <ul class=" navbar-nav mr-auto">
+                <ul class=" navbar-nav col-5">
                     <li class="nav-item p-4">
                         <a class="nav-link text-light" href="{{ route('forms') }}">Form List</a>
                     </li>
@@ -42,12 +43,12 @@
             </div>
         @endif
     </div>
-    <div class="dropdown">
+    <div class="dropdown col-1">
         <div class=" dropdown-toggle" type="button"
              id="dropdownMenuButton"
              data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="teal"
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="teal"
                  class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                 <path fill-rule="evenodd"
