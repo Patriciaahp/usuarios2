@@ -1,13 +1,11 @@
-<div class="container-sm">
-    <a href="{{ route('forms.create') }}" class="btn btn-success btn-lg" type="button">New Form</a>
+<div class="container-sm mt-5">
     @if($forms->count())
         <table class="table table-hover">
-            <thead>
+            <thead class="thead">
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">view</th>
-                <th scope="col">Questions</th>
+                <th scope="col">Detail</th>
                 <th scope="col">Actions</th>
             </tr>
             </thead>
@@ -20,20 +18,14 @@
                         {{ucfirst($form->name)}}
                     </td>
                     <td>
-                        <a title="View"
-                           href="{{ route('forms.form.view',['id' => $form->id]) }}">
-                            View
-                        </a>
-                    </td>
-                    <td>
-                        <a title="Questions"
-                           href="{{ route('forms.form.questions',['id' => $form->id]) }}">
-                            Questions
+                        <a title="Detail"
+                           href="{{ route('questions.detail',['id' => $form->id]) }}">
+                            Detail
                         </a>
                     </td>
                     <td>
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button class="btn button tealOutline dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                 Actions

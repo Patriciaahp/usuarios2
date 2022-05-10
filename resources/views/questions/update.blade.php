@@ -1,112 +1,24 @@
 @extends('layouts.layout')
 
-@section('title', 'Question Create')
+@section('title', 'Question Update')
 @section('heading')
     <div class="container-fluid col col-4">
         <h1 class="row col col-6">Updating Question: {{$question->id}}</h1>
-        <a href="{{ route('forms.form.view', ['id' => $id]) }}" class="btn btn-outline-primary row col col-4"
+        <a href="{{ route('questions.detail', ['id' => $id]) }}" class="btn btn-outline-primary row col col-4"
            type="button">Back</a>
     </div>
 @endsection
 @section('content')
     @include('questions.shared._errors')
     <div class="white p-4">
-        @if($question->type_id == 2)
-            <form action="{{ route('questions.update', $question) }}" method="POST">
-                {{ method_field('PUT') }}
-                @csrf
-                <div class="container-sm row mx-auto ">
-                    <div class="form-group col-xs-8">
-                        <label for="label">Label:</label>
-                        <input value="{{ $question->label }}" type="text" name="label" id="label"
-                               class="form-control">
-                    </div>
-
-                    <div class="form-group row ">
-                        <label for="helpText">Help Text:</label>
-                        <textarea class="form-control ml-3" id="helpText"
-                                  name="helpText">{{ $question->helpText }}</textarea>
-                    </div>
-                    <div class="form-group row col-xs-4">
-                        <label for="order_">Order:</label>
-                        <input class="form-control ml-3" min="1" value="{{$question->order_}}" type="number"
-                               id="order_"
-                               name="order_">
-                    </div>
-                    <div class="form-group row">
-                        <label for="required">Required:</label>
-                        <div class="form-check ml-4">
-                            <input value="yes" class="form-check-input" type="radio" name="required"
-                                   id="yes">
-                            <label class="form-check-label" for="required">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check ml-4">
-                            <input value="no" class="form-check-input" type="radio" name="required"
-                                   id="no"
-                                   checked>
-                            <label class="form-check-label" for="required">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-success">Update Question</button>
-                    </div>
+        <form action="{{ route('questions.update', $question) }}" method="POST">
+            {{ method_field('PUT') }}
+            @csrf
+            <div class="container-sm row mx-auto ">
+                @include('questions.shared._fields')
+                <div>
+                    <button type="submit" class="btn btn-success">Update Question</button>
                 </div>
-            </form>
-        @else
-            <form action="{{ route('questions.update', $question) }}" method="POST">
-                {{ method_field('PUT') }}
-                @csrf
-                <div class="container-sm row mx-auto ">
-                    <div class="form-group">
-                        <label for="label">Label:</label>
-                        <input value="{{ $question->label }}" type="text" name="label" id="label"
-                               class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="placeholder">Placeholder:</label>
-                        <input value="{{ $question->placeholder }}" type="text" name="placeholder"
-                               id="placeholder"
-                               class="form-control">
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="helpText">Help Text:</label>
-                        <textarea class="form-control" id="helpText"
-                                  name="helpText">{{ $question->helpText }}</textarea>
-                    </div>
-                    <div class="form-group row col-xs-4">
-                        <label for="order_">Order:</label>
-                        <input min="1" value="{{$question->order_}}" type="number" id="order_" name="order_"
-                               class="form-control">
-                    </div>
-                    <div class="form-group row">
-                        <label for="required">Required:</label>
-                        <div class="form-check">
-                            <input value="yes" class="form-check-input" type="radio"
-                                   name="required"
-                                   id="yes">
-                            <label class="form-check-label" for="required">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input value="no" class="form-check-input" type="radio"
-                                   name="required"
-                                   id="no"
-                                   checked>
-                            <label class="form-check-label" for="required">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                    <div class="">
-                        <button type="submit" class="btn btn-success">Update Question</button>
-                    </div>
-                </div>
-            </form>
-    @endif
+            </div>
+        </form>
 @endsection

@@ -56,7 +56,8 @@
     }
 
     body {
-        background: linear-gradient(to bottom, rgba(255, 241, 235, 0.5), rgba(172, 224, 249, 0.5))
+        background: rgb(174, 238, 212);
+        background: radial-gradient(circle, rgba(174, 238, 212, 1) 0%, rgba(193, 206, 217, 1) 74%, rgba(192, 203, 217, 1) 100%);
     }
 
     .button {
@@ -94,7 +95,7 @@
     /* Teal*/
     .teal {
 
-        border: 2px solid #008080;
+        border: 2px solid #000000;
         background-color: #008080;
         color: #000000;
 

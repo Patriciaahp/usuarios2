@@ -4,7 +4,7 @@
 @section('heading')
     <h1 class="col ">Question type</h1>
     <div>
-        <a href="{{ route('forms.form.view', ['id' => $form_id]) }}" class="btn btn-outline-primary" type="button">Form
+        <a href="{{ route('questions.detail', ['id' => $form_id]) }}" class="btn btn-outline-primary" type="button">Form
             view</a>
     </div>
 @endsection

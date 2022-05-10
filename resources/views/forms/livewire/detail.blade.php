@@ -1,16 +1,13 @@
-@extends('layouts.layout')
-@section('title', 'Form Edit')
-@section('heading')
-    <div class="container-fluid col col-4">
-        <h1>Form Detail</h1>
-        <a href="{{ route('forms') }}" class="btn btn-outline-primary col-4" type="button">Back</a>
+<div>
+    <div>
+        @include('users.shared._navbar')
+
     </div>
-@endsection
-@section('content')
-    <div class="container-fluid white ">
+
+    <div class="container-sm mt-5">
         <div class="container-fluid">
             <table class="table table-xxl">
-                <thead>
+                <thead class="thead">
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
@@ -31,8 +28,8 @@
             </table>
 
             <a title="Questions"
-               href="{{ route('forms.form.questions',['id' => $form->id]) }}">
-                <h3 href="#Filter" class="btn btn-primary btn-lg" data-toggle="collapse" type="button">
+               href="{{ route('forms.questions',['id' => $form->id]) }}">
+                <h3 href="#Filter" class="button tealOutline" data-toggle="collapse" type="button">
                     Show {{count($questions)}} questions</h3>
             </a>
             <div id="Filter" wire:ignore class="collapse">
@@ -42,15 +39,23 @@
                         <div class="container-sm">
                             <input value="{{ $form->id }}" type="hidden" name="form_id" id="form_id"
                                    class="form-control">
-                            <button type="submit" class="btn btn-success btn-lg">
-                                New
-                                Question
-                            </button>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="button teal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-plus-lg"
+                                         viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                    </svg>
+                                    New
+                                    Question
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
-                <table class="table table-xxl">
-                    <thead>
+                <table class="table table-xxl mt-5">
+                    <thead class="thead">
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Type</th>
@@ -86,7 +91,7 @@
                             <td>{{$question->order_}}</td>
                             <td>
                                 <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button"
+                                    <button class="button tealOutline dropdown-toggle" type="button"
                                             id="dropdownMenuButton"
                                             data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -110,4 +115,4 @@
                 </table>
             </div>
         </div>
-@endsection
+    </div>

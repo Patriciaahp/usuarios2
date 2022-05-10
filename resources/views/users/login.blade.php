@@ -34,7 +34,7 @@
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-success">Sing in</button>
+                    <button type="submit" class="btn teal">Sing in</button>
                 </div>
             </form>
         </div>

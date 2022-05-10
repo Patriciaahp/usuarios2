@@ -23,7 +23,7 @@ class FormQuestionController extends Controller
     {
         $type = $request->get('type');
 
-        return view('forms/createQuestion'
+        return redirect()->route('questions.detail'
             , [
                 'type' => $type,
                 'form' => new FormQuestion()
@@ -51,7 +51,7 @@ class FormQuestionController extends Controller
         $idForm = $question->form_id;
 
         $form = Form::find($idForm);
-        return redirect()->route('forms.form.view',
+        return redirect()->route('questions.detail',
             [
                 'id' => $form->id
             ]);
@@ -59,6 +59,7 @@ class FormQuestionController extends Controller
 
     public function delete($id)
     {
+
         $question = FormQuestion::find($id);
 
         $idForm = $question->form_id;
@@ -69,7 +70,7 @@ class FormQuestionController extends Controller
         $result = $action->execute($question);
 
         $question = $result->object;
-        return redirect()->route('forms.form.view',
+        return redirect()->route('questions.detail',
             [
                 'id' => $form->id]);
     }
@@ -106,7 +107,7 @@ class FormQuestionController extends Controller
         $result = $action->execute();
 
         $question = $result->object;
-        return redirect()->route('forms.form.view',
+        return redirect()->route('questions.detail',
             [
                 'id' => $form->id]);
     }

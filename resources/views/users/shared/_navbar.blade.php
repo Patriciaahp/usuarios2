@@ -7,11 +7,19 @@
     </svg>
     <a href="{{ route('welcome') }}" class="navbar-brand text-light">UserApp</a>
     <div class="container-fluid row col col-6">
-        @if("forms" != Route::current()->getName())
+        @if("users" == Route::current()->getName())
             <div class="collapse navbar-collapse col-5">
                 <ul class=" navbar-nav mr-auto">
                     <li class="nav-item p-4">
                         <a class="text-light nav-link disabled" href="{{ route('users') }}">User List</a>
+                    </li>
+                </ul>
+            </div>
+        @elseif("forms" == Route::current()->getName())
+            <div class="col-5">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item p-3">
+                        <a class="nav-link text-light  button tealShine" href="{{ route('users') }}">User List</a>
                     </li>
                 </ul>
             </div>
@@ -24,12 +32,20 @@
                 </ul>
             </div>
         @endif
-
         @if("forms" == Route::current()->getName())
             <div class="collapse navbar-collapse">
                 <ul class=" navbar-nav">
                     <li class="nav-item p-4">
                         <a class="nav-link disabled text-light" href="{{ route('forms') }}">Form List</a>
+                    </li>
+                </ul>
+            </div>
+        @elseif("users" == Route::current()->getName())
+            <div>
+                <ul class=" navbar-nav">
+                    <li class="nav-item p-4">
+                        <a class="nav-link text-light button tealShine " href="{{ route('forms') }}">Form
+                            List</a>
                     </li>
                 </ul>
             </div>

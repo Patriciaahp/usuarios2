@@ -16,7 +16,7 @@
             <h3>Description: {!!  html_entity_decode($form->description) !!}</h3>
         </div>
         <a title="Questions"
-           href="{{ route('forms.form.questions',['id' => $form->id]) }}">
+           href="{{ route('questions.detail',['id' => $form->id]) }}">
             <h3>See {{count($questions)}} questions</h3>
         </a>
         <div class="container-sm">
@@ -24,7 +24,7 @@
                 <form action="{{ route('forms.delete',['id' => $form->id]) }}" method="POST">
                     <input name="_method" type="hidden" value="DELETE">
                     @csrf
-                    <button type="submit" class="btn btn-outline-danger">Yes, I want to delete this form And all the
+                    <button type="submit" class="btn btn-outline-danger">Yes, I want to delete this form and all the
                         questions
                     </button>
                 </form>

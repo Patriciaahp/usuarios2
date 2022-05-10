@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/forms', FormsTable::class)->name('forms');
-Route::get('/forms/form/{id}/preview', FormController::class . "@view")->name('forms.form.view');
-Route::get('/forms/form/{id}/questions', FormController::class . "@question")->name('forms.form.questions');
 Route::get('/forms/create', FormController::class . "@create")->name('forms.create');
 Route::post('/forms/create', FormController::class . "@store")->name('forms.store');
 Route::get('/forms/preview/{id}', FormController::class . "@preview")->name('forms.preview');
