@@ -2,7 +2,7 @@
 
 namespace Domain\Users\Users\Actions;
 
-use App\Models\User;
+use Domain\Users\Models\User;
 use Domain\Users\Users\ResponseCodes\ResponseCodeUserUpdated;
 
 class UpdateUserAction
@@ -14,7 +14,7 @@ class UpdateUserAction
     private $user;
 
 
-    public function __construct(User $user, array $data )
+    public function __construct(User $user, array $data)
     {
         $this->user = $user;
 
@@ -23,18 +23,19 @@ class UpdateUserAction
         $this->surname = isset($data['surname']) ? $data['surname'] : $user['surname'];
         $this->password = isset($data['password']) ? $data['password'] : null;
     }
+
 //mirar password
     public function execute()
     {
-       $data = array(
-        'name'    => $this->name,
-        'surname' => $this->surname,
-        'email'   => $this->email
-    );
+        $data = array(
+            'name' => $this->name,
+            'surname' => $this->surname,
+            'email' => $this->email
+        );
 
-    if($this->password){
-        $data['password'] = bcrypt($this->password);
-    }
+        if ($this->password) {
+            $data['password'] = bcrypt($this->password);
+        }
 
 
         $this->user->fill($data);

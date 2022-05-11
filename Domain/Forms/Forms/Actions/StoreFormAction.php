@@ -2,8 +2,8 @@
 
 namespace Domain\Forms\Forms\Actions;
 
-use App\Models\Form;
 use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormStored;
+use Domain\Forms\Models\Form;
 use InvalidArgumentException;
 use Str;
 

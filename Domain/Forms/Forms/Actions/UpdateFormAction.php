@@ -2,8 +2,8 @@
 
 namespace Domain\Forms\Forms\Actions;
 
-use App\Models\Form;
 use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormUpdated;
+use Domain\Forms\Models\Form;
 
 class UpdateFormAction
 {

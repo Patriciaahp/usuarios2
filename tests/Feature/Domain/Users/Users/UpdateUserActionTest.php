@@ -2,15 +2,14 @@
 
 namespace Tests\Feature\Domain\Users\Users;
 
+use Domain\Users\Models\User;
 use Domain\Users\Users\Actions\StoreUserAction;
+use Domain\Users\Users\Actions\UpdateUserAction;
+use Domain\Users\Users\ResponseCodes\ResponseCodeUserUpdated;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
-use InvalidArgumentException;
 use Tests\TestCase;
-use Domain\Users\Users\Actions\UpdateUserAction;
-use Domain\Users\Users\ResponseCodes\ResponseCodeUserUpdated;
-use App\Models\User;
 
 class UpdateUserActionTest extends TestCase
 {
@@ -254,6 +253,7 @@ class UpdateUserActionTest extends TestCase
         $response_fake = new ResponseCodeUserUpdated($user);
         $this->assertTrue(get_class($response_fake) == get_class($result));
     }
+
     /**
      * A basic feature test example.
      * @test
@@ -295,10 +295,10 @@ class UpdateUserActionTest extends TestCase
             'email' => $data['email'],
 
         ]);
-    $credentials = [
-        'email' => $data['email'],
-        'password' => 22222
-    ];
+        $credentials = [
+            'email' => $data['email'],
+            'password' => 22222
+        ];
 
         Auth::once($credentials);
         $this->assertAuthenticated();

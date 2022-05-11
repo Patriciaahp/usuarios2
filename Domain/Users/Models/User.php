@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Domain\Users\Models;
 
 use App\Filters\QueryFilter;
 use App\UserQuery;

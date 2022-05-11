@@ -2,8 +2,8 @@
 
 namespace Domain\Forms\Forms\Actions;
 
-use App\Models\Form;
 use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormDeleted;
+use Domain\Forms\Models\Form;
 
 class DeleteFormAction
 {

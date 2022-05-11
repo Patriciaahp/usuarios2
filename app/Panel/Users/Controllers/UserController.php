@@ -2,12 +2,12 @@
 
 namespace App\Panel\Users\Controllers;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use App\Notifications\WelcomeEmail;
-use App\Panel\Shared\Controller;
 use App\Panel\Users\Requests\PasswordResetRequest;
 use App\Panel\Users\Requests\UserStoreRequest;
 use App\Panel\Users\Requests\UserUpdateRequest;
+use Domain\Users\Models\User;
 use Domain\Users\Users\Actions\ActivateUserAction;
 use Domain\Users\Users\Actions\DeactivateUserAction;
 use Domain\Users\Users\Actions\DeleteUserAction;
@@ -82,13 +82,6 @@ class UserController extends Controller
     {
 
         return $this->form('users/create', new User());
-    }
-
-    protected function form($view, User $user)
-    {
-        return view($view, [
-            'user' => $user,
-        ]);
     }
 
     public function update(UserUpdateRequest $request, $id)
@@ -189,6 +182,13 @@ class UserController extends Controller
         $action = new ActivateUserAction($user);
         $action->execute();
         return redirect()->route('users');
+    }
+
+    protected function form($view, User $user)
+    {
+        return view($view, [
+            'user' => $user,
+        ]);
     }
 
 }

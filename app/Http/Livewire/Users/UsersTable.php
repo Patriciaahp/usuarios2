@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Users;
 
 use App\Filters\UserFilter;
-use App\Models\User;
+use Domain\Users\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 

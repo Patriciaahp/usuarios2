@@ -2,15 +2,15 @@
 
 namespace Tests\Feature\Domain\Users\Users;
 
+use Domain\Users\Models\User;
+use Domain\Users\Users\Actions\StoreUserAction;
+use Domain\Users\Users\ResponseCodes\ResponseCodeUserStored;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use InvalidArgumentException;
 use Tests\TestCase;
-use Domain\Users\Users\Actions\StoreUserAction;
-use Domain\Users\Users\ResponseCodes\ResponseCodeUserStored;
-use App\Models\User;
 
 class StoreUserActionTest extends TestCase
 {
@@ -150,7 +150,7 @@ class StoreUserActionTest extends TestCase
         $data = array(
             'name' => $this->faker->name,
             'email' => $this->faker->safeEmail,
-           'surname' => $this->faker->name
+            'surname' => $this->faker->name
         );
 
         $action = new StoreUserAction($data);

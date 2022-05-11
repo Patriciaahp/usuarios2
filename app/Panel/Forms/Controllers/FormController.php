@@ -2,11 +2,11 @@
 
 namespace App\Panel\Forms\Controllers;
 
-use App\Models\Form;
-use App\Models\FormQuestion;
+use App\Http\Controllers\Controller;
+use Domain\Forms\Models\Form;
+use Domain\Forms\Models\FormQuestion;
 use App\Panel\Forms\Requests\FormStoreRequest;
 use App\Panel\Forms\Requests\FormUpdateRequest;
-use App\Panel\Shared\Controller;
 use Domain\Forms\Forms\Actions\DeleteFormAction;
 use Domain\Forms\Forms\Actions\StoreFormAction;
 use Domain\Forms\Forms\Actions\UpdateFormAction;
@@ -17,13 +17,6 @@ class FormController extends Controller
     public function create()
     {
         return $this->form('forms/create', new Form());
-    }
-
-    protected function form($view, Form $form)
-    {
-        return view($view, [
-            'form' => $form,
-        ]);
     }
 
     public function update(FormUpdateRequest $request, $id)
@@ -101,7 +94,6 @@ class FormController extends Controller
             'questions' => $questions]);
     }
 
-
     public function show($id)
     {
         $form = Form::findById($id);
@@ -119,6 +111,13 @@ class FormController extends Controller
 
         return view('forms/questions', ['form' => $form,
             'questions' => $questions]);
+    }
+
+    protected function form($view, Form $form)
+    {
+        return view($view, [
+            'form' => $form,
+        ]);
     }
 
 }

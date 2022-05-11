@@ -2,7 +2,7 @@
 
 namespace Domain\Users\Users\Actions;
 
-use App\Models\User;
+use Domain\Users\Models\User;
 use Domain\Users\Users\ResponseCodes\ResponseCodeUserDeleted;
 
 class DeleteUserAction

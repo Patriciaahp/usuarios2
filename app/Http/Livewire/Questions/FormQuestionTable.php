@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Questions;
 
 
-use App\Models\FormQuestion;
+use Domain\Forms\Models\FormQuestion;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use function view;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Domain\FormQuestions\Actions;
+namespace Domain\Forms\FormQuestions\Actions;
 
-use App\Models\FormQuestion;
 use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormStored;
+use Domain\Forms\Models\FormQuestion;
 use InvalidArgumentException;
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\FormQuestions\ResponseCodes;
+namespace Domain\Forms\FormQuestions\ResponseCodes;
 
 use Domain\Shared\ActionResponseCode;
 

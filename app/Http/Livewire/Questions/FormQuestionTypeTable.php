@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Questions;
 
-use App\Models\Form;
-use App\Models\FormQuestionType;
+use Domain\Forms\Models\Form;
+use Domain\Forms\Models\FormQuestionType;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use function view;

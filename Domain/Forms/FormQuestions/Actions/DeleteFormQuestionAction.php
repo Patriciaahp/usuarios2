@@ -1,9 +1,9 @@
 <?php
 
-namespace Domain\FormQuestions\Actions;
+namespace Domain\Forms\FormQuestions\Actions;
 
-use App\Models\FormQuestion;
-use Domain\FormQuestions\ResponseCodes\ResponseCodeFormQuestionDeleted;
+use Domain\Forms\FormQuestions\ResponseCodes\ResponseCodeFormQuestionDeleted;
+use Domain\Forms\Models\FormQuestion;
 
 class DeleteFormQuestionAction
 {

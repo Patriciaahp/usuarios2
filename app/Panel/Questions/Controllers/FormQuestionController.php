@@ -3,14 +3,14 @@
 namespace App\Panel\Questions\Controllers;
 
 
-use App\Models\Form;
-use App\Models\FormQuestion;
+use App\Http\Controllers\Controller;
+use Domain\Forms\Models\Form;
+use Domain\Forms\Models\FormQuestion;
 use App\Panel\Questions\Requests\FormQuestionRequest;
 use App\Panel\Questions\Requests\FormQuestionUpdateRequest;
-use App\Panel\Shared\Controller;
-use Domain\FormQuestions\Actions\DeleteFormQuestionAction;
-use Domain\FormQuestions\Actions\StoreFormQuestionAction;
-use Domain\FormQuestions\Actions\UpdateFormQuestionAction;
+use Domain\Forms\FormQuestions\Actions\DeleteFormQuestionAction;
+use Domain\Forms\FormQuestions\Actions\StoreFormQuestionAction;
+use Domain\Forms\FormQuestions\Actions\UpdateFormQuestionAction;
 use Illuminate\Http\Request;
 use function redirect;
 use function view;

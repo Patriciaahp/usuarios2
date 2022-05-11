@@ -3,9 +3,10 @@
         @include('users.shared._navbar')
     </div>
 
-    <div class="container-sm mt-5">
+    <div class="container-sm mt-5 mb-5">
         <div class="container-fluid">
             <table class="table table-xxl">
+                <h3>Form Detail</h3>
                 <thead class="thead">
                 <tr>
                     <th scope="col">Id</th>
@@ -41,6 +42,7 @@
                     </form>
                 </div>
                 <table class="table table-xxl mt-5">
+                    <h3>Question Detail</h3>
                     <thead class="thead">
                     <tr>
                         <th scope="col">Id</th>

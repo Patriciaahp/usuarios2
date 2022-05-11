@@ -2,8 +2,8 @@
 
 namespace App\Panel\Questions\Controllers;
 
-use App\Models\FormQuestionType;
-use App\Panel\Shared\Controller;
+use App\Http\Controllers\Controller;
+use Domain\Forms\Models\FormQuestionType;
 use function view;
 
 class FormQuestionTypeController extends Controller
