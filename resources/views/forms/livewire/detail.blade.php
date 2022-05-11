@@ -1,7 +1,6 @@
 <div>
     <div>
         @include('users.shared._navbar')
-
     </div>
 
     <div class="container-sm mt-5">
@@ -13,7 +12,6 @@
                     <th scope="col">Name</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -27,12 +25,7 @@
                 </tbody>
             </table>
 
-            <a title="Questions"
-               href="{{ route('forms.questions',['id' => $form->id]) }}">
-                <h3 href="#Filter" class="button tealOutline" data-toggle="collapse" type="button">
-                    Show {{count($questions)}} questions</h3>
-            </a>
-            <div id="Filter" wire:ignore class="collapse">
+            <div>
                 <div class="float-right">
                     <form action="{{ route('questions.type') }}" method="GET">
                         @csrf
@@ -40,15 +33,8 @@
                             <input value="{{ $form->id }}" type="hidden" name="form_id" id="form_id"
                                    class="form-control">
                             <div class="d-flex flex-row-reverse">
-                                <button type="submit" class="button teal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                         class="bi bi-plus-lg"
-                                         viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                                    </svg>
-                                    New
-                                    Question
+                                <button type="submit" class="button teal" title="Add a question for this form">
+                                    Add question
                                 </button>
                             </div>
                         </div>
@@ -92,6 +78,7 @@
                             <td>
                                 <div class="dropdown">
                                     <button class="button tealOutline dropdown-toggle" type="button"
+                                            title="Actions for this question"
                                             id="dropdownMenuButton"
                                             data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -106,6 +93,10 @@
                                            href="{{ route('questions.preview',['id' => $question->id]) }}">
                                             Delete
                                         </a>
+                                        <a class="dropdown-item"
+                                           href="{{ route('questions.view',['id' => $question->id]) }}">
+                                            Preview
+                                        </a>
                                     </div>
                                 </div>
                             </td>
@@ -116,3 +107,4 @@
             </div>
         </div>
     </div>
+</div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/form/{id}/questions', Detail::class)->name('questions.detail');
+Route::get('/form/questions/{id}', FormQuestionController::class . "@view")->name('questions.view');
 Route::get('/forms/question/{id}/preview', FormQuestionController::class . "@preview")->name('questions.preview');
 Route::delete('/forms/question/{id}/delete', FormQuestionController::class . "@delete")->name('questions.delete');
 Route::get('/forms/questions', FormQuestionTable::class)->name('forms.questions');

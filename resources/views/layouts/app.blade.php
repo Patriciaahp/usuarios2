@@ -94,7 +94,12 @@
 
     /* Teal*/
     .teal {
-
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 110px;
+        height: 50px;
+        display: inline-flex;
+        justify-content: space-between;
         border: 2px solid #000000;
         background-color: #008080;
         color: #000000;
@@ -198,7 +203,7 @@
 </script>
 <script>
     $(document).ready(function () {
-        $(".relative.px-4").click(function () {
+        $(".relative.px-4").blur(function () {
             location.reload(true);
 
         });

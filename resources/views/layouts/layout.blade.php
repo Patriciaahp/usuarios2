@@ -64,7 +64,8 @@
 
         body {
 
-            background: linear-gradient(to bottom, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5))
+            background: rgb(174, 238, 212);
+            background: radial-gradient(circle, rgba(174, 238, 212, 1) 0%, rgba(193, 206, 217, 1) 74%, rgba(192, 203, 217, 1) 100%);
 
         }
 

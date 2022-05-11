@@ -127,4 +127,20 @@ class FormQuestionController extends Controller
         ]);
     }
 
+    public function view($id)
+    {
+        $question = FormQuestion::find($id);
+        $idForm = $question->form_id;
+
+        $form = Form::find($idForm);
+
+
+        return view('questions/view', [
+            'form' => $form,
+            'question' => $question
+
+        ]);
+    }
+
+
 }

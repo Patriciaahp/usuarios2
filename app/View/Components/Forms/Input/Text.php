@@ -17,12 +17,14 @@ class Text extends Component
     public $name;
     public $title;
     public $required;
+    public $placeholder;
 
-    public function __construct($title, $name, $required)
+    public function __construct($title, $name, $required, $placeholder)
     {
         $this->name = $name;
         $this->title = $title;
         $this->required = $required;
+        $this->placeholder = $placeholder;
     }
 
     /**

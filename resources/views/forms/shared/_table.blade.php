@@ -5,8 +5,8 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">Detail</th>
                 <th scope="col">Actions</th>
+
             </tr>
             </thead>
             <tbody>
@@ -17,12 +17,7 @@
                            data-attr="{{ route('forms.show',['id' => $form->id]) }}" title="Show details">
                         {{ucfirst($form->name)}}
                     </td>
-                    <td>
-                        <a title="Detail"
-                           href="{{ route('questions.detail',['id' => $form->id]) }}">
-                            Detail
-                        </a>
-                    </td>
+
                     <td>
                         <div class="dropdown">
                             <button class="btn button tealOutline dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -31,11 +26,20 @@
                                 Actions
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" title="Preview of this form"
+                                   href="{{ route('forms.view',['id' => $form->id]) }}">
+                                    Preview
+                                </a>
+                                <a class="dropdown-item" title="Details of this form"
+                                   href="{{ route('questions.detail',['id' => $form->id]) }}">
+                                    Detail
+                                </a>
                                 <a class="dropdown-item" title="Edit this form"
                                    href="{{ route('forms.edit',['id' => $form->id]) }}">
                                     Edit
                                 </a>
-                                <a class="dropdown-item" href="{{ route('forms.preview',['id' => $form->id]) }}">
+                                <a class="dropdown-item" title="Delete this form"
+                                   href="{{ route('forms.preview',['id' => $form->id]) }}">
                                     Delete
                                 </a>
                             </div>

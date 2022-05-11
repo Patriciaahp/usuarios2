@@ -29,6 +29,7 @@ class FormsTable extends Component
         $this->resetPage();
     }
 
+
     public function render(FormFilter $formFilter)
     {
 
