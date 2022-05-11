@@ -26,16 +26,25 @@
 <div class="form-group row">
     <label for="required">Required:</label>
     <div class="form-check ml-4">
-        <input value="yes" class="form-check-input" type="radio" name="required"
-               id="yes">
+        @if($question->required == true)
+            <input value="yes" class="form-check-input" type="radio" name="required"
+                   id="yes" checked>
+        @else
+            <input value="yes" class="form-check-input" type="radio" name="required"
+                   id="yes">
+        @endif
         <label class="form-check-label" for="required">
             Yes
         </label>
     </div>
     <div class="form-check ml-4">
-        <input value="no" class="form-check-input" type="radio" name="required"
-               id="no"
-               checked>
+        @if($question->required != true)
+            <input value="no" class="form-check-input" type="radio" name="required"
+                   id="no" checked>
+        @else
+            <input value="no" class="form-check-input" type="radio" name="required"
+                   id="no">
+        @endif
         <label class="form-check-label" for="required">
             No
         </label>

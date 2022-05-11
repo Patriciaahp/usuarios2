@@ -9,6 +9,7 @@
 @endsection
 @section('content')
     <div class="container-sm white p-4">
+        @include('questions.shared._infoDeleted')
         <div class="container-sm">
             <h1>Form: {{$id}}</h1>
             <h2>Id: {{$question->id}}</h2>

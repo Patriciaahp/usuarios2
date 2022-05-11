@@ -2,7 +2,8 @@
 
 @section('title', 'Question type')
 @section('heading')
-    <h1 class="col ">Question Details</h1>
+    <h1 class="col ">Question Details </h1>
+    <h3>Form id:{{$form_id}}</h3>
     <div>
         <form action="{{ route('questions.type') }}" method="GET">
             @csrf
@@ -17,8 +18,13 @@
     </div>
 @endsection
 @section('content')
-    @include('questions.shared._errors')
     <div class="container-fluid white p-4">
+        @if($errors->any())
+            @include('questions.shared._errors')
+        @else
+            @include('questions.shared._infoCreated')
+        @endif
+
         @if($type_id == 2)
             @include('questions.livewire.form-question-message')
         @else

@@ -19,7 +19,7 @@
             <use xlink:href="#info-fill"/>
         </svg>
         <div>
-            You are creating a new form that will appear in form list.
+            You are updating this question, if you save this the new information it will change immediately.
         </div>
     </div>
 </div>

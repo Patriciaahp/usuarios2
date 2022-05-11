@@ -9,8 +9,13 @@
     </div>
 @endsection
 @section('content')
-    @include('questions.shared._errors')
+
     <div class="white p-4">
+        @if ($errors->any())
+            @include('questions.shared._errors')
+        @else
+            @include('questions.shared._infoUpdated')
+        @endif
         <form action="{{ route('questions.update', $question) }}" method="POST">
             {{ method_field('PUT') }}
             @csrf

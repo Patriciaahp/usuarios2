@@ -43,8 +43,7 @@
             <div class="form-check ml-4">
                 <input value="no" class="form-check-input" type="radio"
                        name="required"
-                       id="no"
-                       checked>
+                       id="no">
                 <label class="form-check-label" for="required">
                     No
                 </label>
