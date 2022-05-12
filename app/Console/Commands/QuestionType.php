@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\FormQuestionType;
+use Domain\Forms\Models\FormQuestionType;
 use Illuminate\Console\Command;
 
 class QuestionType extends Command

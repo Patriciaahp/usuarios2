@@ -84,6 +84,13 @@ class UserController extends Controller
         return $this->form('users/create', new User());
     }
 
+    protected function form($view, User $user)
+    {
+        return view($view, [
+            'user' => $user,
+        ]);
+    }
+
     public function update(UserUpdateRequest $request, $id)
     {
         $user = User::findById($id);
@@ -118,6 +125,7 @@ class UserController extends Controller
         } else {
             return view('users/error');
         }
+
     }
 
     public function updatePassword(PasswordResetRequest $request, $id)
@@ -135,7 +143,7 @@ class UserController extends Controller
         $action = new ActivateUserAction($user);
         $action->execute();
 
-        return redirect()->route('/login');
+        return redirect()->route('login');
     }
 
     public function delete($id)
@@ -182,13 +190,6 @@ class UserController extends Controller
         $action = new ActivateUserAction($user);
         $action->execute();
         return redirect()->route('users');
-    }
-
-    protected function form($view, User $user)
-    {
-        return view($view, [
-            'user' => $user,
-        ]);
     }
 
 }

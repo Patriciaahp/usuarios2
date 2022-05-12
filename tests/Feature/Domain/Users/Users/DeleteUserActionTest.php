@@ -5,7 +5,6 @@ namespace Tests\Feature\Domain\Users\Users;
 use Domain\Users\Users\Actions\DeleteUserAction;
 use Domain\Users\Users\Actions\StoreUserAction;
 use Domain\Users\Users\ResponseCodes\ResponseCodeUserDeleted;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,7 +12,6 @@ use Tests\TestCase;
 class DeleteUserActionTest extends TestCase
 {
     use RefreshDatabase;
-    use DatabaseMigrations;
     use WithFaker;
 
     /**
