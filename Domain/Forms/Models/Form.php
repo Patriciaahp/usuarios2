@@ -40,6 +40,11 @@ class Form extends Model
         return $this->hasMany(FormQuestion::class);
     }
 
+    public function forSessions()
+    {
+        return $this->HasMany(FormSession::class);
+    }
+
     public function newEloquentBuilder($query)
     {
         return new FormQuery($query);

@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/forms', FormsTable::class)->name('forms');
-Route::get('/forms/questions/{id}', FormController::class . "@view")->name('forms.view');
-Route::get('/forms/create', FormController::class . "@create")->name('forms.create');
-Route::post('/forms/create', FormController::class . "@store")->name('forms.store');
-Route::get('/forms/preview/{id}', FormController::class . "@preview")->name('forms.preview');
-Route::delete('/forms/preview/{id}', FormController::class . "@delete")->name('forms.delete');
-Route::get('/forms/show/{id}', FormController::class . "@show")->name('forms.show');
-Route::get('/forms/{id}', FormController::class . "@edit")->name('forms.edit');
-Route::put('/forms/{id}', FormController::class . "@update")->name('forms.update');
+Route::get('/admin/forms', FormsTable::class)->name('forms');
+Route::get('/admin/forms/questions/{id}', FormController::class . "@view")->name('forms.view');
+Route::get('/admin/forms/create', FormController::class . "@create")->name('forms.create');
+Route::post('/admin/forms/create', FormController::class . "@store")->name('forms.store');
+Route::get('/admin/forms/preview/{id}', FormController::class . "@preview")->name('forms.preview');
+Route::delete('/admin/forms/preview/{id}', FormController::class . "@delete")->name('forms.delete');
+Route::get('/admin/forms/show/{id}', FormController::class . "@show")->name('forms.show');
+Route::get('/admin/forms/{id}', FormController::class . "@edit")->name('forms.edit');
+Route::put('/admin/forms/{id}', FormController::class . "@update")->name('forms.update');

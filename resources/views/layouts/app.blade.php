@@ -225,5 +225,23 @@
         });
     });
 </script>
+<script>
+
+    function copy(that) {
+        let inp = document.createElement('input');
+        document.body.appendChild(inp)
+        inp.value = that.title
+        inp.select();
+        document.execCommand('copy');
+        inp.remove();
+    }
+</script>
+
+<style>
+    .pointer {
+        cursor: pointer;
+    }
+</style>
+
 </body>
 </html>

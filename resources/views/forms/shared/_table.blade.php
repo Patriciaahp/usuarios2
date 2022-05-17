@@ -6,6 +6,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Actions</th>
+                <th scope="col">Sessions</th>
 
             </tr>
             </thead>
@@ -17,7 +18,6 @@
                            data-attr="{{ route('forms.show',['id' => $form->id]) }}" title="Show details">
                         {{ucfirst($form->name)}}
                     </td>
-
                     <td>
                         <div class="dropdown">
                             <button class="btn button tealOutline dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -26,6 +26,12 @@
                                 Actions
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <form action="{{ route('session',['id' => $form->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="dropdown-item" title="Add session">
+                                        New session
+                                    </button>
+                                </form>
                                 <a class="dropdown-item" title="Preview of this form"
                                    href="{{ route('forms.view',['id' => $form->id]) }}">
                                     Preview
@@ -44,6 +50,11 @@
                                 </a>
                             </div>
                         </div>
+                    </td>
+                    <td>
+                        <a href="{{ route('send', ['id' => $form->id]) }}" class="tealOutline button " type="button">
+                            Sessions
+                        </a>
                     </td>
                 </tr>
             @endforeach

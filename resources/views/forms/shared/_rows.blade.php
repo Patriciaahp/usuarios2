@@ -5,11 +5,12 @@
     </div>
     <div class="form-group">
         <label for="title">Title:</label>
-        <textarea id="title" name="title">{{ old('title', $form->title) }}</textarea>
+        <textarea class="ck" id="title" name="title">{{ old('title', $form->title) }}</textarea>
 
     </div>
     <div class="form-group">
         <label for="description">Description:</label>
-        <textarea id="description" name="description">{{ old('description', $form->description) }}</textarea>
+        <textarea class="example" id="description"
+                  name="description">{{ old('description', $form->description) }}</textarea>
     </div>
 </div>

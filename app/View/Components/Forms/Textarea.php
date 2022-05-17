@@ -18,11 +18,13 @@ class Textarea extends Component
     public $title;
     public $required;
 
+
     public function __construct($title, $name, $required)
     {
         $this->name = $name;
         $this->title = $title;
         $this->required = $required;
+
     }
 
     /**

@@ -19,6 +19,5 @@
         </div>
 
     </div>
-
     @include('forms.shared._table')
 </div>
