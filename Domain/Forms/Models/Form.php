@@ -3,7 +3,7 @@
 namespace Domain\Forms\Models;
 
 
-use App\Filters\QueryFilter;
+use App\Panel\Shared\Filters\QueryFilter;
 use App\Providers\FormQuery;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

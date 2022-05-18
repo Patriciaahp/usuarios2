@@ -1,10 +1,9 @@
 <input
-    class="form-input form-text"
+    class="form-control"
     autocomplete="off"
     type="text"
     name="{{ $name }}"
     id="{{ $name }}"
-    class="input"
     title="{{$title}}"
     size="{{ $size ?? '32' }}"
     placeholder="{{ $placeholder ?? '' }}"

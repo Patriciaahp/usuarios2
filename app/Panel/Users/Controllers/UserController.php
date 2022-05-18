@@ -2,8 +2,8 @@
 
 namespace App\Panel\Users\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Notifications\WelcomeEmail;
+use App\Panel\Shared\Controllers\Controller;
+use App\Panel\Users\Notifications\ResetPasswordEmail;
 use App\Panel\Users\Requests\PasswordResetRequest;
 use App\Panel\Users\Requests\UserStoreRequest;
 use App\Panel\Users\Requests\UserUpdateRequest;
@@ -73,7 +73,7 @@ class UserController extends Controller
 
         $user = $result->object;
 
-        $user->notify(new WelcomeEmail($user->id, $user->remember_token));
+        $user->notify(new ResetPasswordEmail($user->id, $user->remember_token));
 
         return redirect()->route('users');
     }

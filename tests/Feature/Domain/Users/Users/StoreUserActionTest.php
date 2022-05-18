@@ -24,7 +24,6 @@ class StoreUserActionTest extends TestCase
      */
     public function domain_users_users_store_user_action_ok()
     {
-        //TODO - Repasar
 
         $data = array(
             'name' => $this->faker->name,

@@ -41,8 +41,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <script src="/ckeditor/ckeditor.js"></script>
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 
     <style>
         .footer {
@@ -78,6 +77,9 @@
             background: linear-gradient(to bottom, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5))
         }
 
+        .placeholder {
+            font-weight: bold;
+        }
 
     </style>
 
@@ -156,7 +158,18 @@
     });
 </script>
 <script>
-    CKEDITOR.replaceAll();
+    ClassicEditor
+        .create(document.querySelector('#title'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 </body>
 </html>

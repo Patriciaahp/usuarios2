@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Forms;
 
-use App\Filters\FormFilter;
+use App\Panel\Forms\Forms\Filters\FormFilter;
 use Domain\Forms\Models\Form;
 use Livewire\Component;
 use Livewire\WithPagination;

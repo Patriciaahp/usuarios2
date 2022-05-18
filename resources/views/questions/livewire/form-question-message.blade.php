@@ -15,7 +15,7 @@
 
         <div class="form-group row">
             <label for="helpText">Help Text:</label>
-            <textarea class="form-control ml-3" id="helpText"
+            <textarea class="form-control ml-3 " id="title"
                       name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
         </div>
         <div class="form-group row col-xs-4">
@@ -25,7 +25,7 @@
                    id="order_"
                    name="order_">
         </div>
-        <div class="form-group row">
+        <div class="form-group row" hidden>
             <label for="required">Required:</label>
             <div class="form-check ml-3">
                 <input value="yes" class="form-check-input" type="radio" name="required"
@@ -36,7 +36,7 @@
             </div>
             <div class="form-check ml-3">
                 <input value="no" class="form-check-input" type="radio" name="required"
-                       id="no">
+                       id="no" checked>
                 <label class="form-check-label" for="required">
                     No
                 </label>

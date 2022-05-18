@@ -15,11 +15,13 @@
                 <p>Message ID: {{$question->id}}</p>
                 <div class="form-group">
                     <label for="message">{{ucfirst($question->label)}}</label>
-                    <x-forms.textarea class="form-control"
-                                      name="message"
-                                      title="{{ucfirst($question->help_text)}}"
-                                      required="{{$question->required}}"
-                    ></x-forms.textarea>
+                    <x-forms.textarea
+                        name="message"
+                        id="message"
+                        title="{{ucfirst($question->help_text)}}"
+                        required="{{$question->required}}"
+                        placeholder="{{$question->help_text}}"
+                    />
                 </div>
             @else
                 <p>Input ID: {{$question->id}}</p>

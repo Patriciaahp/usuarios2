@@ -6,8 +6,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Actions</th>
-                <th scope="col">Sessions</th>
-
+                
             </tr>
             </thead>
             <tbody>
@@ -32,6 +31,10 @@
                                         New session
                                     </button>
                                 </form>
+                                <a class="dropdown-item" title="Sessions Available"
+                                   href="{{ route('send', ['id' => $form->id]) }}">
+                                    Sessions
+                                </a>
                                 <a class="dropdown-item" title="Preview of this form"
                                    href="{{ route('forms.view',['id' => $form->id]) }}">
                                     Preview
@@ -50,11 +53,6 @@
                                 </a>
                             </div>
                         </div>
-                    </td>
-                    <td>
-                        <a href="{{ route('send', ['id' => $form->id]) }}" class="tealOutline button " type="button">
-                            Sessions
-                        </a>
                     </td>
                 </tr>
             @endforeach

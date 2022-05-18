@@ -2,7 +2,7 @@
 
 namespace App\Panel\Questions\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Panel\Shared\Controllers\Controller;
 use Domain\Forms\Models\FormQuestionType;
 use function view;
 

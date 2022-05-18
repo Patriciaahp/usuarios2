@@ -2,8 +2,8 @@
 
 namespace Domain\Users\Models;
 
-use App\Filters\QueryFilter;
-use App\UserQuery;
+use App\Panel\Shared\Filters\QueryFilter;
+use App\Panel\Users\Queries\UserQuery;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

@@ -12,12 +12,11 @@
             @foreach($questions as $question)
                 @if($question->type_id ===2)
                     <div class="form-group">
-                        <label for="message">{{ucfirst($question->label)}}:</label>
-                        <x-forms.textarea
-                            name="message"
-                            title="{{ucfirst($question->help_text)}}"
-                            required="{{$question->required}}"
-                        ></x-forms.textarea>
+                        <label>{{ucfirst($question->label)}}</label>
+                        <p>
+                            {!!  html_entity_decode($question->help_text) !!}
+                        </p>
+
                     </div>
 
                 @else

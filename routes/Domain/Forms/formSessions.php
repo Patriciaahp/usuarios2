@@ -1,8 +1,8 @@
 <?php
 
 
-use App\Form\FormSessions\Controllers\FormSessionController;
 use App\Http\Livewire\Forms\Sessions;
+use App\Panel\Forms\FormSessions\Controllers\FormSessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/forms/sessions/{id}', FormSessionController::class . "@create")->name('session');

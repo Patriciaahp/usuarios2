@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Users;
 
-use App\Filters\UserFilter;
+use App\Panel\Users\Filters\UserFilter;
 use Domain\Users\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;

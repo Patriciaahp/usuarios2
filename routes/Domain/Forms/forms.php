@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Livewire\Forms\FormsTable;
-use App\Panel\Forms\Controllers\FormController;
+use App\Panel\Forms\Form\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*

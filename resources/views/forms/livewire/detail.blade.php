@@ -67,7 +67,7 @@
                                 @endif
                             </td>
                             <td>{{$question->label}}</td>
-                            <td>{{$question->help_text}}</td>
+                            <td>{!!  html_entity_decode($question->help_text) !!}</td>
                             <td>{{$question->placeholder}}</td>
                             <td>
                                 @if($question->required == 1)

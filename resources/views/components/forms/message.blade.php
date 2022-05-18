@@ -1,10 +1,11 @@
 <textarea
+    class="form-control"
     autocomplete="off"
     rows="4"
-    cols="46"
-    class="form-input form-text"
+    cols="44"
     name="{{$name}}"
     id="{{$name}}"
-    title="{{$title}}"
+    placeholder="{{ $placeholder }}"
     {{ $required == true ? 'required' : '' }}
+    readonly
 ></textarea>
