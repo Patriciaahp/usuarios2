@@ -11,7 +11,7 @@
         <div class="white p-4">
             @foreach($questions as $question)
                 @if($question->type_id ===2)
-                    <div class="form-group">
+                    <div class="form-group mt-5 mb-5">
                         <label>{{ucfirst($question->label)}}</label>
                         <p>
                             {!!  html_entity_decode($question->help_text) !!}
@@ -20,7 +20,7 @@
                     </div>
 
                 @else
-                    <div class="form-group">
+                    <div class="form-group mt-5 mb-5">
                         <label for="input">{{ucfirst($question->label)}}:</label>
                         <x-forms.input.text
                             title="{{ucfirst($question->help_text)}}"
@@ -30,7 +30,8 @@
                     </div>
                 @endif
             @endforeach
-            <button class="btn btn-success" type="submit">Answer</button>
+            <button class="btn btn-success mt-5" type="submit">Answer</button>
         </div>
     </form>
 @endsection
+

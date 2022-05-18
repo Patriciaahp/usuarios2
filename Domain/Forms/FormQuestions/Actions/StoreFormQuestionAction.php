@@ -2,7 +2,7 @@
 
 namespace Domain\Forms\FormQuestions\Actions;
 
-use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormStored;
+use Domain\Forms\FormQuestions\ResponseCodes\ResponseCodeFormQuestionStored;
 use Domain\Forms\Models\FormQuestion;
 use InvalidArgumentException;
 
@@ -60,6 +60,6 @@ class StoreFormQuestionAction
             'form_id' => $this->form_id
         ]);
 
-        return new ResponseCodeFormStored($this->question);
+        return new ResponseCodeFormQuestionStored($this->question);
     }
 }
