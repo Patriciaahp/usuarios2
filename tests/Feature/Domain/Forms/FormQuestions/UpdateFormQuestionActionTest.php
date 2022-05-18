@@ -18,10 +18,10 @@ class UpdateFormQuestionActionTest extends TestCase
     /**
      * A basic feature test example.
      * @test
-     * Command for testing: vendor\bin\phpunit --filter=domain_forms_forms_store_form_question_action_ok
+     * Command for testing: vendor\bin\phpunit --filter=domain_forms_forms_update_form_question_action_ok
      * @return void
      */
-    public function domain_forms_forms_store_form_question_action_ok()
+    public function domain_forms_forms_update_form_question_action_ok()
     {
         $dataForm = array(
             'name' => $this->faker->name,
@@ -32,22 +32,17 @@ class UpdateFormQuestionActionTest extends TestCase
 
         $form = $result->object;
 
-        $dataType = array(
 
-            'internal_name' => $this->faker->name,
-            'name' => $this->faker->name,
-        );
-        $type = new FormQuestionType($dataType);
-        $type = new FormQuestionType();
         $this->artisan('question:type');
-        dd($type->id);
+        $type = FormQuestionType::all()->first();
+
 
         $data = array(
             'label' => $this->faker->name,
             'help_text' => $this->faker->name,
             'placeholder' => $this->faker->name,
             'required' => $this->faker->boolean,
-            'order_' => $this->faker->randomNumber(),
+            'order_' => $this->faker->randomNumber(2),
             'form_id' => $form->id,
             'type_id' => $type->id
         );
