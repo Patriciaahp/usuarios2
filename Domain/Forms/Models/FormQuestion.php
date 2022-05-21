@@ -42,4 +42,8 @@ class FormQuestion extends Model
         return $this->hasOne(FormQuestionType::class);
     }
 
+    public function answers()
+    {
+        return $this->HasMany(Answer::class);
+    }
 }

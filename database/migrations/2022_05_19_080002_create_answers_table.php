@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormQuestionsTable extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateFormQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_questions', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('label');
-            $table->string('help_text')->nullable();
-            $table->string('placeholder')->nullable();
-            $table->boolean('required');
-            $table->integer('order_');
+            $table->text('answer')->nullable();
+            $table->text('label');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateFormQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_questions');
+        Schema::dropIfExists('answers');
     }
 }

@@ -10,6 +10,11 @@ use function view;
 
 class FormQuestionTypeTable extends Component
 {
+    protected $label;
+    protected $placeholder;
+    protected $required;
+    protected $order_;
+    protected $help_text;
 
     public function render(Request $request)
     {

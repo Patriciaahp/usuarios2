@@ -8,5 +8,10 @@ class FormQuestionInputText extends FormQuestion
 {
     use HasFactory;
 
+    protected $label;
+    protected $placeholder;
     protected $required;
+    protected $order_;
+    protected $help_text;
+
 }
