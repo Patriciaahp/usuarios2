@@ -2,9 +2,9 @@
     <h2 class="text-center">Answers</h2>
     @if($answers->count())
 
-        <div class="container-sm white mt-5 ">
+        <div class="container-sm mt-5 ">
             <table class="table">
-                <thead>
+                <thead class="thead">
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Label</th>

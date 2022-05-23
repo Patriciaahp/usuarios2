@@ -14,7 +14,8 @@ class AddCompletedColumnToFormSessionsTable extends Migration
     public function up()
     {
         Schema::table('form_sessions', function (Blueprint $table) {
-            //
+            $table->boolean('completed')->default(false);
+
         });
     }
 
@@ -26,7 +27,8 @@ class AddCompletedColumnToFormSessionsTable extends Migration
     public function down()
     {
         Schema::table('form_sessions', function (Blueprint $table) {
-            //
+            $table->dropColumn('completed');
+
         });
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Domain\Forms\FormSessions\Actions;
 
-use Domain\Forms\FormSessions\ResponseCodes\ResponseCodeFormSessionStored;
+use Domain\Forms\FormSessions\ResponseCodes\ResponseCodeFormSessionStartedAtUpdate;
 use Domain\Forms\Models\FormSession;
 use Str;
 
@@ -28,6 +28,6 @@ class UpdateFormSessionStartedAtAction
         $this->formSession->fill($data);
         $this->formSession->save();
 
-        return new ResponseCodeFormSessionStored($this->formSession);
+        return new ResponseCodeFormSessionStartedAtUpdate($this->formSession);
     }
 }

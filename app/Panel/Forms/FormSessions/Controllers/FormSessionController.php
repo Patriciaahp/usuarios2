@@ -5,6 +5,7 @@ namespace App\Panel\Forms\FormSessions\Controllers;
 use App\Panel\Shared\Controllers\Controller;
 use Domain\Forms\Answers\Actions\StoreAnswerAction;
 use Domain\Forms\FormSessions\Actions\StoreFormSessionAction;
+use Domain\Forms\FormSessions\Actions\UpdateFormSessionCompletedAction;
 use Domain\Forms\FormSessions\Actions\UpdateFormSessionFinishedAtAction;
 use Domain\Forms\Models\Answer;
 use Domain\Forms\Models\Form;
@@ -65,6 +66,12 @@ class FormSessionController extends Controller
             $action2 = new UpdateFormSessionFinishedAtAction($session, $data2);
             $result2 = $action2->execute();
 
+            $data3 = [
+                'completed' => true
+            ];
+            $action3 = new UpdateFormSessionCompletedAction($session, $data3);
+            $result3 = $action3->execute();
+
         }
         return redirect()->route('principal');
     }
@@ -77,6 +84,7 @@ class FormSessionController extends Controller
             ->where('form_id', '=', $id);
         $questions = FormQuestion::all()
             ->where('form_id', '=', $id);
+
         return view('sessions/send',
             [
                 'questions' => $questions,
@@ -96,14 +104,19 @@ class FormSessionController extends Controller
         $questions = FormQuestion::all()
             ->where('form_id', '=', $form->id)
             ->sortBy('order_');
-        return view('sessions/form',
-            [
-                'session_id' => $session->id,
-                'form_id' => $form->id,
-                'session' => $session,
-                'form' => $form,
-                'questions' => $questions,
 
-            ]);
+        if ($session->completed === 0) {
+            return view('sessions/form',
+                [
+                    'session_id' => $session->id,
+                    'form_id' => $form->id,
+                    'session' => $session,
+                    'form' => $form,
+                    'questions' => $questions,
+
+                ]);
+        } else {
+            return view('sessions/principal');
+        }
     }
 }
