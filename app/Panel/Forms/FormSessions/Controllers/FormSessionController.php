@@ -5,6 +5,7 @@ namespace App\Panel\Forms\FormSessions\Controllers;
 use App\Panel\Shared\Controllers\Controller;
 use Domain\Forms\Answers\Actions\StoreAnswerAction;
 use Domain\Forms\FormSessions\Actions\StoreFormSessionAction;
+use Domain\Forms\FormSessions\Actions\UpdateFormSessionFinishedAtAction;
 use Domain\Forms\Models\Answer;
 use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
@@ -39,8 +40,9 @@ class FormSessionController extends Controller
         return view('sessions/principal');
     }
 
-    public function createAnswer(Request $request, $id)
+    public function createAnswer(Request $request, $id, $hash)
     {
+        $session = FormSession::where('hash', $hash)->first();
         $questions = FormQuestion::where('form_id', $id)
             ->where('type_id', 1)->get();
         foreach ($questions as $key => $question) {
@@ -55,7 +57,14 @@ class FormSessionController extends Controller
 
             $action = new StoreAnswerAction($data);
             $result = $action->execute();
-            $session = $result->object;
+            $answer = $result->object;
+
+            $data2 = [
+                'finished_at' => date('Y-m-d H:i:s')
+            ];
+            $action2 = new UpdateFormSessionFinishedAtAction($session, $data2);
+            $result2 = $action2->execute();
+
         }
         return redirect()->route('principal');
     }

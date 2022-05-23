@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="white p-4">
-        <form action="{{ route('answer.create', ['id' => $form->id]) }}" method="POST">
+        <form action="{{ route('answer.create', ['id' => $form->id, 'hash' => $session->hash]) }}" method="POST">
             @csrf
             @foreach($questions as $key => $question)
 
