@@ -43,6 +43,10 @@
 
     }
 
+    .white {
+        background-color: #FFFFFF;
+    }
+
     .padding {
         padding: 2rem;
     }

@@ -6,7 +6,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Actions</th>
-                
+
             </tr>
             </thead>
             <tbody>
@@ -50,6 +50,10 @@
                                 <a class="dropdown-item" title="Delete this form"
                                    href="{{ route('forms.preview',['id' => $form->id]) }}">
                                     Delete
+                                </a>
+                                <a class="dropdown-item" title="Answers"
+                                   href="{{ route('answers',['id' => $form->id]) }}">
+                                    Answers
                                 </a>
                             </div>
                         </div>

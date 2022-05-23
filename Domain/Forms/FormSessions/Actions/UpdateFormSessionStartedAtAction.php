@@ -6,25 +6,25 @@ use Domain\Forms\FormSessions\ResponseCodes\ResponseCodeFormSessionStored;
 use Domain\Forms\Models\FormSession;
 use Str;
 
-class UpdateFormSessionFinishedAtAction
+class UpdateFormSessionStartedAtAction
 {
     /**
      * @param array $data
      */
 
-    private $finished_at;
+    private $started_at;
     private $formSession;
 
     public function __construct(FormSession $formSession, array $data)
     {
         $this->formSession = $formSession;
 
-        $this->finished_at = isset($data['finished_at']) ? $data['finished_at'] : null;
+        $this->started_at = isset($data['started_at']) ? $data['started_at'] : null;
     }
 
     public function execute()
     {
-        $data['finished_at'] = ($this->finished_at);
+        $data['started_at'] = ($this->started_at);
         $this->formSession->fill($data);
         $this->formSession->save();
 
