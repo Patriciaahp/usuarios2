@@ -6,6 +6,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Actions</th>
+                <th scope="col">Send</th>
 
             </tr>
             </thead>
@@ -57,6 +58,15 @@
                                 </a>
                             </div>
                         </div>
+                    </td>
+                    <td>
+                        <form action="{{ route('forms.email') }}" method="POST">
+                            @csrf
+                            <input type="email">
+                            <button class="thead" title="Send" type="submit">
+                                Send
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

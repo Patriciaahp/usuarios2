@@ -109,6 +109,11 @@ class FormController extends Controller
         return view('forms/show', ['form' => $form]);
     }
 
+    public function email()
+    {
+        return redirect()->route('forms');
+    }
+
     public function question($id)
     {
         $questions = FormQuestion::all()

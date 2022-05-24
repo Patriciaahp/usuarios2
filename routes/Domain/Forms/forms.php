@@ -24,3 +24,4 @@ Route::delete('/admin/forms/preview/{id}', FormController::class . "@delete")->n
 Route::get('/admin/forms/show/{id}', FormController::class . "@show")->name('forms.show');
 Route::get('/admin/forms/{id}', FormController::class . "@edit")->name('forms.edit');
 Route::put('/admin/forms/{id}', FormController::class . "@update")->name('forms.update');
+Route::post('/admin/email', FormController::class . "@email")->name('forms.email');

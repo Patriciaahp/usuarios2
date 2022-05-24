@@ -2,6 +2,7 @@
 
 namespace App\Panel\Forms\FormSessions\Controllers;
 
+use App\Mail\SendFormEmail;
 use App\Panel\Shared\Controllers\Controller;
 use Domain\Forms\Answers\Actions\StoreAnswerAction;
 use Domain\Forms\FormSessions\Actions\StoreFormSessionAction;
@@ -12,6 +13,7 @@ use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
 use Domain\Forms\Models\FormSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use function redirect;
 use function view;
 
@@ -39,6 +41,28 @@ class FormSessionController extends Controller
     public function principal()
     {
         return view('sessions/principal');
+    }
+
+    public function preview($id)
+    {
+        $form = Form::find($id);
+        return view('sessions/preview', ['form' => $form]);
+    }
+
+    public function new($id)
+    {
+
+        $form = Form::find($id);
+        return view('sessions/email', ['form' => $form]);
+
+    }
+
+    public function email(Request $request, $id)
+    {
+        $email = $request['email'];
+
+        Mail::to($email)->send(new SendFormEmail);
+        return redirect()->route('send', ['id' => $id]);
     }
 
     public function createAnswer(Request $request, $id, $hash)
@@ -104,6 +128,13 @@ class FormSessionController extends Controller
         $questions = FormQuestion::all()
             ->where('form_id', '=', $form->id)
             ->sortBy('order_');
+
+        $data = [
+            'finished_at' => date('Y-m-d H:i:s')
+        ];
+        $action = new UpdateFormSessionFinishedAtAction($session, $data);
+        $result = $action->execute();
+
 
         if ($session->completed === 0) {
             return view('sessions/form',
