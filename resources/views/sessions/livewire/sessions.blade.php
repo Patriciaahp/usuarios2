@@ -50,10 +50,15 @@
                                     <a style="text-decoration: none" class="dropdown-item pointer" data-toggle="modal"
                                        id="smallButton"
                                        data-target="#smallModal"
-                                       data-attr="{{ route('session.preview',['id' => $form->id]) }}">
+                                       data-attr="{{ route('new',['hash' => $session->hash, 'id' => $form->id]) }}">
                                         Send Form
                                     </a>
                                 @endif
+                                <a style="text-decoration: none"
+                                   class="dropdown-item pointer"
+                                   href="{{ route('pdf',['id' => $session->id]) }}">
+                                    PDF
+                                </a>
                             </div>
                         </div>
                     </td>

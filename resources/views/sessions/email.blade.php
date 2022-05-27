@@ -8,7 +8,7 @@
     <div class="modal-body">
         <h1 class="col"></h1>
         <div class="container-fluid white p-4">
-            <form action="{{route('send.email', ['id' => $form->id])}}" method="POST">
+            <form action="{{route('send.email', ['id' => $form->id, 'hash' => $session->hash])}}" method="POST">
                 @csrf
                 <label for="email">Send this form to: </label>
                 <input id="email" name="email" type="email">

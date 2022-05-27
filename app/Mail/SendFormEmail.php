@@ -15,9 +15,11 @@ class SendFormEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($form, $session)
     {
-        //
+        $this->form = $form;
+
+        $this->session = $session;
     }
 
     /**
@@ -27,6 +29,7 @@ class SendFormEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails/sendForm');
+
+        return $this->view('mails/sendForm', ['form' => $this->form, 'session' => $this->session]);
     }
 }

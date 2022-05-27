@@ -13,12 +13,24 @@ use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
 use Domain\Forms\Models\FormSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use function redirect;
 use function view;
 
 class FormSessionController extends Controller
 {
+    public function pdf($id)
+    {
+        $session = FormSession::find($id)->first();
+
+        $dompdf = App::make("dompdf.wrapper");
+        $dompdf->loadView("answers/answersPdf", [
+            'session' => $session
+        ]);
+        return $dompdf->stream();
+    }
+
     public function create($id)
     {
         $data = [
@@ -43,25 +55,23 @@ class FormSessionController extends Controller
         return view('sessions/principal');
     }
 
-    public function preview($id)
+    public function new($id, $hash)
     {
         $form = Form::find($id);
-        return view('sessions/preview', ['form' => $form]);
-    }
+        $session = FormSession::where('hash', $hash)->first();
 
-    public function new($id)
-    {
-
-        $form = Form::find($id);
-        return view('sessions/email', ['form' => $form]);
+        return view('sessions/email', ['form' => $form, 'session' => $session]);
 
     }
 
-    public function email(Request $request, $id)
+    public function email(Request $request, $id, $hash)
     {
         $email = $request['email'];
 
-        Mail::to($email)->send(new SendFormEmail);
+        $form = Form::find($id);
+        $session = FormSession::where('hash', $hash)->first();
+
+        Mail::to($email)->send(new SendFormEmail($form, $session));
         return redirect()->route('send', ['id' => $id]);
     }
 
