@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Domain\Users\Users;
 
-use Domain\Users\Users\Actions\DeleteUserAction;
-use Domain\Users\Users\Actions\StoreUserAction;
-use Domain\Users\Users\ResponseCodes\ResponseCodeUserDeleted;
+use Domain\Users\User\Actions\DeleteUserAction;
+use Domain\Users\User\Actions\StoreUserAction;
+use Domain\Users\User\ResponseCodes\ResponseCodeUserDeleted;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;

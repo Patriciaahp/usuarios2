@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Forms;
 
-use App\Panel\Forms\Forms\Filters\FormFilter;
+use App\Panel\Forms\Form\Filters\FormFilter;
 use Domain\Forms\Models\Form;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -28,7 +28,6 @@ class FormsTable extends Component
     {
         $this->resetPage();
     }
-
 
     public function render(FormFilter $formFilter)
     {

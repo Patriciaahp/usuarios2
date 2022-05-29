@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
             'name' => 'Patricia',
             'surname' => '',
             'email' => 'patricia@mail.com',
-            'active' => true,
-            'password' => 'perrocopito1', // password
+            'active' => 1,
+            'password' => bcrypt('perrocopito1'), // password
 
         ]);
     }

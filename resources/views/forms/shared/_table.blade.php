@@ -55,6 +55,10 @@
                                    href="{{ route('answers',['id' => $form->id]) }}">
                                     Answers
                                 </a>
+                                <a class="dropdown-item" title="Answers"
+                                   href="{{ route('answers.pdf',['id' => $form->id]) }}">
+                                    Answers PDF
+                                </a>
                             </div>
                         </div>
                     </td>

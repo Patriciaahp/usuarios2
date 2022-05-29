@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Domain\Forms\Forms;
 
-use Domain\Forms\Forms\Actions\StoreFormAction;
-use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormStored;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\Form\ResponseCodes\ResponseCodeFormStored;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use InvalidArgumentException;

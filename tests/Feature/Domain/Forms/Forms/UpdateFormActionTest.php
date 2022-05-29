@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Domain\Forms\Forms;
 
-use Domain\Forms\Forms\Actions\StoreFormAction;
-use Domain\Forms\Forms\Actions\UpdateFormAction;
-use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormUpdated;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\Form\Actions\UpdateFormAction;
+use Domain\Forms\Form\ResponseCodes\ResponseCodeFormUpdated;
 use Domain\Forms\Models\Form;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

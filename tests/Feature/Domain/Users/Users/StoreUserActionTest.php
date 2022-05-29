@@ -3,8 +3,8 @@
 namespace Tests\Feature\Domain\Users\Users;
 
 use Domain\Users\Models\User;
-use Domain\Users\Users\Actions\StoreUserAction;
-use Domain\Users\Users\ResponseCodes\ResponseCodeUserStored;
+use Domain\Users\User\Actions\StoreUserAction;
+use Domain\Users\User\ResponseCodes\ResponseCodeUserStored;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;

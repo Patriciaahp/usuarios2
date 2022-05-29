@@ -8,12 +8,11 @@ use App\Panel\Users\Requests\PasswordResetRequest;
 use App\Panel\Users\Requests\UserStoreRequest;
 use App\Panel\Users\Requests\UserUpdateRequest;
 use Domain\Users\Models\User;
-use Domain\Users\Users\Actions\ActivateUserAction;
-use Domain\Users\Users\Actions\DeactivateUserAction;
-use Domain\Users\Users\Actions\DeleteUserAction;
-use Domain\Users\Users\Actions\StoreUserAction;
-use Domain\Users\Users\Actions\UpdatePasswordAction;
-use Domain\Users\Users\Actions\UpdateUserAction;
+use Domain\Users\User\Actions\ActivateUserAction;
+use Domain\Users\User\Actions\DeleteUserAction;
+use Domain\Users\User\Actions\StoreUserAction;
+use Domain\Users\User\Actions\UpdatePasswordAction;
+use Domain\Users\User\Actions\UpdateUserAction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -174,22 +173,5 @@ class UserController extends Controller
         return view('users/show', ['user' => $user]);
     }
 
-    public function inactive($id)
-    {
-        $user = User::findById($id);
-
-        $action = new DeactivateUserAction($user);
-        $action->execute();
-        return redirect()->route('users');
-    }
-
-    public function active($id)
-    {
-        $user = User::findById($id);
-
-        $action = new ActivateUserAction($user);
-        $action->execute();
-        return redirect()->route('users');
-    }
 
 }

@@ -2,12 +2,12 @@
 
 namespace App\Panel\Forms\Form\Controllers;
 
-use App\Panel\Forms\Forms\Requests\FormStoreRequest;
-use App\Panel\Forms\Forms\Requests\FormUpdateRequest;
+use App\Panel\Forms\Form\Requests\FormStoreRequest;
+use App\Panel\Forms\Form\Requests\FormUpdateRequest;
 use App\Panel\Shared\Controllers\Controller;
-use Domain\Forms\Forms\Actions\DeleteFormAction;
-use Domain\Forms\Forms\Actions\StoreFormAction;
-use Domain\Forms\Forms\Actions\UpdateFormAction;
+use Domain\Forms\Form\Actions\DeleteFormAction;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\Form\Actions\UpdateFormAction;
 use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
 use function redirect;

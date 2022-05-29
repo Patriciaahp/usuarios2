@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Domain\Forms\FormQuestions;
 
-use Domain\Forms\FormQuestions\Actions\DeleteFormQuestionAction;
-use Domain\Forms\FormQuestions\Actions\StoreFormQuestionAction;
-use Domain\Forms\FormQuestions\ResponseCodes\ResponseCodeFormQuestionDeleted;
-use Domain\Forms\Forms\Actions\StoreFormAction;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\FormQuestion\Actions\DeleteFormQuestionAction;
+use Domain\Forms\FormQuestion\Actions\StoreFormQuestionAction;
+use Domain\Forms\FormQuestion\ResponseCodes\ResponseCodeFormQuestionDeleted;
 use Domain\Forms\Models\FormQuestionType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

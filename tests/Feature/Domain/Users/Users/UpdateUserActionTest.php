@@ -3,9 +3,9 @@
 namespace Tests\Feature\Domain\Users\Users;
 
 use Domain\Users\Models\User;
-use Domain\Users\Users\Actions\StoreUserAction;
-use Domain\Users\Users\Actions\UpdateUserAction;
-use Domain\Users\Users\ResponseCodes\ResponseCodeUserUpdated;
+use Domain\Users\User\Actions\StoreUserAction;
+use Domain\Users\User\Actions\UpdateUserAction;
+use Domain\Users\User\ResponseCodes\ResponseCodeUserUpdated;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;

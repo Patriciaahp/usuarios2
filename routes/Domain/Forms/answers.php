@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Answers\Answers;
+use App\Panel\Answers\Controllers\AnswerPdfController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/admin/answers/{id}', Answers::class)->name('answers');
+Route::get('/admin/answers/pdf/{id}', AnswerPdfController::class . "@answerPdf")->name('answers.pdf');
