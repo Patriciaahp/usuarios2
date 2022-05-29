@@ -4,33 +4,21 @@ namespace App\Panel\Forms\FormSessions\Controllers;
 
 use App\Mail\SendFormEmail;
 use App\Panel\Shared\Controllers\Controller;
-use Domain\Forms\Answers\Actions\StoreAnswerAction;
-use Domain\Forms\FormSessions\Actions\StoreFormSessionAction;
-use Domain\Forms\FormSessions\Actions\UpdateFormSessionCompletedAction;
-use Domain\Forms\FormSessions\Actions\UpdateFormSessionFinishedAtAction;
+use Domain\Form\Answers\Actions\StoreAnswerAction;
+use Domain\Form\FormSessions\Actions\StoreFormSessionAction;
+use Domain\Form\FormSessions\Actions\UpdateFormSessionCompletedAction;
+use Domain\Form\FormSessions\Actions\UpdateFormSessionFinishedAtAction;
 use Domain\Forms\Models\Answer;
 use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
 use Domain\Forms\Models\FormSession;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use function redirect;
 use function view;
 
 class FormSessionController extends Controller
 {
-    public function pdf($id)
-    {
-        $session = FormSession::find($id)->first();
-
-        $dompdf = App::make("dompdf.wrapper");
-        $dompdf->loadView("answers/answersPdf", [
-            'session' => $session
-        ]);
-        return $dompdf->stream();
-    }
-
     public function create($id)
     {
         $data = [
@@ -55,7 +43,7 @@ class FormSessionController extends Controller
         return view('sessions/principal');
     }
 
-    public function new($id, $hash)
+    public function sendEmail($id, $hash)
     {
         $form = Form::find($id);
         $session = FormSession::where('hash', $hash)->first();

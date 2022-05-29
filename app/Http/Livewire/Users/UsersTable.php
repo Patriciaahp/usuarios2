@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Users;
 
 use App\Panel\Users\Filters\UserFilter;
 use Domain\Users\Models\User;
-use Domain\Users\Users\Actions\ActivateUserAction;
-use Domain\Users\Users\Actions\DeactivateUserAction;
+use Domain\Users\User\Actions\ActivateUserAction;
+use Domain\Users\User\Actions\DeactivateUserAction;
 use Livewire\Component;
 use Livewire\WithPagination;
 

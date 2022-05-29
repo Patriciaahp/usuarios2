@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Domain\Forms\FormQuestions;
 
-use Domain\Forms\FormQuestions\Actions\StoreFormQuestionAction;
-use Domain\Forms\FormQuestions\ResponseCodes\ResponseCodeFormQuestionStored;
-use Domain\Forms\Forms\Actions\StoreFormAction;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\FormQuestion\Actions\StoreFormQuestionAction;
+use Domain\Forms\FormQuestion\ResponseCodes\ResponseCodeFormQuestionStored;
 use Domain\Forms\Models\FormQuestionType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -322,7 +322,7 @@ class StoreFormQuestionActionTest extends TestCase
     {
         $this->artisan('question:type');
         $type = FormQuestionType::all()->first();
-        
+
         $data = array(
             'label' => $this->faker->name,
             'help_text' => $this->faker->name,

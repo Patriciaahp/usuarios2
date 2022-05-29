@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Domain\Forms\Forms;
 
-use Domain\Forms\Forms\Actions\DeleteFormAction;
-use Domain\Forms\Forms\Actions\StoreFormAction;
-use Domain\Forms\Forms\ResponseCodes\ResponseCodeFormDeleted;
+use Domain\Forms\Form\Actions\DeleteFormAction;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\Form\ResponseCodes\ResponseCodeFormDeleted;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;

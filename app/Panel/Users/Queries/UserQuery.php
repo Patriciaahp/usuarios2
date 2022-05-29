@@ -8,7 +8,7 @@ class UserQuery extends Builder
 {
     public function findByEmail($email)
     {
-        return $this->where('email', $email)->first();
+        return $this->where('email', $email)->whereActive(1)->firstOrFail();
     }
 
     public function findById($id)

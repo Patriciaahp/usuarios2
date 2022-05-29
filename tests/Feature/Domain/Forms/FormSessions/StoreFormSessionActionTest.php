@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Domain\Forms\FormSessions;
 
-use Domain\Forms\Forms\Actions\StoreFormAction;
-use Domain\Forms\FormSessions\Actions\StoreFormSessionAction;
-use Domain\Forms\FormSessions\ResponseCodes\ResponseCodeFormSessionStored;
+use Domain\Forms\Form\Actions\StoreFormAction;
+use Domain\Forms\FormSession\Actions\StoreFormSessionAction;
+use Domain\Forms\FormSession\ResponseCodes\ResponseCodeFormSessionStored;
 use Domain\Forms\Models\FormSession;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

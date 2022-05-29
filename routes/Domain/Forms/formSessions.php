@@ -10,8 +10,7 @@ Route::get('/forms/send/{id}', Sessions::class)->name('send');
 Route::get('/forms/{id}/{hash}', FormSessionController::class . "@form")->name('session.forms');
 Route::post('/forms/{id}/{hash}', FormSessionController::class . "@createAnswer")->name('answer.create');
 Route::get('/principal', FormSessionController::class . "@principal")->name('principal');
-Route::get('/send/email/{id}/{hash}', FormSessionController::class . "@new")->name('new');
+Route::get('/send/email/{id}/{hash}', FormSessionController::class . "@sendEmail")->name('sendEmail');
 Route::post('/send/email/{id}/{hash}', FormSessionController::class . "@email")->name('send.email');
-Route::get('/test/{id}', FormSessionController::class . "@pdf")->name('pdf');
 
 
