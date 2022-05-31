@@ -4,10 +4,10 @@ namespace App\Panel\Forms\FormSessions\Controllers;
 
 use App\Mail\SendFormEmail;
 use App\Panel\Shared\Controllers\Controller;
-use Domain\Form\Answers\Actions\StoreAnswerAction;
-use Domain\Form\FormSessions\Actions\StoreFormSessionAction;
-use Domain\Form\FormSessions\Actions\UpdateFormSessionCompletedAction;
-use Domain\Form\FormSessions\Actions\UpdateFormSessionFinishedAtAction;
+use Domain\Forms\Answer\Actions\StoreAnswerAction;
+use Domain\Forms\FormSession\Actions\StoreFormSessionAction;
+use Domain\Forms\FormSession\Actions\UpdateFormSessionCompletedAction;
+use Domain\Forms\FormSession\Actions\UpdateFormSessionFinishedAtAction;
 use Domain\Forms\Models\Answer;
 use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
@@ -67,11 +67,14 @@ class FormSessionController extends Controller
     {
         $session = FormSession::where('hash', $hash)->first();
         $questions = FormQuestion::where('form_id', $id)
-            ->where('type_id', 1)->get();
+            ->where('type_id', 1)
+            ->orwhere('type_id', 3)
+            ->orwhere('type_id', 4)
+            ->get();
         foreach ($questions as $key => $question) {
             $answer = new Answer();
             $data = [
-                'label' => $request['label'],
+                'label' => $request['label' . $question->id],
                 'answer' => $request['answer' . $question->id],
                 'session_id' => $request['session_id'],
                 'formulary_question_id' => $request['formulary_question_id_' . $question->id],

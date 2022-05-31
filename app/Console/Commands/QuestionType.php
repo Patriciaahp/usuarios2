@@ -47,6 +47,14 @@ class QuestionType extends Command
             array(
                 'name' => 'Message',
                 'internal_name' => 'message'
+            ),
+            array(
+                'name' => 'Text Area',
+                'internal_name' => 'text_area'
+            ),
+            array(
+                'name' => 'Single Choice',
+                'internal_name' => 'single_choice'
             )
         ];
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Questions;
 
-use Livewire\Component;
+use Domain\Forms\Models\FormQuestionType;
 use function view;
 
-class FormQuestionMessage extends Component
+class FormQuestionMessage extends FormQuestionType
 {
     protected $label;
     protected $placeholder = null;
