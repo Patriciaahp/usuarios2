@@ -11,7 +11,8 @@
 @endsection
 @section('content')
     <div class="white p-4">
-        @if($question->type_id ===2)
+        @switch($question->type_id)
+            @case(2)
             <div class="form-group">
                 <label>{{ucfirst($question->label)}}</label>
                 <p>
@@ -19,7 +20,8 @@
                 </p>
 
             </div>
-        @else
+            @break
+            @case(1)
             <div class="form-group">
                 <label for="input">{{ucfirst($question->label)}}</label>
                 <x-forms.input.text
@@ -28,6 +30,7 @@
                     placeholder="{{$question->placeholder}}"
                     required="{{$question->required}}"/>
             </div>
-        @endif
+            @break
+        @endswitch
     </div>
 @endsection

@@ -2,9 +2,8 @@
 
 namespace Domain\Forms\Answer\Actions;
 
-use Domain\Forms\Answers\ResponseCodes\ResponseCodeAnswerStored;
+use Domain\Forms\Answer\ResponseCodes\ResponseCodeAnswerStored;
 use Domain\Forms\Models\Answer;
-use Illuminate\Support\Str;
 
 class StoreAnswerAction
 {
@@ -20,8 +19,8 @@ class StoreAnswerAction
     {
         $this->data = $data;
 
-        $this->label = Str::random(5);
-        $this->answer = isset($data['answer']) ? $data['answer'] : 'not answered';
+        $this->label = isset($data['label']) ? $data['label'] : null;
+        $this->answer = isset($data['answer']) ? $data['answer'] : null;
         $this->session_id = isset($data['session_id']) ? $data['session_id'] : null;
         $this->formulary_question_id = isset($data['formulary_question_id']) ? $data['formulary_question_id'] : null;
         $this->form_id = isset($data['form_id']) ? $data['form_id'] : null;

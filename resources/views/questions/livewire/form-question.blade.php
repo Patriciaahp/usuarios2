@@ -24,11 +24,19 @@
         @else
             @include('questions.shared._infoCreated')
         @endif
-
-        @if($type_id == 2)
+        @switch($type_id)
+            @case(4)
+            @include('questions.livewire.form-question-single-choice')
+            @break
+            @case(3)
+            @include('questions.livewire.form-question-text-area')
+            @break
+            @case(2)
             @include('questions.livewire.form-question-message')
-        @else
+            @break
+            @case(1)
             @include('questions.livewire.form-question-input-text')
-        @endif
+            @break
+        @endswitch
     </div>
 @endsection

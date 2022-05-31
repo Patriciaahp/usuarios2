@@ -11,7 +11,39 @@
     <div class="white p-4">
         <form action="">
             @foreach($questions as $question)
-                @if($question->type_id ===2)
+                @switch($question->type_id)
+                    @case(4)
+                    <div class="form-group row">
+                        <label for="choice">{{ucfirst($question->label)}}</label>
+                        <div class="form-check ml-4">
+                            <input value="yes" class="form-check-input" type="radio"
+                                   name="choice"
+                                   id="yes">
+                            <label class="form-check-label" for="choice">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check ml-4">
+                            <input value="no" class="form-check-input" type="radio"
+                                   name="choice"
+                                   id="no">
+                            <label class="form-check-label" for="choice">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    @break
+                    @case(3)
+                    <div class="form-group mt-5 mb-5">
+                        <label>{{ucfirst($question->label)}}</label>
+                        <x-forms.textarea
+                            name="message"
+                            title=" {!!  html_entity_decode($question->help_text) !!}"
+                            required="{{$question->required}}"
+                        ></x-forms.textarea>
+                    </div>
+                    @break
+                    @case(2)
                     <p>Message ID: {{$question->id}}</p>
                     <div class="form-group">
                         <label for="message">{{ucfirst($question->label)}}</label>
@@ -21,7 +53,8 @@
                             required="{{$question->required}}"
                         ></x-forms.textarea>
                     </div>
-                @else
+                    @break
+                    @case(1)
                     <p>Input ID: {{$question->id}}</p>
 
                     <div class="form-group">
@@ -32,7 +65,8 @@
                             placeholder="{{$question->placeholder}}"
                             required="{{$question->required}}"/>
                     </div>
-                @endif
+                    @break
+                @endswitch
             @endforeach
             <button type="submit" class="btn btn-success btn-lg">Answer
             </button>

@@ -20,6 +20,8 @@
                     <select id="type" name="type_id" class="form-control">
                         <option {{ ($type->id) == 1}}  value=1>Input Text</option>
                         <option {{ ($type->id) == 2 }}  value=2>Message</option>
+                        <option {{ ($type->id) == 3}}  value=3>Text Area</option>
+                        <option {{ ($type->id) == 4 }}  value=4>Single Choice</option>
                     </select>
                 </div>
                 <div class="align-self-center">

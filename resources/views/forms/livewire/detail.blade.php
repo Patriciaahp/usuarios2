@@ -60,11 +60,20 @@
                         <tr>
                             <th scope="row">{{$question->id}}</th>
                             <td>
-                                @if($question->type_id == 2)
+                                @switch($question->type_id)
+                                    @case(4)
+                                    <p>Single Choice</p>
+                                    @break
+                                    @case(3)
+                                    <p>Text Area</p>
+                                    @break
+                                    @case(2)
                                     <p>Message</p>
-                                @else
+                                    @break
+                                    @case(1)
                                     <p>Input Text</p>
-                                @endif
+                                    @break
+                                @endswitch
                             </td>
                             <td>{{$question->label}}</td>
                             <td>{!!  html_entity_decode($question->help_text) !!}</td>
