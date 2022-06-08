@@ -26,9 +26,6 @@ class StoreFormQuestionAction
     {
         $this->data = $data;
 
-        if (!isset($data['label']))
-            throw new InvalidArgumentException('label is required.');
-
         $this->label = isset($data['label']) ? $data['label'] : null;
 
         if (!isset($data['required']))
@@ -46,6 +43,7 @@ class StoreFormQuestionAction
         $this->type_id = isset($data['type_id']) ? $data['type_id'] : null;
 
         $this->form_id = isset($data['form_id']) ? $data['form_id'] : null;
+
     }
 
     public function execute()

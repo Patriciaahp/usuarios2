@@ -8,6 +8,7 @@ use Domain\Forms\Answer\Actions\StoreAnswerAction;
 use Domain\Forms\FormSession\Actions\StoreFormSessionAction;
 use Domain\Forms\FormSession\Actions\UpdateFormSessionCompletedAction;
 use Domain\Forms\FormSession\Actions\UpdateFormSessionFinishedAtAction;
+use Domain\Forms\FormSession\Actions\UpdateFormSessionStartedAtAction;
 use Domain\Forms\Models\Answer;
 use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
@@ -130,12 +131,11 @@ class FormSessionController extends Controller
             ->where('form_id', '=', $form->id)
             ->sortBy('order_');
 
-        $data = [
-            'finished_at' => date('Y-m-d H:i:s')
+        $data2 = [
+            'started_at' => date('Y-m-d H:i:s')
         ];
-        $action = new UpdateFormSessionFinishedAtAction($session, $data);
-        $result = $action->execute();
-
+        $action2 = new UpdateFormSessionStartedAtAction($session, $data2);
+        $result2 = $action2->execute();
 
         if ($session->completed === 0) {
             return view('sessions/form',

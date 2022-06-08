@@ -14,4 +14,10 @@ class FormQuestionInputText extends FormQuestion
     protected $order_;
     protected $help_text;
 
+    public function formQuestion()
+    {
+        return $this->belongsTo(FormQuestion::class);
+
+    }
+
 }

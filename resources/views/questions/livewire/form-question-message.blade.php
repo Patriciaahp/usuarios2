@@ -1,12 +1,7 @@
 <form action="{{ route('questions.store') }}" method="POST">
     @csrf
-    <div class="container-sm row mx-auto ">
-        <div class="form-group">
-            <label for="label">Label:</label>
-            <input value="{{ old('label', $form->label) }}" type="text" name="label" id="label"
-                   class="form-control">
-        </div>
 
+    <div class="container-sm row mx-auto ">
         <input value="{{ $type_id }}" type="text" name="type_id" id="type_id"
                class="hidden">
 
@@ -14,13 +9,13 @@
                class="hidden">
 
         <div class="form-group row">
-            <label for="helpText">Help Text:</label>
+            <label for="helpText">Text:</label>
             <textarea class="form-control ml-3 " id="title"
-                      name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
+                      name="helpText">{{ old('helpText', $question->helpText) }}</textarea>
         </div>
         <div class="form-group row col-xs-4">
             <label for="order_">Order:</label>
-            <input class="form-control ml-3" min="1" value="{{ old('order_', $form->order_) }}"
+            <input class="form-control ml-3" min="1" value="{{ old('order_', $question->order_) }}"
                    type="number"
                    id="order_"
                    name="order_">

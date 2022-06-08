@@ -20,7 +20,16 @@
             {{ method_field('PUT') }}
             @csrf
             <div class="container-sm row mx-auto ">
-                @include('questions.shared._fields')
+                @switch($question->type_id)
+                    @case(1)
+                    @include('questions.edit-input-text')
+                    @case(2)
+                    @include('questions.edit-message')
+                    @case(3)
+                    @include('questions.edit-text-area')
+                    @case(4)
+                    @include('questions.edit-single-choice')
+                @endswitch
                 <div>
                     <button type="submit" class="btn btn-success">Update Question</button>
                 </div>

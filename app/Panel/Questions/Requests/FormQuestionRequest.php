@@ -24,8 +24,8 @@ class FormQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'label' => 'required|string',
-            'required' => 'required|in:yes,no',
+            'label' => 'required_unless:type_id,2',
+            'required' => 'required_unless:type_id,2|in:yes,no',
             'order_' => 'required',
             'placeholder' => 'nullable',
             'helpText' => 'nullable',

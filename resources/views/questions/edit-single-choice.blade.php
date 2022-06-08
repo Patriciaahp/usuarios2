@@ -4,14 +4,6 @@
            class="form-control">
 </div>
 
-@if($question->type_id == 1)
-    <div class="form-group">
-        <label for="placeholder">Placeholder:</label>
-        <input value="{{ $question->placeholder }}" type="text" name="placeholder"
-               id="placeholder"
-               class="form-control">
-    </div>
-@endif
 <div class="form-group row ">
     <label for="helpText">Help Text:</label>
     <textarea class="form-control ml-3" id="title"
@@ -23,6 +15,8 @@
            id="order_"
            name="order_">
 </div>
+
+
 <div class="form-group row">
     <label for="required">Required:</label>
     <div class="form-check ml-4">

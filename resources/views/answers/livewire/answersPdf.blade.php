@@ -24,7 +24,7 @@
         <tr>
             <td>{{$answer->id}}</td>
             <td>{{$answer->label}}</td>
-            <td>{{$answer->answer}}</td>
+            <td> {!!  html_entity_decode($answer->answer) !!}</td>
             <td>{{$answer->created_at}}</td>
             <td>{{$answer->session_id}}</td>
 

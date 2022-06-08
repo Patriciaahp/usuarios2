@@ -12,7 +12,7 @@
                 <th scope="col">Hash</th>
                 <th scope="col">Started at</th>
                 <th scope="col">Finished at</th>
-                <th scope="col">Nº Questions</th>
+                <th scope="col">Time needed</th>
                 <th scope="col">Completed</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -25,14 +25,15 @@
                     <td>
                         {{$session->hash}}
                     </td>
-                    <td>{{$session->started_at}}</td>
-                    <td>{{$session->finished_at}}</td>
-                    <td>{{$questions->count()}}</td>
-                    <td>@if($session->completed === 0)
-                            <p>No</p>
-                        @else
-                            <p>Yes</p>
-                        @endif</td>
+                    <td>{{$start = \Carbon\Carbon::parse($session->started_at)}}</td>
+                    <td>{{$end = \Carbon\Carbon::parse($session->finished_at)}}</td>
+                    @if($session->completed === 0)
+                        <td><p>Not available</p></td>
+                        <td><p>No</p></td>
+                    @else
+                        <td>{{\Carbon\Carbon::parse($start->diffInSeconds($end))->format('H:i:s')}}</td>
+                        <td><p>Yes</p></td>
+                    @endif
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
