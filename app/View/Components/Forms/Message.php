@@ -14,18 +14,13 @@ class Message extends Component
      * @return void
      */
 
-    public $name;
-    public $title;
-    public $required;
-    public $placeholder;
+    public $value;
 
 
-    public function __construct($title, $name, $required, $placeholder)
+    public function __construct($value)
     {
-        $this->name = $name;
-        $this->title = $title;
-        $this->required = $required;
-        $this->placeholder = $placeholder;
+        $this->value = $value;
+
 
     }
 

@@ -44,10 +44,11 @@
                 @break
                 @case(2)
                 <div class="form-group mt-5 mb-5">
+                    <p hidden>{{$helpText = str_replace("<p>", "", str_replace("</p>", "", $question->help_text))}}</p>
                     <label>{{ucfirst($question->label)}}</label>
-                    <p>
-                        {!!  html_entity_decode($question->help_text) !!}
-                    </p>
+                    <x-forms.message
+                        value="{{$helpText}}"
+                    ></x-forms.message>
 
                 </div>
 

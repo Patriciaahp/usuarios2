@@ -87,6 +87,7 @@ class StoreFormQuestionActionTest extends TestCase
 
 
         $data = array(
+
             'help_text' => $this->faker->name,
             'placeholder' => $this->faker->name,
             'required' => $this->faker->boolean,
@@ -95,12 +96,19 @@ class StoreFormQuestionActionTest extends TestCase
             'type_id' => $type->id
         );
 
-        $this->expectException(InvalidArgumentException::class);
-
-        $action = new StoreFormAction($data);
-
+        $action = new StoreFormQuestionAction($data);
         $result = $action->execute();
 
+        $question = $result->object;
+        $this->assertNotNull($question);
+        $this->assertDatabaseHas($question->getTable(), [
+            'id' => $question->id
+        ]);
+
+        $response_fake = new ResponseCodeFormQuestionStored($question);
+        $this->assertTrue(get_class($response_fake) == get_class($result));
+
+    
     }
 
     /**

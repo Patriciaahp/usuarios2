@@ -3,7 +3,7 @@
     <div class="container-sm row mx-auto ">
         <div class="form-group">
             <label for="label">Label:</label>
-            <input value="{{ old('label', $form->label) }}" type="text" name="label" id="label"
+            <input value="{{ old('label', $question->label) }}" type="text" name="label" id="label"
                    class="form-control">
         </div>
 
@@ -16,11 +16,11 @@
         <div class="form-group row">
             <label for="helpText">Help Text:</label>
             <textarea class="form-control ml-3" id="title"
-                      name="helpText">{{ old('helpText', $form->helpText) }}</textarea>
+                      name="helpText">{{ old('helpText', $question->helpText) }}</textarea>
         </div>
         <div class="form-group row col-xs-4">
             <label for="order_">Order:</label>
-            <input min="1" value="{{ old('order_', $form->order_) }}" type="number" id="order_"
+            <input min="1" value="{{ old('order_', $question->order_) }}" type="number" id="order_"
                    name="order_"
                    class="form-control ml-3">
         </div>

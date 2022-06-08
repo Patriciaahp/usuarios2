@@ -36,13 +36,14 @@ class FormQuestionController extends Controller
         $validated = $request->validated();
 
         $data = [
-            'label' => $validated['label'],
-            'required' => $validated['required'],
+            'label' => $validated['label'] ?? null,
+            'required' => $validated['required'] ?? null,
             'order_' => $validated['order_'],
             'placeholder' => $validated['placeholder'] ?? null,
             'help_text' => $validated['helpText'] ?? null,
             'type_id' => $validated['type_id'],
             'form_id' => $validated['form_id'],
+
 
         ];
         $action = new StoreFormQuestionAction($data);
@@ -95,8 +96,8 @@ class FormQuestionController extends Controller
         $validated = $request->validated();
 
         $data = [
-            'label' => $validated['label'],
-            'required' => $validated['required'],
+            'label' => $validated['label'] ?? null,
+            'required' => $validated['required'] ?? null,
             'order_' => $validated['order_'],
             'placeholder' => $validated['placeholder'] ?? null,
             'help_text' => $validated['helpText'] ?? null,
@@ -138,9 +139,7 @@ class FormQuestionController extends Controller
         return view('questions/view', [
             'form' => $form,
             'question' => $question
-
         ]);
     }
-
-
 }
+

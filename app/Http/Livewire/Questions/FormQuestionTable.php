@@ -23,7 +23,7 @@ class FormQuestionTable extends Component
 
                 'form_id' => $form_id,
                 'type_id' => $type_id,
-                'form' => new FormQuestion()
+                'question' => new FormQuestion()
             ]);
     }
 }

@@ -4,7 +4,7 @@ namespace Domain\Forms\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class TextArea extends FormQuestion
+class FormQuestionSingleChoice extends FormQuestion
 {
     use HasFactory;
 
@@ -12,4 +12,10 @@ class TextArea extends FormQuestion
     protected $required;
     protected $order_;
     protected $help_text;
+
+    public function formQuestion()
+    {
+        return $this->belongsTo(FormQuestion::class);
+
+    }
 }

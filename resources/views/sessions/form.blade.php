@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Question Create')
+@section('title', 'Answer Create')
 @section('heading')
     <div class="container-fluid col col-4">
         <h1>{!!  html_entity_decode($form->title) !!}</h1>
@@ -12,6 +12,8 @@
         <form action="{{ route('answer.create', ['id' => $form->id, 'hash' => $session->hash]) }}" method="POST">
             @csrf
             @foreach($questions as $key => $question)
+                <p hidden>{{$helpText = str_replace("<p>", "", str_replace("</p>", "", $question->help_text))}}</p>
+
                 <input hidden value="{{ $question->label }}" type="text" name="label{{$key + 1}}" id="label">
 
                 <input hidden value="{{ $session_id }}" type="text" name="session_id" id="session_id">
@@ -48,20 +50,20 @@
                     @case(3)
                     <div class="form-group mt-5 mb-5">
                         <label class="form-check-label">{{ucfirst($question->label)}}</label>
-                        <textarea
+                        <x-forms.textarea
                             class="form-control"
                             name="answer{{$key + 1}}"
-                            title=" {!!  html_entity_decode($question->help_text) !!}"
+                            title="{{ucfirst($helpText)}}"
                             required="{{$question->required}}"
-                        ></textarea>
+                        ></x-forms.textarea>
                     </div>
                     @break
                     @case(2)
                     <div class="form-group mt-5 mb-5">
                         <label>{{ucfirst($question->label)}}</label>
-                        <p>
-                            {!!  html_entity_decode($question->help_text) !!}
-                        </p>
+                        <x-forms.message
+                            value="{{ucfirst($helpText)}}"
+                        ></x-forms.message>
 
                     </div>
 
@@ -70,7 +72,7 @@
                     <div class="form-group mt-5 mb-5">
                         <label for="input">{{ucfirst($question->label)}}:</label>
                         <x-forms.input.text
-                            title="{{ucfirst($question->help_text)}}"
+                            title="{{ucfirst($helpText)}}"
                             name="answer{{$key + 1}}"
                             placeholder="{{ucfirst($question->placeholder)}}"
                             required="{{$question->required}}"/>

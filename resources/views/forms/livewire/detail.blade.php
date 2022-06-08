@@ -13,6 +13,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
+
                 </tr>
                 </thead>
                 <tbody>

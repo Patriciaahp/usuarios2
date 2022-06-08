@@ -58,7 +58,7 @@
                     <p>Input ID: {{$question->id}}</p>
 
                     <div class="form-group">
-                        <label for="input">{{ucfirst($question->label)}}</label>
+                        <label value="{{ $question->label }}" for="input">{{ucfirst($question->label)}}</label>
                         <x-forms.input.text
                             title="{{ucfirst($question->help_text)}}"
                             name="input"
