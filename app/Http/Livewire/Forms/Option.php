@@ -24,7 +24,7 @@ class Option extends Component
         $action = new StoreOptionsAction($validated);
         $result = $action->execute();
 
-        $option = $result->object;
+        $this->option = $result->object;
 
         $this->reset('option');
     }
@@ -34,6 +34,7 @@ class Option extends Component
         $this->option = \Domain\Forms\Models\Option::find($id);
         $action = new DeleteOptionAction($this->option);
         $result = $action->execute($this->option);
+        $this->reset('option');
 
     }
 

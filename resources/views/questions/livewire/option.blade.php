@@ -5,8 +5,12 @@
                 <label for="choice">Add choice</label>
                 <input type="text" class="form-control" id="choice"
                        placeholder="Add choice" wire:model="option">
-                @error('option') <span class="text-danger">{{ $message }}</span> @enderror
-                <small id="choice" class="form-text text-muted">Add choice for this form</small>
+
+                @error('option') <span class="text-danger row ">{{ $message }}</span> @enderror
+
+                <small id="choice" class="form-text text-muted ">Add choice for this
+                    form</small>
+
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -29,7 +33,19 @@
                         <td>{{$option->id}}</td>
                         <td>{{$option->option}}</td>
                         <td>
-                            <button wire:click="delete({{$option->id}})">Delete</button>
+                            <div class="dropdown">
+                                <button class="btn button tealOutline dropdown-toggle" type="button"
+                                        id="dropdownMenuButton"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    Actions
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" title="Answers"
+                                       wire:click="delete({{$option->id}})">Delete
+                                    </a>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
