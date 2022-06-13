@@ -4,18 +4,17 @@ namespace Domain\Forms\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class FormQuestionTextArea extends FormQuestionType
+class FormQuestionTextArea extends FormQuestion
 {
     use HasFactory;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'form_questions';
     protected $label;
     protected $required;
-    protected $order_;
-    protected $help_text;
 
-    public function formQuestion()
-    {
-        return $this->belongsTo(FormQuestion::class);
-
-    }
 }

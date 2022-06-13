@@ -8,16 +8,14 @@ class FormQuestionInputText extends FormQuestion
 {
     use HasFactory;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'form_questions';
     protected $label;
     protected $placeholder;
     protected $required;
-    protected $order_;
-    protected $help_text;
-
-    public function formQuestion()
-    {
-        return $this->belongsTo(FormQuestion::class);
-
-    }
 
 }

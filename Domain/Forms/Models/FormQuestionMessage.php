@@ -8,8 +8,11 @@ class FormQuestionMessage extends FormQuestion
 {
     use HasFactory;
 
-    protected $help_text;
-    protected $order_;
-
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'form_questions';
 
 }
