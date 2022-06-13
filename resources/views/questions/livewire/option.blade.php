@@ -20,6 +20,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Option</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,9 @@
                     <tr>
                         <td>{{$option->id}}</td>
                         <td>{{$option->option}}</td>
+                        <td>
+                            <button wire:click="delete({{$option->id}})">Delete</button>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

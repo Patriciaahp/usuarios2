@@ -7,17 +7,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class StoreOptionsTest extends TestCase
+class StoreOptionActionTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
 
     /**
      * A basic feature test example.
-     *
+     * @test
+     * Command for testing: vendor\bin\phpunit --filter=domain_forms_form_questions_store_option_action_ok
      * @return void
      */
-    public function test_example()
+    public function domain_forms_form_questions_store_option_action_ok()
     {
         $data = [
             'option' => 'sadsffafdddd'

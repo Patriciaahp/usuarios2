@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Forms;
 
+use Domain\Forms\FormQuestion\Actions\DeleteOptionAction;
 use Domain\Forms\FormQuestion\Actions\StoreOptionsAction;
 use Livewire\Component;
 use function view;
@@ -28,6 +29,13 @@ class Option extends Component
         $this->reset('option');
     }
 
+    public function delete($id)
+    {
+        $this->option = \Domain\Forms\Models\Option::find($id);
+        $action = new DeleteOptionAction($this->option);
+        $result = $action->execute($this->option);
+
+    }
 
     public function render()
     {
