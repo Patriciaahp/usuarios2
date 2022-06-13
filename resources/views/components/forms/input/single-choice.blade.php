@@ -4,6 +4,6 @@
     name="{{ $name }}"
     id="{{ $id }}"
     title="{{$title}}"
-    value="{{ old($name, $value ?? '') }}"
+    value="{{  $value  }}"
     {{ $required == true ? 'required' : '' }}
 />

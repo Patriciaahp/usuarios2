@@ -18,13 +18,15 @@ class SingleChoice extends Component
     public $title;
     public $required;
     public $id;
+    public $value;
 
-    public function __construct($title, $name, $required, $id)
+    public function __construct($title, $name, $required, $id, $value)
     {
         $this->name = $name;
         $this->title = $title;
         $this->required = $required;
         $this->id = $id;
+        $this->value = $value;
     }
 
     /**

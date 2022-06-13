@@ -28,19 +28,23 @@
                     <div class="form-group row">
                         <label for="choice">{{ucfirst($question->label)}}</label>
                         <div class="form-check ml-4">
-                            <input {{ $question->required == true ? 'required' : '' }}
-                                   value="yes" class="form-check-input" type="radio"
-                                   name="answer{{$key + 1}}"
-                                   id="yes">
+                            <x-forms.input.single-choice
+                                title=" {!!  html_entity_decode($question->help_text) !!}"
+                                required="{{$question->required}}"
+                                value="{{'yes'}}"
+                                name="answer{{$key + 1}}"
+                                id="yes"/>
                             <label class="form-check-label" for="answer{{$key + 1}}">
                                 Yes
                             </label>
                         </div>
                         <div class="form-check ml-4">
-                            <input {{ $question->required == true ? 'required' : '' }}
-                                   value="no" class="form-check-input" type="radio"
-                                   name="answer{{$key + 1}}"
-                                   id="no">
+                            <x-forms.input.single-choice
+                                required="{{$question->required}}"
+                                title=" {!!  html_entity_decode($question->help_text) !!}"
+                                value="{{'no'}}"
+                                name="answer{{$key + 1}}"
+                                id="no"/>
                             <label class="form-check-label" for="answer{{$key + 1}}">
                                 No
                             </label>
