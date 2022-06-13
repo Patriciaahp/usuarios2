@@ -2,27 +2,38 @@
 
 namespace App\Http\Livewire\Forms;
 
+use Domain\Forms\FormQuestion\Actions\StoreOptionsAction;
 use Livewire\Component;
 use function view;
 
 class Option extends Component
 {
-    public function create()
+
+    public $option;
+    public $options;
+
+
+    public function submit()
     {
-        $this->validate(
+        $validated = $this->validate(
             [
-
+                'option' => 'required',
             ]
         );
-        Option::create(
-            [
+        $action = new StoreOptionsAction($validated);
+        $result = $action->execute();
 
-            ]
-        );
+        $option = $result->object;
+
+        $this->reset('option');
     }
+
 
     public function render()
     {
-        return view('questions.livewire.option');
+        $this->options = \Domain\Forms\Models\Option::all();
+
+        return view('questions.livewire.option')
+            ->with(['options' => $this->options]);
     }
 }

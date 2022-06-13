@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Forms\Detail;
+use App\Http\Livewire\Forms\Option;
 use App\Http\Livewire\Questions\FormQuestionTable;
 use App\Http\Livewire\Questions\FormQuestionTypeTable;
 use App\Panel\Questions\Controllers\FormQuestionController;
@@ -17,4 +18,5 @@ Route::get('/questions/{id}', FormQuestionController::class . "@edit")->name('qu
 Route::put('/questions/{id}', FormQuestionController::class . "@update")->name('questions.update');
 Route::post('/question/create', FormQuestionController::class . "@store")->name('questions.store');
 Route::get('/question/type', FormQuestionTypeTable::class)->name('questions.type');
+Route::get('/question/option', Option::class)->name('question.option');
 Route::get('/forms/form/question', FormQuestionTable::class)->name('forms.form.question');
