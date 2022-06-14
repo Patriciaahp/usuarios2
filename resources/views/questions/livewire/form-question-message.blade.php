@@ -1,6 +1,5 @@
 <form action="{{ route('questions.store') }}" method="POST">
     @csrf
-
     <div class="container-sm row mx-auto ">
         <input value="{{ $type_id }}" type="text" name="type_id" id="type_id"
                class="hidden">

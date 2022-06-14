@@ -10,6 +10,7 @@ class StoreOptionsAction
 {
 
     private $option;
+    private $question_id;
 
     public function __construct(array $data)
     {
@@ -19,12 +20,18 @@ class StoreOptionsAction
             throw new InvalidArgumentException('option is required');
 
         $this->option = isset($data['option']) ? $data['option'] : null;
+
+        if (!isset($data['question_id']))
+            throw new InvalidArgumentException('question_id is required');
+
+        $this->question_id = isset($data['question_id']) ? $data['question_id'] : null;
     }
 
     public function execute()
     {
         $this->option = Option::create([
-            'option' => $this->option
+            'option' => $this->option,
+            'question_id' => $this->question_id
 
         ]);
 

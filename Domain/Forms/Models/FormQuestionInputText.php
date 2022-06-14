@@ -13,7 +13,6 @@ class FormQuestionInputText extends FormQuestion
      *
      * @var string
      */
-    protected $table = 'form_questions';
     protected $label;
     protected $placeholder;
     protected $required;

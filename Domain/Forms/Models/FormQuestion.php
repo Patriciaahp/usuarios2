@@ -27,6 +27,8 @@ class FormQuestion extends Model
      * @var mixed
      */
 
+    protected $table = 'form_questions';
+
     protected $help_text;
     protected $order_;
 
@@ -45,8 +47,4 @@ class FormQuestion extends Model
         return $this->HasMany(Answer::class);
     }
 
-    public function options()
-    {
-        return $this->HasMany(Option::class);
-    }
 }

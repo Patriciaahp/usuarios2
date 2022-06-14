@@ -50,6 +50,10 @@
                             </label>
                         </div>
                     </div>
+
+
+
+
                     @break
                     @case(3)
                     <div class="form-group mt-5 mb-5">
@@ -83,7 +87,9 @@
                     </div>
                     @break
                 @endswitch
-
+            @endforeach
+            @foreach($options as $option)
+                <h1>    {{  $option->formQuestions->option}}</h1>
             @endforeach
             <button class="btn btn-success mt-5" type="submit">Answer</button>
         </form>

@@ -13,8 +13,13 @@ class FormQuestionSingleChoice extends FormQuestion
      *
      * @var string
      */
-    protected $table = 'form_questions';
+
     protected $label;
     protected $required;
+
+    public function options()
+    {
+        return $this->HasMany(Option::class);
+    }
 
 }

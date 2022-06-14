@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Domain\Forms\FormQuestions;
 
-use App\Http\Livewire\Questions\FormQuestionMessage;
 use Domain\Forms\Form\Actions\StoreFormAction;
 use Domain\Forms\FormQuestion\Actions\StoreFormQuestionAction;
 use Domain\Forms\FormQuestion\ResponseCodes\ResponseCodeFormQuestionStored;
@@ -64,54 +63,7 @@ class StoreFormQuestionActionTest extends TestCase
         $this->assertTrue(get_class($response_fake) == get_class($result));
 
     }
-
-    /**
-     * A basic feature test example.
-     * @test
-     * Command for testing: vendor\bin\phpunit --filter=domain_forms_forms_store_form_question_action_ok
-     * @return void
-     */
-    public function domain_forms_forms_store_form_question_action_ok1()
-    {
-        $dataForm = array(
-            'name' => $this->faker->name,
-            'title' => $this->faker->name,
-            'description' => $this->faker->name);
-        $actionForm = new StoreFormAction($dataForm);
-        $result = $actionForm->execute();
-
-        $form = $result->object;
-
-
-        $this->artisan('question:type');
-        $type = FormQuestionType::all()->first();
-
-
-        $data = array(
-            'label' => $this->faker->name,
-            'help_text' => $this->faker->name,
-            'placeholder' => $this->faker->name,
-            'required' => $this->faker->boolean,
-            'order_' => $this->faker->randomNumber(2),
-            'form_id' => $form->id,
-            'type_id' => $type->id
-        );
-
-        $action = new StoreFormQuestionAction($data);
-        $result = $action->execute();
-
-        $question = $result->object;
-        $this->assertNotNull($question);
-
-        $this->assertDatabaseHas($question->getTable(), [
-            'id' => $question->id
-        ]);
-
-        $response_fake = new ResponseCodeFormQuestionStored($question);
-        $this->assertTrue(get_class($response_fake) == get_class($result));
-
-    }
-
+    
     /**
      * A basic feature test example.
      * @test
@@ -133,15 +85,28 @@ class StoreFormQuestionActionTest extends TestCase
         $this->artisan('question:type');
         $type = FormQuestionType::all()->first();
 
-        $question = new FormQuestionMessage();
-        $question->help_text = null;
-        $question->order = 2;
+        $data = array(
 
-        $question->save();
+            'help_text' => $this->faker->name,
+            'placeholder' => $this->faker->name,
+            'required' => $this->faker->boolean,
+            'order_' => $this->faker->randomNumber(2),
+            'form_id' => $form->id,
+            'type_id' => $type->id
+        );
 
-        $this->assertDatabaseHas('form_questions', [
+        $action = new StoreFormQuestionAction($data);
+        $result = $action->execute();
+
+        $question = $result->object;
+        $this->assertNotNull($question);
+
+        $this->assertDatabaseHas($question->getTable(), [
             'id' => $question->id
         ]);
+
+        $response_fake = new ResponseCodeFormQuestionStored($question);
+        $this->assertTrue(get_class($response_fake) == get_class($result));
 
     }
 

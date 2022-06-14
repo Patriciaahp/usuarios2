@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddOptionIdColumnToFormQuestionsTable extends Migration
+class AddFormQuestionIdColumnToOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AddOptionIdColumnToFormQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('form_questions', function (Blueprint $table) {
-            $table->unsignedInteger('option_id')->nullable();
-            $table->foreign('option_id')
+        Schema::table('options', function (Blueprint $table) {
+            $table->unsignedInteger('question_id')->nullable();
+            $table->foreign('question_id')
                 ->references('id')
-                ->on('options')
+                ->on('form_questions')
                 ->onDelete('cascade');
         });
     }
@@ -29,9 +29,9 @@ class AddOptionIdColumnToFormQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('form_questions', function (Blueprint $table) {
-            $table->dropForeign(['option_id']);
-            $table->dropColumn('option_id');
+        Schema::table('options', function (Blueprint $table) {
+            $table->dropForeign(['question_id']);
+            $table->dropColumn('question_id');
         });
     }
 }

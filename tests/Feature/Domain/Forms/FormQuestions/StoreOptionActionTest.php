@@ -21,7 +21,8 @@ class StoreOptionActionTest extends TestCase
     public function domain_forms_form_questions_store_option_action_ok()
     {
         $data = [
-            'option' => 'sadsffafdddd'
+            'option' => 'sadsffafdddd',
+            'question_id' => $question->id
         ];
 
         $action = new StoreOptionsAction($data);

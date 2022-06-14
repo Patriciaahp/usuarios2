@@ -13,6 +13,6 @@ class Option extends Model
 
     public function formQuestions()
     {
-        return $this->belongsTo(FormQuestion::class);
+        return $this->belongsTo(FormQuestionSingleChoice::class);
     }
 }

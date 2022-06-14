@@ -23,10 +23,12 @@ class FormQuestionController extends Controller
     {
         $type = $request->get('type');
 
+
         return redirect()->route('questions.detail'
             , [
                 'type' => $type,
-                'form' => new FormQuestion()
+                'form' => new FormQuestion(),
+
             ]);
     }
 
@@ -52,10 +54,20 @@ class FormQuestionController extends Controller
         $idForm = $question->form_id;
 
         $form = Form::find($idForm);
-        return redirect()->route('questions.detail',
-            [
-                'id' => $form->id
-            ]);
+
+        if ($question->type_id == 4) {
+            return redirect()->route('question.option',
+                [
+                    'id' => $question->id,
+
+                ]);
+        } else {
+            return redirect()->route('questions.detail',
+                [
+                    'id' => $form->id,
+
+                ]);
+        }
     }
 
     public function delete($id)

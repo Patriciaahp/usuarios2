@@ -13,6 +13,6 @@ class FormQuestionMessage extends FormQuestion
      *
      * @var string
      */
-    protected $table = 'form_questions';
+
 
 }

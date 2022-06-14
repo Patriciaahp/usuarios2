@@ -18,5 +18,5 @@ Route::get('/questions/{id}', FormQuestionController::class . "@edit")->name('qu
 Route::put('/questions/{id}', FormQuestionController::class . "@update")->name('questions.update');
 Route::post('/question/create', FormQuestionController::class . "@store")->name('questions.store');
 Route::get('/question/type', FormQuestionTypeTable::class)->name('questions.type');
-Route::get('/question/option', Option::class)->name('question.option');
+Route::get('/question/option/{id}', Option::class)->name('question.option');
 Route::get('/forms/form/question', FormQuestionTable::class)->name('forms.form.question');

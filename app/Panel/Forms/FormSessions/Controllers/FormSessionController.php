@@ -13,6 +13,7 @@ use Domain\Forms\Models\Answer;
 use Domain\Forms\Models\Form;
 use Domain\Forms\Models\FormQuestion;
 use Domain\Forms\Models\FormSession;
+use Domain\Forms\Models\Option;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use function redirect;
@@ -137,6 +138,8 @@ class FormSessionController extends Controller
         $action2 = new UpdateFormSessionStartedAtAction($session, $data2);
         $result2 = $action2->execute();
 
+        $options = Option::all();
+
         if ($session->completed === 0) {
             return view('sessions/form',
                 [
@@ -145,6 +148,7 @@ class FormSessionController extends Controller
                     'session' => $session,
                     'form' => $form,
                     'questions' => $questions,
+                    'options' => $options
 
                 ]);
         } else {

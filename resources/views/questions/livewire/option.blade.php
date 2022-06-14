@@ -6,6 +6,9 @@
                 <input type="text" class="form-control" id="choice"
                        placeholder="Add choice" wire:model="option">
 
+                <input value="{{$question_id}}" type="text" class="form-control" id="question_id"
+                       wire:model="question_id" hidden>
+
                 @error('option') <span class="text-danger row ">{{ $message }}</span> @enderror
 
                 <small id="choice" class="form-text text-muted ">Add choice for this
@@ -13,7 +16,10 @@
 
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{{ route('questions.detail', ['id' => $form_id]) }}" class="btn btn-outline-primary" type="button">
+                Add this options</a>
         </form>
+
     </div>
 
     <div class="container-sm white p-5 mt-5">
